@@ -1,327 +1,193 @@
-# BAIN FS25 - Funktion und Aufbau von Archivsystemen 
+# BAIN FS25 - Repository-Software für Publikationen und Forschungsdaten
+
+- Agenda & Recap
 
 
-Alle, die den Link zu diesem Dokument kennen, können es bearbeiten.
+## Schaubild zu Lehrinhalten
 
-Link zur Teilnahme via WebEx: 
-
-<- Agenda
+![mermaid-2025-01-16-144111](https://hackmd.io/_uploads/Sk7h5c8wyl.png)
 
 
-## Metadatenstandards in Archiven: ISAD(G) und EAD
+erstellt mit [mermaid](https://mermaid-js.github.io/mermaid-live-editor)
 
-* [Seeing Standards: A Visualization of the Metadata Universe](https://jennriley.com/metadatamap)
+## Open Access und Open Data
 
-### Regelwerk: ISAD(G)
+- Publikationen
+  - Open Access, vgl. https://consortium.ch/
+  - [Statistik zu Open-Access-Repositorien](https://web.archive.org/web/20240328063306/https://v2.sherpa.ac.uk/view/repository_visualisations/1.html )
+  - Fokus: Zweitveröffentlichungen ("grüner Weg") und Hochschulschriften
+- Forschungsdaten
+  - Open Data
+  - Transparenz und Repoduzierbarkeit [Open Science](https://en.wikipedia.org/wiki/Open_science)
+  - [Verzeichnis von Forschungsdaten-Repositorien](https://www.re3data.org)
+      - Länder, Typen, Communities, Langzeitarchivierung, PID, Forschungssoftware
+      - Schema: https://www.re3data.org/schema
+      - API/Jupyter Notebook: https://coref.project.re3data.org/blog/using_the_re3data_api
+  - Fokus: Primärdaten, die bei der Forschung entstehen. Oft Daten als Anhang zu Zeitschriftenartikeln, aber auch auch als eigenständige Publikation möglich
+-
 
-- Als digitale Archivsysteme entwickelt wurden, orientierte sich die Datenstruktur an analogen Findmitteln wie Findbüchern und Zettelkästen (physische Welt).
-- Ein wichtiger Verzeichnungsstandard im Archivwesen wurde 1994 (Revision 2000) eingeführt, die "International Standard Archival Description (General)" - kurz [ISAD(G)](https://de.wikipedia.org/wiki/ISAD(G)).
-- Grundsätzlich gibt es hier eine mehrstufige Verzeichnung im Provenienzprinzip, um den Entstehungszusammenhang abzubilden.
-
-#### Informationsbereiche
-
-Der Standard enthält 26 Verzeichnungselemente in 7 Informationsbereichen:
-
-1. Identifikation
-2. Kontext
-3. Inhalt und innere Ordnung
-4. Zugangs- und Benutzungsbedingungen
-5. Sachverwandte Unterlagen
-6. Anmerkungen
-7. Kontrolle
-
-#### Pflichtfelder
-
-Von besonderer Bedeutung sind 6 Pflichtfelder:
-
-- Signatur
-- Titel
-- Provenienz
-- Entstehungszeitraum
-- Umfang
-- Verzeichnungsstufe
+  --> wichtiges Arbeitsfeld für Infrastrukturanbieter in der Hochschullandschaft (z.B. Bibliotheken)
 
 
-#### Beispiel
+- Bsp. R. Schabinger. (2023). Does size matter? Quality assessment of the size property in research data repositories [Data set]. Zenodo.  [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7643637.svg)](https://doi.org/10.5281/zenodo.7643637)
 
-![The-ISADG-hierarchical-model-see-online-version-for-colours](https://hackmd.io/_uploads/H1h5qXYDyl.png)
+```
+"related_identifiers": [
+      {
+        "identifier": "10.5281/zenodo.8192783",
+        "relation_type": {
+          "id": "issupplementto",
+          "title": {
+            "de": "Erg\u00e4nzt",
+            "en": "Is supplement to"
+          }
+        },
+        "resource_type": {
+          "id": "publication-thesis",
+          "title": {
+            "de": "Abschlussarbeit",
+            "en": "Thesis"
+          }
+        },
+        "scheme": "doi"
+      }
+    ]
+```
 
-Bsp. Notizblatt < Mappe < Sammlung < Nachlass/Vorlass
 
 
-#### Grenzen von ISAD(G)
+- Government Data oder OER (Open Educational Resources)
+    - https://opendata.swiss/de
+    - https://oer-repository.switch.ch/edu-sharing/components/search?q=
 
-1. Ein einzelner Datensatz ist unter Umständen nur im Kontext verständlich (z. B. nur "Protokoll" als Titel).
-2. Die Tektonik ist eindimensional (keine Mehrfachzuordnung möglich).
-3. Der Standard enthält keine Vorgaben zur Digitalisierung oder zur digitalen Langzeitarchivierung.
 
-#### Normdaten mit ISAD(G)
+Konvergenz:
+  - als Plattform: https://opendatanavigator.switch.ch/
+  - Als Modell: https://datacite.org/blog/introducing-the-pid-graph/ DataCite
 
-- Um Normdateien verzeichnen zu können, wurde später ein ergänzender Standard "International Standard Archival Authority Record for Corporate Bodies, Persons, and Families" - kurz [ISAAR(CPF)](https://de.wikipedia.org/wiki/ISAAR(CPF)) verabschiedet. Dieser wird in der Praxis wegen dem Zusatzaufwand bei der Erschließung jedoch nur selten verwendet.
-- Aktuell ist ein neuer Standard ["Records in Contexts" (RIC)](https://de.wikipedia.org/wiki/Records_in_Contexts) in Entwicklung. Dieser basiert auf Linked-Data-Prinzipien und soll neue und mehrfache Beziehungen zwischen Entitäten ermöglichen.
 
-Note:
+### Forschungsinformationen
 
-- In den Archiven der ETH-Bibliothek ist wegen der Bibliothekszugehörigkeit die [GND](https://de.wikipedia.org/wiki/Gemeinsame_Normdatei)-ID von besonderer Bedeutung.
-- Projektgruppe [ENSEMEN](https://vsa-aas.ch/verein/arbeitsgruppen/ensemen/) arbeitete an einer schweizerischen Ausprägung des neuen Standards [Records in Contexts](https://www.ica.org/en/records-contexts-german) (RiC), mit Beteiligung der FH Graubünden
+- Informationen über Forschende, Drittmittelprojekte, Patente und vieles mehr.
+- Ziel ist die Forschungsberichterstattung. Um die Daten zusammenzuführen und Berichte erstellen zu können, werden oft Forschungsinformationssysteme an den Universitäten eingeführt.
+- Beispiel: ["Kerndatensatz Forschung" in Deutschland](https://kerndatensatz-forschung.de/version1/technisches_datenmodell/v_1_3/ER-Modell.html)
+- Zum Stand in der Schweiz: Ackermann Krzemnicki, Sonia and Hägele, Bernd F. (2016): Die Standardisierung von Forschungsinformationen an Schweizer universitären Hochschulen. https://edoc.unibas.ch/54788/
 
-### Übung: Archivkataloge
+### Beispiele
 
-- Suchen Sie nach:
-  - `Einstein` im [Online Archivkatalog des Staatsarchivs BS](https://query.staatsarchiv.bs.ch/query/suchinfo.aspx)
-  - `Einstein Ehrat` im [Hochschularchiv ETH Zürich](http://archivdatenbank-online.ethz.ch/)
-- Beantworten Sie die folgenden Fragen:
-  1. Welche Informationen enthält die Trefferliste?
-  2. Welche Verzeichnungsstufen sind vertreten?
-  3. Sind die ISAD(G)-Informationsbereiche erkennbar?
-  4. Decken sich die grundlegenden Informationen oder gibt es bemerkenswerte Unterschiede?
-  5. Worin liegen die zentralen Unterschiede zu einem Bibliothekskatalog?
-- Zum Nachschlagen: [ISAD(G) Guidelines](https://www.ica.org/app/uploads/2024/01/CBPS_2000_Guidelines_ISADG_Second-edition_DE.pdf)
+- [Zenodo](https://zenodo.org) (InvenioRDM), vgl. https://github.com/zenodo/zenodo
+    - Upgrade-Probleme: https://blog.zenodo.org/2023/10/19/2023-10-19-upgrade-issues/
+- [PHSG Proforis](https://proforis.phsg.ch/home) (DSpace-CRIS)
+
+## Übungen mit DSpace
+
+Standardfragen IT:
+
+- Make or Buy
+- Authentifizierung (z.b Edu-ID, ORCID), Rollen und Rechte
+- https://help.switch.ch/aai/
+
+### Einführung in DSpace
+
+- Software geeignet für Publikationen und Forschungsdaten
+- Erweiterung für Forschungsinformationen: DSpace-CRIS
+- Metadatenstandard: Qualified Dublin Core, kann aber auch mit [DataCite](https://schema.datacite.org/) Metadatenschema betrieben werden.
+- DSpace 6: 2016 erstmalig veröffentlicht , wird nicht mehr weiterentwickelt und der [Support endete am 1.7.2023](https://wiki.lyrasis.org/display/DSPACE/Support+for+DSpace+5+and+6+is+ending+in+2023)
+- DSpace 7: im August 2021 veröffentlicht , neue Technologien im Frontend (Angular) und Backend (neue REST API)
+- DSpace 8: Juni 2024: generelle Verbesserungen
+
+### DSpace Demo
+
+Aus Zeitgründen keine Installation, nur Test mit öffentlich zugänglicher Demo.
+
+DSpace Demo: https://demo.dspace.org
+
+Wird laufend aktualisiert
+
+- Site Administrator: `dspacedemo+admin@gmail.com`
+- Community Administrator: `dspacedemo+commadmin@gmail.com`
+- Collection Administrator: `dspacedemo+colladmin@gmail.com`
+- Submitter: `dspacedemo+submit@gmail.com`
+- Passwort immer: `dspace`
+
+### Übung: Communities und Collections
+
+- Aufgabe 1: Erstellen Sie eine Community (Bereich), erstellen Sie eine Rolle und fügen Sie Berechtigungen für den "Community Administrator" hinzu. 
+  - Login: `dspacedemo+admin@gmail.com`
+  - Passwort: `dspace`
+- Aufgabe 2: Erstellen Sie eine Collection (Sammlung), erstellen Sie eine Rolle und fügen Sie Berechtigungen für den "Collection Administrator" hinzu.
+  - Login: `dspacedemo+commadmin@gmail.com`
+  - Passwort: `dspace`
+- Ziel: Dokumentieren Sie den Link zu Ihrer Collection unten im gemeinsamen Dokument.
+
+Links zu Collections:
+
+
+Hinweise:
+- Der Grund, warum es zusätzlich zu Collections auch noch Communities gibt, ist das Rechtemanagement. In der Community wird festgelegt wer die (ggf. mehrere zugehörige) Collections verwalten darf. Das möchte man nur an einer Stelle und nicht an jeder Collection definieren. Außerdem können ganze Communities "geharvestet" werden, also Daten einer Einrichtung über die Schnittstellen abgefragt werden.
 
 ### Fragen / Erkenntnisse
 
 
-### Datenformat: EAD
+### Einreichung und Review
 
-- [Encoded Archival Description](https://de.wikipedia.org/wiki/Encoded_Archival_Description) (EAD) ist ein XML-Standard
-- Verschiedene Versionen: EAD2002 und EAD3 (seit 2015; aktuell ist 1.1.1 von 2019)
-- Lässt viele Wahlmöglichkeiten offen, daher gibt es oft Anwendungsprofile, die genauer spezifizieren welche Werte zugelassen sind.
-- Anwendungsfälle: [Archives Portal Europa](https://www.archivesportaleurope.net/), [Archivportal-D](https://www.archivportal-d.de), [Kalliope](https://kalliope-verbund.info)
-- Einführung: [Nicolas Moretto (2014): EAD und digitalisiertes Archivgut](https://wiki.dnb.de/download/attachments/90410326/20140414_KIMWS_EAD.pdf?version=1&modificationDate=1398246420000&api=v2). Präsentation auf dem [DINI AG KIM Workshop 2014](https://wiki.dnb.de/display/DINIAGKIM/KIM+WS+2014) in Mannheim.
+DSpace Demo: https://demo.dspace.org
 
-Note:
-
-- Wir werden später praktisch mit EAD-Dateien arbeiten, daher hier nur diese Kurzinfo.
-- Die Präsentationsfolien von Nicolas Moretto geben einen guten Überblick über EAD2002.
-- Liste der Elemente [in EAD2002](https://eadiva.com/2/elements/) und [in EAD3](https://eadiva.com/elements/)
-
-### Aktuelle Entwicklungen
-
-- Umstieg von ISAD(G) auf RiC wird mit viel Aufwand verbunden sein, auch mit einem Systemwechsel. Bsp. https://icae.esrc.info/
-- Generierung von mehr Volltexten u.a. durch Optical Character Recognition (OCR) auch für Handschriften. Automatisierte Anreicherung von Volltexten durch Named Entity Recognition.
-- In Wikidata werden Online-Findmittel über Property [Archives at](https://www.wikidata.org/wiki/Property:P485) verzeichnet. Beispiel [Albert Einstein in Wikidata](https://www.wikidata.org/wiki/Q937).
-- In der Schweiz gibt es eine Vernetzungsinitiative [Metagrid](https://metagrid.ch) und weitere Dienste von [histHub](https://histhub.ch), einer Forschungsplattform für die Historischen Wissenschaften.
-- Metasuche Swisscollections: https://swisscollections.ch
-- Literaturempfehlung: [Umfrage "Was sich Historiker*innen von Archiven wünschen"](https://dhdhi.hypotheses.org/6107)
-- Archivportale der Schweiz: https://www.infoclio.ch/de/archive
-## Marktüberblick Archivsysteme (Hr. Gasser)
-
-- ETH, virtueller Lesesaal
-
-- ArchivesSpace hat eine große Community in den USA
-- Weitere Open-Source-Alternative: [Access to Memory (AtoM)](https://www.accesstomemory.org)
-    - Dienstleister in der Schweiz: [docuteam](https://www.docuteam.ch/atom-access-to-memory/)
-- Der Markt in der Schweiz wird von den Produkten [scopeArchiv](https://www.scope.ch/de/produkteuebersicht/scopearchiv/) und [CMI AIS](https://cmiag.ch/akten-management/archivierung/ais/) (ehemals CMISTAR) dominiert.
-- Für die Online-Präsentation von digitalisiertem Archivgut wird oft zusätzliche Software eingesetzt. Beispiele:
-  - [E-Pics Plattform der ETH Zürich](https://www.e-pics.ethz.ch) (WordPress + Canto Cumulus)
-  - [e-manuscripta.ch - Kooperative Präsentationsplattorm für handschriftliche Quellen](http://www.e-manuscripta.ch) (Visual Library)
-  - [Smapshot](https://smapshot.heig-vd.ch/) Sehr cooles Projekt, um Bilder zu geolokalisieren, präsentieren und mit Metadaten anzureichern (Citizen Science).
-
-### Unterschiede zwischen Bibliotheks- und Archivsystemen
-
-- Bibliothek
-  - (Massen-)Medium, Benutzerinteraktion (Ausleihe)
-  - Software medienzentriert
-  - Metadatenformat: MARC21, zukünftig BIBFRAME
-  - Frühe Digitalisierung imitiert oft physische Vorgänge (vgl. Imagekataloge)
-- Archiv
-  - Entstehungszusammenhang, eher stehender, unikaler Bestand (Nutzung auf Anfrage)
-  - Software orientiert sich an analogen Findmitteln
-  - Metadatenformat: EAD, zukünftig RiC
-
-Note:
-- Herausforderung: Datenaustausch zwischen den Systemen (kommen wir später darauf zurück)
-- aber auch zunnehmnde **Konvergenz**, externe Ressourcen in swisscovery (Bsp. ETH):
-  - [E-Periodica](https://www.e-periodica.ch/) 
-  - [E-Pics](https://www.e-pics.ethz.ch/de/home/)
-  - [E-Rara](https://www.e-rara.ch/)
-  - [Research Collection](https://www.research-collection.ethz.ch/)
-  - [Videoportal](https://video.ethz.ch/)
-  - [Materialarchiv](https://materialarchiv.ch/de/app-tablet/)
-  - [Hochschularchiv Online](https://library.ethz.ch/publizieren-und-archivieren/archivieren/hochschularchiv-der-eth-zuerich.html)
-  - [Max Frisch Archiv Online](http://maxfrischarchiv-online.ethz.ch/home/#/)
-  - [Thomas Mann Archiv Online](http://www.online.tma.ethz.ch/home/)
-  - [Thomas Mann Nachlassbibliothek]([details](https://nb-web.tma.ethz.ch/))
-- Beispiel für "Umfang" in verschiedenen Metadatenstandards: 
-Schabinger, R. (2023). Does size matter? Quality assessment of the size property in research data repositories [Zenodo]. [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8192783.svg)](https://doi.org/10.5281/zenodo.8192783)
-- GLAMhack: https://hack.glam.opendata.ch/event/12 z.B. Nachtzedel
-
-
-
-## Installation und Konfiguration von ArchivesSpace
-
-
-### Einführung in ArchivesSpace
-
-- Open-Source-Software für Archivinformationssysteme
-- 400 zahlende [Mitglieder](http://archivesspace.org/community/whos-using-archivesspace/), woraus fast 5 Vollzeitstellen finanziert werden.
-- Code bei GitHub: https://github.com/archivesspace/archivesspace
-- ArchivesSpace ist institutionell verankert bei [Lyrasis](https://en.wikipedia.org/wiki/Lyrasis), einem internationalen "nonprofit" Bibliotheksnetzwerk vorrangig aus den USA. Es gibt auch zwei weitere Unternehmen, die dazu professionellen Support anbieten.
-
-#### Funktionen
-
-"What ASpace does and how do we use it" (aus Fortbildungsmaterialien der NYU
-
-- System of record for archival materials. Not everything is public, or open to staff, nor is it intended to be.
-- Perform core archival functions: accessioning, arrangement and description
-- Aid in public services
-- Record and report location holdings information; stacks management
-- Manage digital objects
-- Produce access tools
-- Statistics gathering, prioritization, holistic planning
-- Contribute to various interdepartmental processes (preservation and digitization)
-
-#### Metadaten in ArchivesSpace
-
-- basiert auf den Standards [DACS](https://en.wikipedia.org/wiki/Describing_Archives:_A_Content_Standard), ISAD(G) und ISAAR(CPF)
-- unterstützt Import/Export in EAD, MARCXML und METS/MODS (Standard für Digitalisate: https://pro.deutsche-digitale-bibliothek.de/glossar/metsmods-format)
-
-### Installation ArchivesSpace
-
-* Wir nutzen heute die Demo-Installation von ArchivesSpace
-* Login im Staff Interface unter https://sandbox.archivesspace.org/staff
-  * Username: `admin`
-  * Password: `admin`
-* Einen Codespace mit ArchivesSpace hatte ich schon einmal erstellt, aber da funktioniert das "Public Interface" (noch) nicht: https://github.com/felixlohmeier/bain-archivesspace
-
-### Grundkonfiguration ArchivesSpace
-
-#### Repository anlegen
-
-Menüpunkt System / Manage Repositories
-
-Dort nutzen Sie den Button `Create Repository` um ihr Repository anzulegen.
-
-- Notwendig sind zunächst nur `Repository Short Name` und `Repository Name`.
-- Die Checkbox `Publish?` definiert, ob die Daten im "public interface" unter https://sandbox.archivesspace.org erreichbar sind.
-
-#### Konfigurationsmöglichkeiten
-
-- Spracheinstellung
-  - Konfiguration: über Preferences (Global / Repository / User)
-  - Sprachdateien: https://github.com/archivesspace/archivesspace/tree/master/common/locales
-- Weitere Optionen: Siehe technische Dokumentation https://archivesspace.github.io/tech-docs/
-
-### Bedienung
-
-- Wir nutzen nun die zuvor diskutierten Grundlagen, um Datensätze in ArchivesSpace zu erschließen.
-- Versuchen Sie bei der folgenden Gruppenarbeit intuitiv vorzugehen und tauschen Sie sich untereinander aus.
-- Denken Sie an das Provenienzprinzip. Jede Ressource, die Sie verzeichnen wollen, benötigt zunächst Informationen zur Herkunft (Akzession).
-
-#### Begrifflichkeiten
-
-- [Accession](https://docs.google.com/document/d/11kWxbFTazB6q5fDNBWDHJxMf3wdVsp8cd7HzjEhE-ao/edit#heading=h.qp2gyscl8fra): Dokumentation der Erwerbung, wegen vertraulichen Angaben oft nicht öffentlich
-- [Resource](https://docs.google.com/document/d/11kWxbFTazB6q5fDNBWDHJxMf3wdVsp8cd7HzjEhE-ao/edit#heading=h.jvn83ztmj4y4): Zentraler Nachweis auf der obersten Ebene der Verzeichnungsstufen, zum Beispiel zu einem Nachlass (kann aber auch direkt zum Objekt sein, wenn die Resource nur eine Verzeichnungsstufe hat)
-- [Archival Object](https://docs.google.com/document/d/11kWxbFTazB6q5fDNBWDHJxMf3wdVsp8cd7HzjEhE-ao/edit#heading=h.nscr859g1snm): Nachweis von Objekten auf weiteren Verzeichnungsstufen (Bestand/Fonds, Serie/Series, Akte/File, Einzelstück/Item). Sie werden über "Add Child" an vorhandene Resources gehängt.
-
-Note:
-
-* Verlinkte Begriffe führen zum [ArchivesSpace Manual for Local Usage at NYU](https://docs.google.com/document/d/11kWxbFTazB6q5fDNBWDHJxMf3wdVsp8cd7HzjEhE-ao/edit), weil das offizielle Handbuch nur für Mitglieder zugänglich ist.
-* beim Aufruf einer Resource ist im Abschnitt "Related Accessions" eine Verknüpfung möglich
-
-### Übung
-
-Übung: Datensätze erstellen
-
-- Aufgabe: Erstellen Sie eigene Datensätze in der ArchivesSpace Sandbox. Erfinden Sie dazu sinnvolle Archivdaten oder suchen Sie sich Beispieldaten (z.B. im [Hochschularchiv der ETH](http://archivdatenbank-online.ethz.ch)).
-- Ziel: Ihre Datensätze erscheinen in der öffentlichen Ansicht. Machen Sie einen Screenshot und laden Sie das Bild hier in das gemeinsame Dokument.
-- Hinweis: Wenn Sie Hilfestellung benötigen, können Sie sich beim Vorgehen an der Übung der NYU orientieren: [Create Your Own Record](https://guides.nyu.edu/ld.php?content_id=23198351)
-
-### Ergebnisse
-
-Gruppe 1: Nicole, Morena, Sandra, Yara
-![](https://pad.gwdg.de/uploads/2bfdf568-f545-482f-8e30-aa0a571a17c1.png)
-
-
-Gruppe 2: Corina, Elena, Jonas, Rebecca
-![](https://pad.gwdg.de/uploads/d2609d3c-975e-40c9-a31c-700cb57fe838.png)
-
-
-
-Gruppe 3: Eva, Martina, Nina![](https://pad.gwdg.de/uploads/1f7bcfcd-65ba-40ed-ab87-c706a18c0cb0.png)
-
-
-
-Gruppe 4:
-
-
-### Fragen
-
-- ![](https://pad.gwdg.de/uploads/6c953541-ba82-4997-8e02-92b9734cfe18.png)
-Beim Erstellen des Datensatzes konnten wir Restrictions hinzufügen, jedoch gab es zwei Checkboxen. Werden die Restrictions erst angewendet wenn die obere Checkbox angewählt wird und die untere gibt nur an, dass Restrictions vorhanden sind? Oder treten die Restrictions bereits in Kraft mit dem Anwählen der unteren Checkbox? -> Was genau ist der Unterschied zwischen den beiden Boxen? (Wir haben uns nicht wirklich getraut es auszuprobieren...)
-  - Das "Restrictions apply" verstehe ich als Überordnung. Nach Access Restrictions (Zugänglichkeit öffentlich oder vertraulich) gibt es darunter auch noch Usage Restrictions (Benutzung uneingeschränkt, nur unter Aufsicht, für die Benutzung gesperrt usw.). Restrictions Apply könnte wohl markiert werden wenn eins von beiden zutrifft.
-  - Genau weiß ich es aber mangels kostenfreier Dokumentation nicht ;-)
-- ![](https://pad.gwdg.de/uploads/943e3b76-2a1e-44e7-aa66-b4c413d05d76.png)
-Es gibt hier zweimal Collection, ist das ein Konfigurationsfehler?
-  - Ja, das sieht mir nach einem Bug aus. Hier ist kontrolliertes Vokabular hinterlegt und da dürfte es "Collection" eigentlich nur einmal geben.
-
-Kann man diese rote Meldung dauerhaft abschalten (vielleicht ist das nicht erlaubt/gewünscht?)?
-![](https://pad.gwdg.de/uploads/67901ff1-db8d-4954-900c-8043d4a6b26a.png)
-- ja: das ist eine Systemnachricht, die man einstellen kann. Man kann sie auch deaktivieren.
-
-Der Workflow von der Accession zur Ressource ist uns nicht klar. Wir haben eine [Accession](https://sandbox.archivesspace.org/repositories/14/accessions/13) angelegt. Konnten diese dann für die Erstellung der [Ressource](https://sandbox.archivesspace.org/repositories/14/resources/25) nicht nachnutzen. 
-- beim Erstellen der Ressource auf die Accession verlinken über "Related Accessions". Damit wird eine Verlinkung zwischen beiden Datensätzen erstellt.
-- eine andere (bessere) Möglichkeit: bei der Accession mit "Spawn" eine Ressource erstellen. So werden die bereits eingegebenen Metadaten übernommen und müssen nicht nochmals eingegben werden. 
-
-Nur ein Kommentar: diese Suchergebnisse sehen wirklich toll aus (Ordnung, Übersicht, anklickbar):
-![](https://pad.gwdg.de/uploads/b631fe09-a8e0-4b8e-b3b7-10fd63133d4f.png)
-
+* Um Rechteprobleme zu vermeiden, Login mit DSpace-Admin
+* MyDspace bei Login-Button aufrufen
+* Neues Dokument anlegen (z.B. "Veröffentlichung"), Daten aus Datenbank übernehmen, Datei hochladen. Sammlung: 1-step-workflow
+* In MyDSpace auf "Zeige Aufgaben" wechseln. Dort werden Dokumente zur Bearbeitung/Freigabe aufgeführt
 
 ### Import und Export
 
-ArchivesSpace bietet dateibasierten Import und Export in diversen Formaten (EAD, MARCXML, CSV) und auch eine OAI-PMH-Schnittstelle.
-
-In den folgenden zwei Übungen werden wir EAD-Beispieldaten in ArchivesSpace importieren und anschließend in MARCXML exportieren.
-
-#### Übung: Import
-
-**Aufgabe (10 Minuten)**
-
-- Beispieldaten: https://eadiva.com/2/sample-ead2002-files/ (laden Sie die als "a raw XML file" verlinkte Datei der "American Association of Industrial Editors" herunter)
-- Aufgabe: Importieren Sie Beispieldaten im Format EAD in ArchivesSpace. Vergleichen Sie (ganz grob) die Anzeige in ArchivesSpace mit der bei den Beispieldaten verlinkten HTML-Ansicht.
-- Ziel: Dokumentieren Sie Ihre Erkenntnisse unten im gemeinsamen Dokument.
-- Hinweis: Die Import-Funktion finden Sie etwas versteckt unter `Create` > `Background Job` > `Import Data`
-
-#### Fragen / Erkenntnisse
-
-* ...
-
-#### Übung: Export
-
-**Aufgabe (10 Minuten)**
-
-- Aufgabe:
-  1. Exportieren Sie die von Ihnen zuvor importierten Datensätze im Format MARCXML. Speichern Sie die Datei auf der Festplatte.
-  2. Vergleichen Sie die exportierte MARCXML-Datei kurz mit den in ArchivesSpace vorhandenen Informationen. Ist der Export in MARCXML verlustfrei?
-- Ziel: Dokumentieren Sie Ihre Erkenntnisse unten im gemeinsamen Dokument.
-- Hinweis: Die Export-Funktion finden Sie etwas versteckt in der Button-Leiste bei der "Resource".
+- DSpace bietet auch dateibasierten Import, besonders relevant sind im Kontext von Repositorien aber die Schnittstellen:
+  - SWORD ermöglicht die Publikation in DSpace (Metadaten und Datei-Upload) von einer anderen Webseite aus (z.B. Intranet der Hochschule).
+  - OAI-PMH ermöglicht es externen Systemen die in DSpace verzeichneten Metadaten abzurufen.
+- OAI-PMH-Schnittstelle der DSpace-Demo (Daten erscheinen dort zeitverzögert): http://demo.dspace.org/oai/request?verb=ListSets
+- Beispiel für Portal auf Basis von OAI-PMH: Die [Bielefeld Academic Search Engine (BASE)](https://www.base-search.net/) "erntet" weltweit OAI-PMH-Schnittstellen und verzeichnet damit weit über 250 Mio. Dokumente.
 
 Note:
 
-- Mappingtabellen als XLS (Stand 2013/2017, unklar ob aktuell) stellt ArchivesSpace auf der Webseite zur Verfügung: https://archivesspace.org/using-archivesspace/migration-tools-and-data-mapping
-- Technische Dokumentation der Konvertierung in MARCXML (falls jemand die Proogrammiersprache Ruby können sollte): https://archivesspace.github.io/archivesspace/doc/MarcXMLBibBaseMap.html
+* [SWORD](https://en.wikipedia.org/wiki/SWORD_(protocol)) ist eine Schnittstelle, um Publikationen in einem Repository abzuliefern. Damit kann ein Formular mit Dateiupload auf einer Webseite (außerhalb der Repository-Webseite) angeboten werden.
+* Um Daten aus dem Repository auf Webseiten anzuzeigen, z.B. eine Publikationsliste, werden andere Schnittstellen wie [RSS-Feeds](https://de.wikipedia.org/wiki/RSS_(Web-Feed)) verwendet.
 
-Export mit Struktur in EAD. Beispieldatensatz: https://sandbox.archivesspace.org/staff/resources/17
+### Übung Beispielpublikation
+- Suchen Sie sich bitte schon einmal eine Beispielpublikation aus, die Sie in unsere gemeinsame Testcollection einreichen können.
 
+### Literatur zu DSpace
 
-#### Fragen / Erkenntnisse
+- Präsentationsfolien und Videomitschnitte der Präsentationen auf den jährlichen D/A/CH-Anwendertreffen:
+  - 2024: https://wiki.lyrasis.org/display/DSPACE/DSpace+Praxistreffen+2024 (Diese Woche 2025)
+- Q&A zu DSpace-CRIS Entwicklung: https://docs.google.com/document/d/17HSFV6qY48yInfL4zQj1hRsWG-9dHFyGmEksNakVZ7Y/edit
+- Suchmaschinenoptimierung (SEO): [Abschnitt im Nutzerhandbuch von DSpace zu SEO](https://wiki.lyrasis.org/display/DSDOC8x/Search+Engine+Optimization)
 
-* ...
-
-#### Literatur zu ArchivesSpace
-
-- Einführungsvideos: https://www.youtube.com/playlist?list=PL3cxupmXL7WiXaHnpVquPrUUiLiDAMhg0
-- ArchivesSpace Wiki: https://archivesspace.atlassian.net/wiki/spaces/ADC/
-- ArchivesSpace Manual for Local Usage at NYU: https://docs.google.com/document/d/11kWxbFTazB6q5fDNBWDHJxMf3wdVsp8cd7HzjEhE-ao/edit#
-
-Note:
-
-- Das Benutzerhandbuch von ArchivesSpace steht nur zahlenden Mitgliedern zur Verfügung. Bei Open-Source-Software suchen die Communities oft nach einem Zusatzvorteil für Mitglieder, weil die Software selbst ja kostenfrei erhältlich ist. Wirklich "open" ist diese Zurückhaltung von Informationen nicht so recht.
+FYI:
+-  Zweitveröffentlichungsrecht in der Schweiz: https://www.uzh.ch/blog/ub/2023/05/31/das-projekt-zweitveroeffentlichungsrecht-und-open-access-als-regulatorische-herausforderung-hintergrund-und-projektziele/
 
 
-## Aufgabe bis zum nächsten Termin
+## Marktüberblick Repository-Software
 
-* Eintrag im Lerntagebuch zur Lehreinheit Archivsysteme
+- Grundsätzliches zu Repositorien: https://open-access.network/informieren/publizieren/repositorien
+- Open Directory of Open Access Repositories (OpenDOAR): https://v2.sherpa.ac.uk/opendoar/
+a.ac.uk/view/repository_by_country/Switzerland.default.html)
+
+- Instanzen in der Schweiz: https://forschungsdaten.info/fdm-im-deutschsprachigen-raum/schweiz/rdm-infrastructure-repositories/repositories/
+
+### Relevante Systeme in D/A/CH
 
 
+- [DSpace](https://www.dspace.org)
+- [EPrints](https://www.eprints.org)
+- [Fedora](http://fedorarepository.org) / [Islandora](https://islandora.ca)
+- [InvenioRDM](https://invenio-software.org/products/rdm/)
+  - besonders interessant, weil seit Oktober 2023 die Basis von Zenodo am CERN
+- [MyCoRe](https://www.mycore.de)
+- [OPUS](https://www.opus-repository.org)
+- Alma digital: https://knowledge.exlibrisgroup.com/Alma/Training/Alma_Digital/01_Alma_Digital%3A_Overview und bald: https://www.meetspecto.com/
+    - z.B. https://www.alexandria.ch/discovery/collectionDiscovery?vid=41BIG_INST:ALEX&lang=de
+- FHGR?
+- Wechsel: https://journal.code4lib.org/articles/17398
+## Aufgaben
+
+Bis zum nächsten Termin: Beitrag im Lerntagebuch zu dieser Lehreinheit 
 
