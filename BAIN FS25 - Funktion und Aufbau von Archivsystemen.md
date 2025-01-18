@@ -1,8 +1,3 @@
----
-title: BAIN FS25 - Funktion und Aufbau von Archivsystemen
-
----
-
 # BAIN FS25 - Funktion und Aufbau von Archivsystemen 
 
 
