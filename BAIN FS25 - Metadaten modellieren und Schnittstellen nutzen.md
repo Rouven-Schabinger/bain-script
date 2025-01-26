@@ -1,11 +1,6 @@
----
-title: BAIN FS25 - Metadaten modellieren und Schnittstellen nutzen
-
----
-
 # BAIN FS25 - Metadaten modellieren und Schnittstellen nutzen
 
-
+* hier kommt alles aus den vorheringen Sessions zusammen
 
 ## Ausgangsdaten
 
@@ -31,29 +26,23 @@ Welches Protokoll für welchen Zweck?
 * Während Z39.50 und SRU sich besonders für Live-Abfragen oder gezielten Datenabruf mit vielen Parametern eignet, zielt OAI-PMH vor allem auf größere Datenabzüge und regelmäßige Aktualisierungen.
 * Z39.50 ist sehr alt, aber immer noch im Einsatz. Meist wird das modernere SRU als Ergänzung angeboten. Das Schöne an SRU und OAI-PMH ist, dass die Anfragen als Internetadresse (URL) zusammengestellt werden können und direkt über den Browser ohne Zusatzsoftware aufrufbar sind.
 
-### Metadaten über OAI-PMH harvesten mit VuFindHarvest
+### Metadaten über OAI-PMH harvesten mit Sickle
 
 Vorbereitung:
 
-1. Codespace aufrufen mit vorbereitetem Repository
-https://github.com/felixlohmeier/bain-oai
-2. Abwarten bis "postCreateCommand" abgeschlossen ist und das Terminal erscheint
-3. In das Verzeichnis von VuFindHarvest wechseln
+Codespace aufrufen mit vorbereitetem Repository (als Juypterlab)
+https://github.com/Rouven-Schabinger/bain-jupyter-codespaces
 
-```
-cd vufindharvest-5.1.0
-```
 
 Aufgabe: Kürzel für Metadatenformat ermitteln und das Kommando zum Aufruf des Harvestings jeweils entsprechend anpassen und ausführen
 
-#### Koha MARC21
+#### Alma MARC21
 
-* Vorab: Koha Administrationsoberfläche aufrufen und OAI-PMH aktivieren
-* OAI-PMH Basisurl: https://catalog.bywatersolutions.com/cgi-bin/koha/oai.pl
-* Verfügbare Metadatenformate: https://catalog.bywatersolutions.com/cgi-bin/koha/oai.pl?verb=ListMetadataFormats
+* OAI-PMH Basisurl: https://slsp-hph-psb.alma.exlibrisgroup.com/view/oai/41SLSP_HPH/request
+* Verfügbare Metadatenformate: https://slsp-hph-psb.alma.exlibrisgroup.com/view/oai/41SLSP_HPH/request?verb=ListMetadataFormats
 
 ```
-php bin/harvest_oai.php --url=https://catalog.bywatersolutions.com/cgi-bin/koha/oai.pl --metadataPrefix=oai_dc test-koha
+
 ```
 
 #### ArchivesSpace EAD
@@ -62,7 +51,7 @@ php bin/harvest_oai.php --url=https://catalog.bywatersolutions.com/cgi-bin/koha/
 * Verfügbare Metadatenformate: https://sandbox.archivesspace.org/oai?verb=ListMetadataFormats
 
 ```
-php bin/harvest_oai.php --url=https://sandbox.archivesspace.org/oai --metadataPrefix=oai_dc test-archivesspace
+
 ```
 
 #### DSpace OAI-DC
@@ -71,12 +60,12 @@ php bin/harvest_oai.php --url=https://sandbox.archivesspace.org/oai --metadataPr
 * Verfügbare Metadatenformate: https://demo.dspace.org/oai/request?verb=ListMetadataFormats
 
 ```
-php bin/harvest_oai.php --url=https://demo.dspace.org/oai/request --metadataPrefix=oai_dc test-dspace
+
 ```
 
 ## Konvertierung
 
-Beispieldateien unter https://github.com/felixlohmeier/bain-oai/tree/main/example
+Beispieldateien unter https://github.com/Rouven-Schabinger/bain-jupyter-codespaces/tree/main/example
 
 ### XSLT Crosswalks
 
@@ -87,6 +76,7 @@ Beispieldateien unter https://github.com/felixlohmeier/bain-oai/tree/main/exampl
   * Beispiel: Dublin Core zu MARC21.
   * Der "Crosswalk" beinhaltet Regeln wie Elemente und Werte zugeordnet werden (sog. Mapping).
   * Im Idealfall verlustfrei, aber meist keine 1:1-Zuordnung möglich.
+  * inhaltliches mapping z.B. https://coli-conc.gbv.de/ für Klassifikationen
 * XSLT
   * Programmiersprache zur Transformation von XML-Dokumenten (W3C Empfehlung, 1999)
   * Literaturempfehlung für Einstieg in XSLT: <https://programminghistorian.org/en/lessons/transforming-xml-with-xsl>
@@ -96,18 +86,15 @@ Beispieldateien unter https://github.com/felixlohmeier/bain-oai/tree/main/exampl
 
 * MARC21 zu DC: https://www.loc.gov/marc/marc2dc.html
 * DC zu MARC21: https://www.loc.gov/marc/dccross.html
-  * XSL: https://www.loc.gov/standards/marcxml/xslt/DC2MARC21slim.xsl
 
 #### Transformation von DSpace DC zu MARC21
 
-* Tool: http://xsltransform.net oder https://www.freeformatter.com/xsl-transformer.html
-* XML: https://github.com/felixlohmeier/bain-oai/raw/main/example/dspace-oai-dc.xml
 * XSL: https://www.loc.gov/standards/marcxml/xslt/DC2MARC21slim.xsl
-* Ergebnis: https://raw.githubusercontent.com/felixlohmeier/bain-oai/main/results/dspace-oai-marc.xml
+
 
 #### Transformation von ArchivesSpace EAD zu MARC21 (Versuch 1)
 
-* XML: https://github.com/felixlohmeier/bain-oai/raw/main/example/archivesspace-ead.xml
+
 * XSL: https://github.com/reeset/marcedit_xslt_files
 
 Online-Tools wie xsltransform.net scheitern hier mit der Fehlermeldung:
@@ -119,16 +106,18 @@ Error at xsl:import on line 4 column 43
   /opt/xsltransform/test-1.2.4/MARC21slimUtils.xsl (No such file or directory)
 ```
 
-Wir nutzen für diese Transformation das folgende Tool MarcEdit, das mit komplexeren XSL umgehen kann und schon viele für den Bibliotheksbereich nützliche XSL-Scripte mitliefert.
+utzen für diese Transformation das folgende eine selsbtgeschriebene XSL und Jupyter, damit könnte man auch mehrere Datein bearbeiten (batch processing).
+Wer eine GUI möchte kann auch das Tool MarcEdit nutzen, das mit komplexeren XSL umgehen kann und schon viele für den Bibliotheksbereich nützliche XSL-Scripte mitliefert.
 
-### MarcEdit
+**Könnt ihr zuhause versuchen!**
+### MarcEdit [optional]
 
  MarcEdit ist eine kostenlos nutzbare Software aber nicht Open Source (siehe [Lizenz](https://marcedit.reeset.net/marcedit-end-user-license-agreement))
 * Sie ist die meistgenutzte Zusatzsoftware für die Arbeit mit MARC21.
 * Offizielle Webseite: <https://marcedit.reeset.net>
 * [Lehrmaterialien von Library Carpentry zu MarcEdit](https://librarycarpentry.org/lc-marcedit/)
 
-#### Transformation von ArchivesSpace EAD zu MARC21 (Versuch 2)
+#### Transformation von ArchivesSpace EAD zu MARC21 
 
 * XML: https://github.com/felixlohmeier/bain-oai/raw/main/example/archivesspace-ead.xml als Datei auf der Festplatte speichern
 
@@ -147,7 +136,6 @@ Wir nutzen für diese Transformation das folgende Tool MarcEdit, das mit komplex
 * Ergebnis: https://github.com/felixlohmeier/bain-oai/raw/main/results/archivesspace-marc.xml
 
 
-## Nachtrag zu Metadaten modellieren und Schnittstellen nutzen
 
 ### ETL-Prozess
 
@@ -171,6 +159,7 @@ Vergleich von OpenRefine mit anderen Tools:
     * Skriptsprachen (GREL, Jython, Clojure) für komplexe Transformationen
     * Schwerpunkt auf Datenanreicherung (Reconciliation)
 * Alternative Software:
+    * Jupyter und libraries wie pandas, lxml, [pymarc](https://pymarc.readthedocs.io) 
     * [Catmandu](https://librecat.org) (Perl)
     * [Metafacture](https://metafacture.org) (Java)
     * [MarcEdit](https://marcedit.reeset.net) (für MARC21)
@@ -181,11 +170,12 @@ Vergleich von OpenRefine mit anderen Tools:
 Zur Wahl der passenden Software:
 * Generell gilt, dass die passende Software anhand des Anwendungsfalls gewählt werden sollte.
 * In der Praxis wird oft die Software verwendet, die schon gut beherrscht wird. Das macht es manchmal sehr umständlich.
-* Wer eine generische Programmiersprache wie Python gut beherrscht, kommt auch damit zum Ziel. Für Python gibt es übrigens eine Library für MARC21: https://pymarc.readthedocs.io
+* Bei wiederholter Benutzung können komplexere Frameworks verwendet werden
+
 
 
 ## Aufgaben
 
-Bis zum nächsten Termin (21.05.):
+Bis zum nächsten Termin 
 
 * Beitrag zur Lehreinheit Schnittstellen (3000-4000 Zeichen)
