@@ -1,8 +1,5 @@
 # BAIN FS25 - Technische Grundlagen
 
-10.02.2025 13:30 - 16:45
-
-Alle, die den Link zu diesem Dokument kennen, können es bearbeiten.
 
 
 ## Agenda
@@ -51,7 +48,7 @@ Rouven Schabinger
 
 
 Fragen (ohne Namen):
-1. Praxiserfahrungen: Hatten Sie bereits ausserhalb der Hochschule mit Bibliotheks- oder Archivsoftware zu tun?
+1. Praxiserfahrungen: Hatten Sie bereits ausserhalb der Hochschule mit Bibliotheks- oder Archivsoftware zu tun? Welche?
 
 *
 
@@ -129,7 +126,7 @@ Hinweis: Die Lesson geht von einem typischen Desktop-Linux aus, daher die Verzei
 
 ### Tipps zur Unix Shell
 
-* Copy & Paste im Terminal: Bei Problem Shift+Einfg
+* Copy & Paste im Terminal: Bei Problem Shift+Einfg oder warten bei Mauseinfügen
 * Nutzen Sie immer die Tab-Taste für die Autovervollständigung
 * Seien Sie faul, verwenden Sie Ihre persönliche Befehlshistorie (Pfeiltaste nach oben / Suche in der Historie mit `STRG`+`R`)
 * Nutzen Sie Spickzettel für die wichtigsten Kommandos wie z.B.
@@ -137,7 +134,7 @@ Hinweis: Die Lesson geht von einem typischen Desktop-Linux aus, daher die Verzei
   * [Cheatsheet für Linux](https://devhints.io/linux)
   * [Cheatsheet für Shell-Scripte](https://devhints.io/bash)
 
-### Übung: Textanalyse mit der Shell
+### Übung: Textanalyse mit der Shell (optional)
 
 * [Kapitel 5 Couting and mining with the shell](https://librarycarpentry.org/lc-shell/05-counting-mining.html)
 * Exkurs zu Regular Expressions: https://regex101.com
@@ -183,6 +180,11 @@ Viele Bibliotheken nutzen GitHub oder GitLab. Es gibt eine gemeinschaftlich gepf
 * Mit den Library Carpentry Lessons haben Sie Quellen zur Vertiefung im Selbststudium.
 * Sie haben kurz gesehen, wie die Versionskontrolle mit Git funktioniert.
 * In den folgenden Lehrveranstaltungen geht es weiter mit Funktion und Aufbau von Bibliothekssystemen.
+
+## Weiterführendes
+Umfrage zum Werdegang und Fähigkeiten von Systembibliothekaren: 
+
+https://igelu.org/wp-content/uploads/2024/10/1662-107997-Mermaid-Whispers-and-System-Insights.pdf
 
 
 ## Aufgabe: Lerntagebuch
