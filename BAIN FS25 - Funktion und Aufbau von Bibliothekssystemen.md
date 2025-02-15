@@ -1,20 +1,26 @@
----
-title: BAIN FS25 - Funktion und Aufbau von Bibliothekssystemen
-
----
-
 # BAIN FS25 - Funktion und Aufbau von Bibliothekssystemen
 
 
 
-# Agenda
+## Wiederholung
 
-* Lerntagebücher
+* Vorstellung
+* Praxiserfahrungen
+* Erwartungen
+    *  Vorschlag stärkere Einbindung Bibliothekssoftware Öffentliche Bibliotheken
+* Organisatrisches: Termine, Leistungsnachweis
+    * Lerntagebücher?
+* Technische Grundlagen
+    * GitHub Konto (Git)
+    * Terminal (Unix Shell)
+    * Library Carpentry für Selbststudium
+* Exkurs zu Regular Expressions: https://regex101.com
+  * Auch dazu gibt es übrigens eine Library Carpentry Lesson  https://librarycarpentry.org/lc-data-intro/01-regular-expressions.html
+
+## Agenda
 * Metadatenstandards in Bibliotheken (MARC21)
-* Konfiguration von Koha
-
-## Lerntagebücher
-
+* SLSP
+* Alma Import
 
 
 
@@ -22,71 +28,44 @@ title: BAIN FS25 - Funktion und Aufbau von Bibliothekssystemen
 
 
 
-
-* TODO: Unterschied zwischen Datenformat und Datenmodell in der Bibliotheks-IT (auch in Bezug auf Regelwerke bzw. inhaltliche Vorgaben)
-* 
-Datenmodell, mehr als format, inkludiert regelwerk?
-Regelwerk eher inhaltich, weniger technisch
-
 * MARC21: International verbreiteter Metadaten-Standard, begründet von der Library of Congress 1999: <https://www.loc.gov/marc/bibliographic/>
-* Hat [eigenes Binärformat](http://format.gbv.de/marc/iso) (.mrc), gibt's aber auch [als XML](http://format.gbv.de/marc/xml)
+* Hat [eigenes Binärformat](http://format.gbv.de/marc/iso) (.mrc), gibt's aber auch [als XML](http://format.gbv.de/marc/xml) und damit sind allgemeine XML-Tools darauf anwendbar
 * wegen unterschiedlicher Katalogisierungsregeln und der Möglichkeit eigene Felder zu belegen, weicht die Verwendung international und auch nach Institution [stark vom vermeintlichen Standard ab](https://docs.google.com/presentation/d/e/2PACX-1vRU4J_rln00UVD7pNPT0_02NOad0HfSk_UKqRI0v29y8QkMAplEDlyjc0Ot_VE_paV6WBW29Fh_V-iN/pub?start=false&loop=false&delayms=3000#slide=id.g574306292a_0_35)
-* Koha und alle anderen großen Bibliothekssysteme basieren auf MARC21 oder unterstützen es als Austauschformat
-* wird zukünftig voraussichtlich von [BIBFRAME](http://format.gbv.de/bibframe), einem Datenmodell basierend auf [RDF](http://format.gbv.de/rdf), abgelöst
-
+* Alma und alle anderen großen Bibliothekssysteme basieren auf MARC21 oder unterstützen es als Austauschformat
+* wird zukünftig voraussichtlich von [BIBFRAME](http://format.gbv.de/bibframe), einem Datenmodell basierend auf [RDF](http://format.gbv.de/rdf), abgelöst. Vgl. Tansformationsprozess
+* MARC ist recordbasiert
+* Comic zu Standards: https://xkcd.com/927/
 ### Übung: Vergleich MARC21 und Dublin Core
 
 * Dublin Core ist ein Standard, der als kleinster gemeinsamer Nenner gilt
     * geht über die Bibliothekswelt hinaus
-* Wir beziehen die Daten über die SRU-Schnittstelle von Swisscovery (auf das Thema Schnittstellen und SRU gehen wir an einem anderen Tag noch ein)
+* Wir beziehen die Daten über die SRU-Schnittstelle von swisscovery (auf das Thema Schnittstellen und SRU gehen wir an einem anderen Tag noch ein)
 
-**Aufgabe (15 Minuten):** Laden Sie über die folgenden Links Daten über die SRU-Schnittstelle von Swisscovery einmal im Format MARC21 und einmal im Format Dublin Core und vergleichen Sie diese.
+**Aufgabe 1:** Laden Sie über die folgenden Links Daten über die SRU-Schnittstelle von swisscovery einmal im Format MARC21 und einmal im Format Dublin Core und vergleichen Sie diese.
 
 * MARC21: https://swisscovery.slsp.ch/view/sru/41SLSP_NETWORK?version=1.2&operation=searchRetrieve&query=title=einstein&recordSchema=marcxml
 * Dublin Core: https://swisscovery.slsp.ch/view/sru/41SLSP_NETWORK?version=1.2&operation=searchRetrieve&query=title=einstein&recordSchema=dc
 
-**Hintergrundinfos zu swisscovery:**
+**Vorabinfo zu swisscovery:**
 
-- Der Katalog Swisscovery beinhaltet die Daten der an SLSP teilnehmenden Bibliotheken.
-- Der gemeinsame Katalog ermöglicht eine übergreifende Suche, gleichzeitig bietet Swisscovery auch Schnittstellen an, über welche Metadaten der teilnehmenden Institutionen zentral bezogen werden können.
+- Der Katalog swisscovery beinhaltet die Daten der an SLSP teilnehmenden Bibliotheken.
+- Der gemeinsame Katalog ermöglicht eine übergreifende Suche, gleichzeitig bietet Sswisscovery auch Schnittstellen an, über welche Metadaten der teilnehmenden Institutionen zentral bezogen werden können.
 - Siehe auch: [Nutzung SLSP-Metadaten](https://slsp.ch/de/metadata), [Dokumentation der SRU-Schnittstelle von ALMA](https://developers.exlibrisgroup.com/alma/integrations/sru/)
 
+**Aufgabe 2:**
+* Ergänzen Sie Ihre praktischen Erkenntnisse durch Benutzen eines KI-Tools wie ChatGPT zum Vergleich der zwei Metadatenformat. Stimmt alles?
 ### Erkenntnisse? Fragen?
 
-* DC besser menschlesbar ohne Dokumentation z.b.:
-    * <<dc:title>>... und Einstein hatte doch recht</dc:title>  VS
-    * <datafield ind1="1" ind2="0" tag="245"> ; <subfield code="a">... und Einstein hatte doch recht</subfield>
-* DC braucht weniger platz für ein Dokument
-* Ist MARC besser maschinelesbar als DC? Es sieht so aus.
-    * -->maschinenlesbar sind beide, MARC21 ist spezifischer und besser verwertbar
-* Welche Datenmodell nutzt SLSP/Alma für seine Metadaten? DC, MARC oder beide?
-* kein Feld für Übersetzer bei DC? Bei MARC21 Autor und Übersetzer im gleichen Subfield von Titelfeld 245
-    * -->Übersetzer könnte man bei MARC21 auch in den 700er Feldern erfassen, diese Felder dürfen auch mehrfach verwendet werden
 
-* Reihenfolge ist bei beiden nicht gleich. --Vergleiche "<description>" bzw "<subfield>" von beiden Formaten
 
-* Bei Dublin Core fehlen wichtige bibliographische Metadaten wie: 
-    - Erscheinungsort
-    - Verlag   -->gäbe ein Feld Publisher
-    - Umfang (Seitenzahlen)
-    - Angaben zur Auflage 
-    
---> kann auch in Feld Description kopiert werden oder wird weggelassen --> Informationsverlust
---> Erkenntnis: DC nicht so gut wie es sein könnte
-* Ich bin nicht sicher, was genau wir ansehen, andere Titel gefunden:
-  - Und sie segelten weiter (Buch)
-  - Du musst mir helfen, sonst werde ich verrückt (Artikel)
-
-  Es wäre interessant zu wissen, wonach gesucht wird.
 ### Regelwerk vs. Datenformat
 
 * Ein Regelwerk bildet die *theoretische* Grundlage für die Katalogisierung. Es definiert, wie eine Ressource zu beschreiben ist. Dazu gehören in der Regel inhaltliche Kategorien und normierte Vokabulare.
     * Functional Requirements for Bibliographic Records (FRBR) und Resource Description and Access (RDA) sind Regelwerke
 * Ein Datenformat erlaubt die *praktische* Repräsentation eines Katalogisats. Es definiert, wie Informationen zu kodieren sind. Dazu gehören Datenstrukturen und -typen.
     * MARC21 und BIBFRAME sind Datenformate
-
-Note:
 * Regelwerke und Datenformate ergänzen einander und sind nicht immer trennscharf zu unterscheiden. Beispielsweise umfasst BIBFRAME auch Aspekte eines Regelwerks (z. B. Abstraktionsebenen). Man spricht deshalb auch von einem Datenmodell.
+* Das waren Metadaten für bibliographische Daten, es gibt auch noch Normdaten und vieles andere z.B. auch administrative Metadaten
     
 
     
@@ -94,13 +73,27 @@ Note:
 * \> 50 Mitarbeitende
 * \> 500 Bibliotheken: https://slsp.ch/bibliotheksnavigator/
 * 31 institutionelle Zonen (IZ)
+    * und 4 Sandboxes
 * Ein gemeinsamer Katalog swisscovery (NZ) Netzwerkzone
+* **Schätzfrage**: Wie viele Medien?
 
  ![image](https://hackmd.io/_uploads/B1l1glgvke.png)
-* Alma (Bibliothekssytem) und Primo VE (Discovery) von Clarivate
+* Alma (Bibliothekssytem) und Primo VE (Discovery) von Clarivate (ExLibris)
+    * Unified Resource Management: E-Ressourcen, pyhsiche Bestände, Digitale Objekte
     
 ### Alma Administration
-* Metadata Konfiguration
+Aufgeteilt in Funktionsbereiche (Functional Areas), dort Konfiguration und Durchführung von entsprechenden Geschäftsgangen mit Rechte und Rollen ("Warenwirtschaftssystem")
+* Erwerbungen umfasst die Bestellung, den Eingang und die Rechnungsstellung für
+gedruckte und E-Ressourcen
+* **Ressourcen** umfasst Aufgaben rund um die Katalogisierung, Verwaltung physischer
+Bestände und die Aktivierung elektronischer Ressourcen
+* Discovery umfasst alle Konfigurations- und Anpassungsmöglichkeiten für Primo VE
+- Benutzung umfasst die Ausleihe und Vormerkung, d.h. z. B. Arbeitsabläufe, die aufzeigen,
+wie Vormerkungen von Benutzenden ausgeführt werden
+* Administrator umfasst die Benutzerverwaltung und allgemeine Verwaltungsaufgaben
+* Analytics umfasst die statistischen Erhebungen (für dieses Modul ist eine besondere
+Mitarbeitendenrolle erforderlich)
+
 
 ### Third Party Systems 
 ![image](https://hackmd.io/_uploads/SJ_eNlgDye.png)
@@ -121,16 +114,14 @@ Dokumentation:
 * Supported Standards: https://developers.exlibrisgroup.com/about/standards/ 
 
     
-### Migrationen
-z.B.: https://github.com/Rouven-Schabinger/bain-alma-import/blob/main/000000080_LLB01000502511.xml
-    
 
-## Gruppenübung: Bibliomedia Import
+## Gruppenübung: Alma Import
+* Vertraut machen mit SB, Finden Sie z.B. MARC21 Bibliographic in der Ressourcenkonfiguration
 >Bibliomedia unterstützt die öffentlichen Bibliotheken in der Schweiz mit ihrer einzigartigen Ressourcenbibliothek bei der Vermittlung von Sprach- und Lesekompetenz. Unsere zentrale Dienstleistung ist die Ausleihe von bedarfsgerecht zusammengestellten Medienkollektionen.
 * verschiedene files auf Github: https://github.com/Rouven-Schabinger/bain-alma-import
 * Temporärer Login für HPH Sandbox (IZ haute école pédagogique):
-    * user
-    * pw
+    * FHGR_admin / FHGR_admin2
+    * Sandbox4-Admin
 * Collection_S56997.xml (Anbieter) wird zu processed_Collection_S56997.xml  
     * Barcode und Callnumber Normalisierung
     * Feldersortierung
@@ -142,15 +133,28 @@ z.B.: https://github.com/Rouven-Schabinger/bain-alma-import/blob/main/000000080_
 * Importprofil erstellen
 * Normalisierungsregel
     
-## Aufgabe bis 5. März
 
-* Lerntagebuch einrichten (vgl. Lehreinheiten 01 und 02)
-* Neu: Eintrag im Lerntagebuch zu dieser Lehreinheit
+
+## Vergleich mit Open-Source-System Koha
+
+
+### Exkurs Migration (optional)
+* Gleiche Erfassung (RDA) und Format (MARC21) und trotzdem anders
+z.B.: https://github.com/Rouven-Schabinger/bain-alma-import/blob/main/000000080_LLB01000502511.xml
+* Vgl. ETL-Prozess (später im Kurs)
+* Entpacken
+* Filtern
+* Anreichern/Ergänzen
+    * bibliographisches level (z.B. Klassifikation, Inhaltsberzeichnise)
+    * Bestandslevel, Exemplarlevel
+* Verarbeitbar machen, Batches
+* Konkordanz prüfen (Dubletten --> komplex)
+* Verwandtschaftsverhältnisse können schwierig sein, z.B. Buch in Serie oder Artikel in Zeitschrift (analytische Aufnahmen)
+* Nach Typ Importieren (Bücher, Serien, physich-elektronisch ...)
+* Tests und Qualitätsprüfung
+* **und das sind nur die bibliographischen Daten!**
+* ganz konkrete Skripte oft nur einmalig verwendbar, da stark auf Daten angepasst, aber Prozesschritte sind abstrahierbar
     
-    
-
-
-### Einführung in Koha
 
 * Webseite: <https://koha-community.org>
 * Weltweites Open Source Projekt, gegründet 1999 in Neuseeland, heute  mit Beteiligung von Unternehmen wie ByWater Solutions, Biblibre,  Catalyst IT, PTFS Europe, Theke Solutions
@@ -233,3 +237,7 @@ Start > Katalogisierung > Neuer Titel > Schnellaufnahme
 * die viele feldern bei marc21 macht die übung schwieriger. welche sind relevant? einige, die pflicht sind, verstehe ich nichz und habe keine ahnung was zuhinzufügen.
 * Bei Werkzeuge -> Kalender können Schliesstage definiert werden.
 * Ich frage mich, wie viel Zeit es dauern würde, jedes Medium in den Katalog aufzunehmen. Kann man Daten von anderen Stellen übernehmen, kann man sie exportieren? Was die Benutzer angeht, finde ich es toll, aber reicht es aus, Name und ID hinzuzufügen? Was ist mit der Adresse z.B.? (--bei Jugendliche anders)
+
+
+    
+    
