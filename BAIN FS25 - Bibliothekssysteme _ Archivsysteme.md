@@ -1,8 +1,3 @@
----
-title: BAIN FS25 - Bibliothekssysteme / Archivsysteme
-
----
-
 # BAIN FS25 - Bibliothekssysteme / Archivsysteme
 
 
@@ -138,6 +133,7 @@ Achten Sie hier besonders auf Clarivate.
 - Als digitale Archivsysteme entwickelt wurden, orientierte sich die Datenstruktur an analogen Findmitteln wie Findbüchern und Zettelkästen (physische Welt).
 - Ein wichtiger Verzeichnungsstandard im Archivwesen wurde 1994 (Revision 2000) eingeführt, die "International Standard Archival Description (General)" - kurz [ISAD(G)](https://de.wikipedia.org/wiki/ISAD(G)).
 - Grundsätzlich gibt es hier eine mehrstufige Verzeichnung im Provenienzprinzip, um den Entstehungszusammenhang abzubilden.
+- Auch MARC hat etwas zur Provenienz: https://www.loc.gov/marc/bibliographic/bd561.html - Angabe im Online-Katalog nicht immer gewünscht bei Schenkern aber interessant für z.B. Historiker. Welche bibliographische Ebene ist sinnvoll?
 
 #### Informationsbereiche
 
@@ -184,13 +180,13 @@ Bsp. Notizblatt < Mappe < Sammlung < Nachlass/Vorlass
 Note:
 
 - In den Archiven der ETH-Bibliothek ist wegen der Bibliothekszugehörigkeit die [GND](https://de.wikipedia.org/wiki/Gemeinsame_Normdatei)-ID von besonderer Bedeutung.
-- Projektgruppe [ENSEMEN](https://vsa-aas.ch/verein/arbeitsgruppen/ensemen/) arbeitete an einer schweizerischen Ausprägung des neuen Standards [Records in Contexts](https://www.ica.org/en/records-contexts-german) (RiC), mit Beteiligung der FH Graubünden
+- Projektgruppe [ENSEMEN](https://vsa-aas.ch/verein/arbeitsgruppen/ensemen/) arbeitete an einer schweizerischen Ausprägung des neuen Standards [Records in Contexts](https://www.ica.org/en/records-contexts-german) (RiC), mit Beteiligung der FH Graubünden. Jetzt AG: https://vsa-aas.ch/verein/arbeitsgruppen/normen-und-standards/
 
 ### Übung: Archivkataloge
 
 - Suchen Sie nach:
   - `Einstein` im [Online Archivkatalog des Staatsarchivs BS](https://query.staatsarchiv.bs.ch/query/suchinfo.aspx)
-  - `Einstein Ehrat` im [Hochschularchiv ETH Zürich](http://archivdatenbank-online.ethz.ch/)
+  - `Einstein Ehrat` im [Hochschularchiv ETH Zürich](https://vls.hsa.ethz.ch/client/)
 - Beantworten Sie die folgenden Fragen:
   1. Welche Informationen enthält die Trefferliste?
   2. Welche Verzeichnungsstufen sind vertreten?
@@ -200,12 +196,13 @@ Note:
 - Zum Nachschlagen: [ISAD(G) Guidelines](https://www.ica.org/app/uploads/2024/01/CBPS_2000_Guidelines_ISADG_Second-edition_DE.pdf)
 
 ### Fragen / Erkenntnisse
+* 
 
 
 ### Datenformat: EAD
 
-- [Encoded Archival Description](https://de.wikipedia.org/wiki/Encoded_Archival_Description) (EAD) ist ein XML-Standard
-- Verschiedene Versionen: EAD2002 und EAD3 (seit 2015; aktuell ist 1.1.1 von 2019)
+- [Encoded Archival Description](https://en.wikipedia.org/wiki/Encoded_Archival_Description) (EAD) ist ein XML-Standard
+- Verschiedene Versionen: EAD2002 und EAD3 (seit 2015; aktuell ist 1.1.1 von 2019): https://www.loc.gov/ead/
 - Lässt viele Wahlmöglichkeiten offen, daher gibt es oft Anwendungsprofile, die genauer spezifizieren welche Werte zugelassen sind.
 - Anwendungsfälle: [Archives Portal Europa](https://www.archivesportaleurope.net/), [Archivportal-D](https://www.archivportal-d.de), [Kalliope](https://kalliope-verbund.info)
 - Einführung: [Nicolas Moretto (2014): EAD und digitalisiertes Archivgut](https://wiki.dnb.de/download/attachments/90410326/20140414_KIMWS_EAD.pdf?version=1&modificationDate=1398246420000&api=v2). Präsentation auf dem [DINI AG KIM Workshop 2014](https://wiki.dnb.de/display/DINIAGKIM/KIM+WS+2014) in Mannheim.
@@ -223,7 +220,17 @@ Note:
 - In Wikidata werden Online-Findmittel über Property [Archives at](https://www.wikidata.org/wiki/Property:P485) verzeichnet. Beispiel [Albert Einstein in Wikidata](https://www.wikidata.org/wiki/Q937).
 - In der Schweiz gibt es eine Vernetzungsinitiative [Metagrid](https://metagrid.ch) und weitere Dienste von [histHub](https://histhub.ch), einer Forschungsplattform für die Historischen Wissenschaften.
 - Metasuche Swisscollections: https://swisscollections.ch
-- Literaturempfehlung: [Umfrage "Was sich Historiker*innen von Archiven wünschen"](https://dhdhi.hypotheses.org/6107)
 - Archivportale der Schweiz: https://www.infoclio.ch/de/archive
+
+
+### Übung Literatur:
+Lesen und diskutieren Sie die folgende Beiträge. Notieren Sie sich Fragen und Aspekte (mit IT-Bezug):
+ - [Kapitel 1 Einführung / nestor Handbuch: Eine kleine Enzyklopädie der digitalen Langzeitarchivierung](https://nestor.sub.uni-goettingen.de/handbuch/nestor-handbuch_23.pdf)
+**Fragen / Erkenntnisse**
+
+- [Mit Künstlicher Intelligenz zu besserer Nutzbarkeit](https://www.degruyter.com/document/doi/10.1515/abitech-2025-0003/html)
+**Fragen / Erkenntnisse**
+- [Archival Linked (Open) Data](https://doi.org/10.18755/iw.2020.17)
+**Fragen / Erkenntnisse**
     
     
