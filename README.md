@@ -1,0 +1,1 @@
+Skript zum Kurs "Bibliotheks- und Archivinformatik" der [FH Graubünden - Studiengang Information Science](https://www.fhgr.ch/studium/bachelorangebot/wirtschaft-und-dienstleistung/information-science/) , basierend auf [Felix Lohmeier](https://github.com/felixlohmeier/bibliotheks-und-archivinformatik).
