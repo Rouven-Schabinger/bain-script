@@ -8,7 +8,7 @@
 * Praxiserfahrungen
 * Erwartungen
     *  Vorschlag stärkere Einbindung Bibliothekssoftware Öffentliche Bibliotheken
-* Organisatrisches: Termine, Leistungsnachweis
+* Organisatorisches: Termine, Leistungsnachweis
     * Lerntagebücher?
 * Technische Grundlagen
     * GitHub Konto (Git)
@@ -31,7 +31,7 @@
 * MARC21: International verbreiteter Metadaten-Standard, begründet von der Library of Congress 1999: <https://www.loc.gov/marc/bibliographic/>
 * Hat [eigenes Binärformat](http://format.gbv.de/marc/iso) (.mrc), gibt's aber auch [als XML](http://format.gbv.de/marc/xml) und damit sind allgemeine XML-Tools darauf anwendbar
 * wegen unterschiedlicher Katalogisierungsregeln und der Möglichkeit eigene Felder zu belegen, weicht die Verwendung international und auch nach Institution [stark vom vermeintlichen Standard ab](https://docs.google.com/presentation/d/e/2PACX-1vRU4J_rln00UVD7pNPT0_02NOad0HfSk_UKqRI0v29y8QkMAplEDlyjc0Ot_VE_paV6WBW29Fh_V-iN/pub?start=false&loop=false&delayms=3000#slide=id.g574306292a_0_35)
-* Alma und alle anderen großen Bibliothekssysteme basieren auf MARC21 oder unterstützen es als Austauschformat
+* Alma und alle anderen grossen Bibliothekssysteme basieren auf MARC21 oder unterstützen es als Austauschformat
 * wird zukünftig voraussichtlich von [BIBFRAME](http://format.gbv.de/bibframe), einem Datenmodell basierend auf [RDF](http://format.gbv.de/rdf), abgelöst. Vgl. Tansformationsprozess
 * MARC ist recordbasiert
 * Comic zu Standards: https://xkcd.com/927/
@@ -53,10 +53,31 @@
 - Siehe auch: [Nutzung SLSP-Metadaten](https://slsp.ch/de/metadata), [Dokumentation der SRU-Schnittstelle von ALMA](https://developers.exlibrisgroup.com/alma/integrations/sru/)
 
 **Aufgabe 2:**
-* Ergänzen Sie Ihre praktischen Erkenntnisse durch Benutzen eines KI-Tools wie ChatGPT zum Vergleich der zwei Metadatenformat. Stimmt alles?
+
+* Ergänzen Sie Ihre praktischen Erkenntnisse durch Benutzen eines KI-Tools wie ChatGPT zum Vergleich der zwei Metadatenformate. Stimmt alles?
 ### Erkenntnisse? Fragen?
 
+**ZH**
+* DublinCore viel schneller verständlich, MARC viel mehr identifier zusammengepackt, aber bisschen arbiträr? (einzelne tags u. codes muss man kennen).
+* DublinCore: Was inhaltlich ins Feld muss, ist ersichtlich. (z.B. Titel, Autor) MARC21 arbeitet mit Codes - man muss die Codes kennen / eine Legende dazu haben
+* Bei DublinCore sind die Felder nicht nummeriert
+* DublinCore braucht weniger Zeilen für ein Katalogisat
+* anderer Inhalt, bei DublinCore scheinen beispielsweise Angaben zum Verlag nicht erfasst zu sein.
+* DublinCore wirkt weniger formalisiert als MARC21, es scheint weniger Felder zu geben
+* Bei DublinCore gibt es Felder mehrmals (beispielsweise bei den Sprachen)
+* MARC21 deutlich detaillierter und mit hierarchischer Struktur
+* 
+* Dublin Core arbeite mit Namespaces --> kann Vorteil sein bei der Zusammenführung von Daten aus unterschiedlichen Quellen / **Arbeiten nicht beide mit Namespaces?** JA
+* Marc21 braucht wahrscheinlich mehr Speicherplatz bzw. kleinere Dateigrösse?
 
+**CHR**
+* In Dublin Core sind die Felder selbsterklärend, man weiss was mein Einfügen soll. Bei MARC21 muss man wissen, in welches Feld was gehört.
+* MARC benötigt Wissen zu den Feldnummern um die Informationen zu verstehen
+* die Inhaltliche Erschliessung kann "direkt" gemacht werden in MARC21 Field und ein Subfield für die einzelnen beschreibenden Aussagen
+* MARC beinhaltet mehr Attribute als Dublin Core
+* MARC 21 ist um einiges komplexer als Dublin Core
+* Wenn man Erfahrung mit MARC21 hat, kann man einfach Informationen finden, indem man das entsprechende Feld anschaut (da die Felder in aufsteigender Reihenfolge aufgeführt sind)
+* Dublin Core hat eine flache Struktur mit 15 Standardfeldern
 
 ### Regelwerk vs. Datenformat
 
@@ -75,11 +96,13 @@
 * 31 institutionelle Zonen (IZ)
     * und 4 Sandboxes
 * Ein gemeinsamer Katalog swisscovery (NZ) Netzwerkzone
+    * mit zentralem User-Pool und Anmeldung mit Switch https://eduid.ch/
+* Community Zone (CZ) für E-ressourcen weltweit
 * **Schätzfrage**: Wie viele Medien?
 
  ![image](https://hackmd.io/_uploads/B1l1glgvke.png)
-* Alma (Bibliothekssytem) und Primo VE (Discovery) von Clarivate (ExLibris)
-    * Unified Resource Management: E-Ressourcen, pyhsiche Bestände, Digitale Objekte
+* Alma (Bibliothekssytem) und Primo VE (Discovery) von Clarivate (ExLibris) als Cloudlösung
+    * Unified Resource Management: E-Ressourcen, physische Bestände, Digitale Objekte
     
 ### Alma Administration
 Aufgeteilt in Funktionsbereiche (Functional Areas), dort Konfiguration und Durchführung von entsprechenden Geschäftsgangen mit Rechte und Rollen ("Warenwirtschaftssystem")
@@ -116,128 +139,67 @@ Dokumentation:
     
 
 ## Gruppenübung: Alma Import
-* Vertraut machen mit SB, Finden Sie z.B. MARC21 Bibliographic in der Ressourcenkonfiguration
+
+* Temporärer Login für [HPH Sandbox](https://slsp-hph-psb.alma.exlibrisgroup.com) (IZ haute école pédagogique):
+    * 
+    * 
+* Vertraut machen mit [Sandbox](https://docs.google.com/spreadsheets/d/17rPGLH8wrHqb1uaVe3wxBG6Xen0Hzq7jmRDHxw6bqNU/edit?usp=sharing). Finden Sie z.B. MARC21 Bibliographic in der Ressourcenkonfiguration
+
+**Bibliomedia**:
+
 >Bibliomedia unterstützt die öffentlichen Bibliotheken in der Schweiz mit ihrer einzigartigen Ressourcenbibliothek bei der Vermittlung von Sprach- und Lesekompetenz. Unsere zentrale Dienstleistung ist die Ausleihe von bedarfsgerecht zusammengestellten Medienkollektionen.
 * verschiedene files auf Github: https://github.com/Rouven-Schabinger/bain-alma-import
-* Temporärer Login für HPH Sandbox (IZ haute école pédagogique):
-    * FHGR_admin / FHGR_admin2
-    * Sandbox4-Admin
-* Collection_S56997.xml (Anbieter) wird zu processed_Collection_S56997.xml  
+
+* Collection_S56997.xml (Anbieter) wurde **vorher** zu processed_Collection_S56997.xml umgewandelt
     * Barcode und Callnumber Normalisierung
     * Feldersortierung
     
 ![image](https://hackmd.io/_uploads/B1FIukgwJx.png)
     -->
 ![image](https://hackmd.io/_uploads/SyWFu1lPJe.png)
+
+* Normalisierungsregel in Alma (**nachher**)
+
+**Aufgabe**:
+Importieren einer Datei
     
 * Importprofil erstellen
-* Normalisierungsregel
-    
-
-
-## Vergleich mit Open-Source-System Koha
-
-
-### Exkurs Migration (optional)
-* Gleiche Erfassung (RDA) und Format (MARC21) und trotzdem anders
-z.B.: https://github.com/Rouven-Schabinger/bain-alma-import/blob/main/000000080_LLB01000502511.xml
-* Vgl. ETL-Prozess (später im Kurs)
-* Entpacken
-* Filtern
-* Anreichern/Ergänzen
-    * bibliographisches level (z.B. Klassifikation, Inhaltsberzeichnise)
-    * Bestandslevel, Exemplarlevel
-* Verarbeitbar machen, Batches
-* Konkordanz prüfen (Dubletten --> komplex)
-* Verwandtschaftsverhältnisse können schwierig sein, z.B. Buch in Serie oder Artikel in Zeitschrift (analytische Aufnahmen)
-* Nach Typ Importieren (Bücher, Serien, physich-elektronisch ...)
-* Tests und Qualitätsprüfung
-* **und das sind nur die bibliographischen Daten!**
-* ganz konkrete Skripte oft nur einmalig verwendbar, da stark auf Daten angepasst, aber Prozesschritte sind abstrahierbar
-    
-
-* Webseite: <https://koha-community.org>
-* Weltweites Open Source Projekt, gegründet 1999 in Neuseeland, heute  mit Beteiligung von Unternehmen wie ByWater Solutions, Biblibre,  Catalyst IT, PTFS Europe, Theke Solutions
-* Status des Projekts: Siehe [Statistik bei Open Hub](https://www.openhub.net/p/koha)
-
-Note:
-- Zur Gesundheit von Open-Source-Projekten siehe auch https://felixlohmeier.de/slides/2017-09-28_vufind-anwendertreffen-keynote.html
-- Zur Bedeutung von Open-Source-Software auch dieser Comic: https://xkcd.com/2347/
-
-#### Koha Dokumentation
-
-* Professionelle Entwicklungsstrukturen, vgl. Dashboard: <https://dashboard.koha-community.org>
-* Release Notes zur Version 23.11: <https://koha-community.org/koha-23-11-released/>
-* Handbuch zur Version 23.11: [englisch](https://koha-community.org/manual/23.11/en/html/), [deutsch](http://koha-community.org/manual/23.11/de/html/index.html) (Übersetzung noch in Arbeit)
-
-#### Koha Demo
-
-* MARC21, Koha 23.11 bereitgestellt von schweizer Unternehmen "Admin Kuhn"
-  * Dienstoberfläche: https://koha.adminkuhn.ch:8443
-  * OPAC: https://koha.adminkuhn.ch:443
-* Login mit Benutzername `demo` / Passwort `demo` möglich
-* wird jeweils Morgens um 5 Uhr auf Standardwerte zurückgesetzt
-* siehe auch die Erläuterungen unter http://adminkuhn.ch/wiki/Koha-Demoinstallation
-
-### Grundkonfiguration mit Tutorial
-
-Die Grundkonfiguration in der Demo-Installation von Koha ist bereits erledigt. Daher schauen wir uns gemeinsam ein Tutorial an, um die Einstellungen kennenzulernen.
-
-Wir verwenden dazu ein Tutorial von Stephan Tetzel, das auf deutsch und englisch verfügbar ist:
-
-* Deutsch: <https://zefanjas.de/wie-man-koha-installiert-und-fuer-schulen-einrichtet-teil-1/> 
-* Englisch: <https://openschoolsolutions.org/how-to-install-and-set-up-koha-for-schools-part-1/> 
-
-Note:
-- Da wir eine neuere Koha-Version (23.11) als im Tutorial 20.05 verwenden, gibt es Abweichungen im Detail. Das ist eine Situation, die in der Praxis oft auftritt. Versuchen Sie die Hinweise im Tutorial sinngemäß anzuwenden.
-
-    
-## Übung: Manuelle Bedienung
-
-**Aufgabe (20 Minuten)**: Damit Sie ein Gespür für das System erhalten, machen wir nun ein Minimalbeispiel für einen vereinfachten Bibliotheksworkflow:
-
-1. Buch erfassen
-2. Benutzer anlegen
-3. Buch an Theke ausleihen
-4. Buch an Theke zurücknehmen
-
-Schauen Sie sich dabei auch ein wenig um, welche Optionen das Bibliothekssystem Koha bietet.
-
-### Buch erfassen
-
-Start > Katalogisierung > Neuer Titel > Schnellaufnahme
-
-1. Neuer Marc Datensatz: Pflichtfelder ausfüllen
-    * `000` und `008` werden automatisch befüllt beim Anklicken
-    * In `245a` muss ein Titel vergeben werden
-2. Exemplar hinzufügen
-    * `p - Barcode` muss vergeben werden (sonst können wir später nicht ausleihen)
-    * Unten Button "Exemplar hinzufügen" nicht vergessen
-
-### Benutzer anlegen
-
-* Start > Benutzer > Benutzer-Schnellerfassung
-* Hinzufügen Benutzer: Name und Ausweisnummer vergeben
-
-### Buch an Theke ausleihen
-
-**Hier gibt es leider einen Fehler in der Demo-Installation: Beim Versuch eine Ausleihe zu tätigen erscheint eine Fehlermeldung (Error 500)**
-
-* Oben im Suchschlitz Reiter Ausleihe wählen, Ausweisnummer eingeben und abschicken
-* Dann in Box "Ausleihe an" den Exemplarbarcode eingeben und Ausleihe abschicken
-* Über Button "Zeige Ausleihen" prüfen, ob Ausleihe erfolgreich war
-
-### Buch an Theke zurücknehmen
-
-* Oben im Suchschlitz Reiter Rückgabe wählen, Barcode eingeben und abschicken
-
-### Fragen? Erkenntnisse?
-    
-* Intuitive Nutzung (obwohl ich nicht in einer Bibliothek arbeite)
-* die viele feldern bei marc21 macht die übung schwieriger. welche sind relevant? einige, die pflicht sind, verstehe ich nichz und habe keine ahnung was zuhinzufügen.
-* Bei Werkzeuge -> Kalender können Schliesstage definiert werden.
-* Ich frage mich, wie viel Zeit es dauern würde, jedes Medium in den Katalog aufzunehmen. Kann man Daten von anderen Stellen übernehmen, kann man sie exportieren? Was die Benutzer angeht, finde ich es toll, aber reicht es aus, Name und ID hinzuzufügen? Was ist mit der Adresse z.B.? (--bei Jugendliche anders)
-
-
+https://knowledge.exlibrisgroup.com/Alma/Product_Documentation/Alma_Online_Help_(Deutsch)/040Ressourcen-Verwaltung/030Datensatz-Import/020Importprofile_verwalten
+    * Use Network Zone: NO
+    * Profilname: BAIN Bibliomedia Import Gruppe X
+    * Normalisierungsregel: SLSP_Bibliomedia-import
+    * Inventory Mapping
+![image](https://hackmd.io/_uploads/B1e4bM0FJg.png)
+![image](https://hackmd.io/_uploads/H1krZfCKJl.png)
+![image](https://hackmd.io/_uploads/SykI-MCYJl.png)
     
     
+* Importieren
+    * Report anschauen
+    * Records anschauen
+### Erkenntnisse? Fragen?
+
+**ZH**
+
+* Normalisierungsregel nicht findbar
+    * einmal gelöscht und neu erstellt hats bei uns (Gruppe 1) doch noch funktioniert.
+* "Location" wollte "Freihandbereich" nicht vorgeben
+    * Im Verzeichnis suchen gegangen.
+* Was würde passieren wen man nochmal importiert?
+    * Duplikaten
+    
+**CHR**
+
+* Sandbox ist hilfreich, weil man sich dann traut, Fehler zu machen
+* Es lohnt sich, nicht nur einen Bildschirm zur Verfügung zu haben, da die Ansicht bei geteiltem Bildschirm verwirrend sein kann (Zeilen/Felder verrutschen).
+* Der Haken bei Netzwerkzone kann später nicht mehr angepasst werden.
+* Fehler bei der Implentierung, da vergessen ein Haken wegzunehmen. -> Deshalb nochmals neu gemacht
+
+
+## Fazit
+
+* Wir haben verbreitete Metadatenstandards im Biblioheksvergleich angeschaut und verglichen
+* Wir haben das Bibliothekssystem Alma in seiner Konsortium-Realisierung (NZ,IZs) und in der Schweiz kennengelernt.
+    * Administration
+    * Third Party Systems
+* Wir haben MARC-Dateien in eine IZ-Sandbox von Alma importiert
