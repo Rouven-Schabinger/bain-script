@@ -1,20 +1,25 @@
-# BAIN FS25 - Funktion und Aufbau von Archivsystemen 
+# BAIN FS24 Zürich 04 Funktion und Aufbau von Archivsystemen 
 
+05.03.2024
 
 Alle, die den Link zu diesem Dokument kennen, können es bearbeiten.
 
-Link zur Teilnahme via WebEx: 
+Link zur Teilnahme via WebEx https://fhgr.webex.com/fhgr-de/j.php?MTID=m454b5aab4156496af22434dd868547cc
 
-<- Agenda
+## Agenda
 
+* Metadatenstandards in Archiven (ISAD(G) und EAD)
+* Installation und Konfiguration von ArchivesSpace
 
-## Metadatenstandards in Archiven: ISAD(G) und EAD
+## Diskussion
 
-* [Seeing Standards: A Visualization of the Metadata Universe](https://jennriley.com/metadatamap)
+* TODO: Unterschied zwischen Datenformat und Datenmodell in der Bibliotheks-IT (auch in Bezug auf Regelwerke bzw. inhaltliche Vorgaben)
+
+## Metadatenstandards in Archiven (ISAD(G) und EAD)
 
 ### Regelwerk: ISAD(G)
 
-- Als digitale Archivsysteme entwickelt wurden, orientierte sich die Datenstruktur an analogen Findmitteln wie Findbüchern und Zettelkästen (physische Welt).
+- Als digitale Archivsysteme entwickelt wurden, orientierte sich die Datenstruktur an analogen Findmitteln wie Findbüchern und Zettelkästen.
 - Ein wichtiger Verzeichnungsstandard im Archivwesen wurde 1994 (Revision 2000) eingeführt, die "International Standard Archival Description (General)" - kurz [ISAD(G)](https://de.wikipedia.org/wiki/ISAD(G)).
 - Grundsätzlich gibt es hier eine mehrstufige Verzeichnung im Provenienzprinzip, um den Entstehungszusammenhang abzubilden.
 
@@ -40,14 +45,6 @@ Von besonderer Bedeutung sind 6 Pflichtfelder:
 - Entstehungszeitraum
 - Umfang
 - Verzeichnungsstufe
-
-
-#### Beispiel
-
-![The-ISADG-hierarchical-model-see-online-version-for-colours](https://hackmd.io/_uploads/H1h5qXYDyl.png)
-
-Bsp. Notizblatt < Mappe < Sammlung < Nachlass/Vorlass
-
 
 #### Grenzen von ISAD(G)
 
@@ -76,10 +73,24 @@ Note:
   3. Sind die ISAD(G)-Informationsbereiche erkennbar?
   4. Decken sich die grundlegenden Informationen oder gibt es bemerkenswerte Unterschiede?
   5. Worin liegen die zentralen Unterschiede zu einem Bibliothekskatalog?
-- Zum Nachschlagen: [ISAD(G) Guidelines](https://www.ica.org/app/uploads/2024/01/CBPS_2000_Guidelines_ISADG_Second-edition_DE.pdf)
+- Zum Nachschlagen: [ISAD(G) Guidelines](https://www.ica.org/sites/default/files/CBPS_2000_Guidelines_ISAD(G)_Second-edition_DE.pdf)
 
 ### Fragen / Erkenntnisse
 
+* Informationen in der Trefferliste:
+    * ETH-Archiv: Titel, Signatur, Entstehungszeitraum, Überlieferungsform, Archivalienart, Benutzbarkeit, Stufe, Korrespondenzstück, Relevanz
+    * Staatsarchiv Basel-Stadt: Titel, Signatur, Entstehungszeitraum, Benutzbarkeit, Stufe, Archivplan, Medium
+* Stufen:
+    * ETH-Archiv: Bestand, Serie, Dossier, Einzelstück
+    * Staatsarchiv Basel-Stadt: Dossier, Serie, Abteilung, Archiv, Bestand,    Dokument, Fonds
+* Unterschiede ETH-Archiv und Staatsarchiv Basel-Stadt:
+    * Staatsarchiv Basel-Stadt verwendet Deskriptoren
+
+* Worin liegen die zentralen Unterschiede zu einem Bibliothekskatalog?!
+    * Die Struktur ist anders. Man kann beim Katalog der Archive den Archivplan (mit Hierarchie) einsehen. Archive verfolgen dabei das Ziel, die Archivalien so zu erschliessen, dass die Provenienz, Kontext und Inhalt der Materialien nachvollziehbar ist. Bibliotheken arbeiten mit einer medienzentrierten systematischen Auflistung aller Medien.
+
+* Tonaufzeichnung aber ohne Beschreibung eines Mediums, Tonträgers, ist das normal, dass solche Infos fehlen? https://dls.staatsarchiv.bs.ch/records/216855
+    * auf Bestandsebene ist die Provenienz erkennbar: https://dls.staatsarchiv.bs.ch/records/214956
 
 ### Datenformat: EAD
 
@@ -97,59 +108,22 @@ Note:
 
 ### Aktuelle Entwicklungen
 
-- Umstieg von ISAD(G) auf RiC wird mit viel Aufwand verbunden sein, auch mit einem Systemwechsel. Bsp. https://icae.esrc.info/
+- Umstieg von ISAD(G) auf RiC wird mit viel Aufwand verbunden sein, auch mit einem Systemwechsel.
 - Generierung von mehr Volltexten u.a. durch Optical Character Recognition (OCR) auch für Handschriften. Automatisierte Anreicherung von Volltexten durch Named Entity Recognition.
 - In Wikidata werden Online-Findmittel über Property [Archives at](https://www.wikidata.org/wiki/Property:P485) verzeichnet. Beispiel [Albert Einstein in Wikidata](https://www.wikidata.org/wiki/Q937).
 - In der Schweiz gibt es eine Vernetzungsinitiative [Metagrid](https://metagrid.ch) und weitere Dienste von [histHub](https://histhub.ch), einer Forschungsplattform für die Historischen Wissenschaften.
 - Metasuche Swisscollections: https://swisscollections.ch
 - Literaturempfehlung: [Umfrage "Was sich Historiker*innen von Archiven wünschen"](https://dhdhi.hypotheses.org/6107)
-- Archivportale der Schweiz: https://www.infoclio.ch/de/archive
-## Marktüberblick Archivsysteme (Hr. Gasser)
 
-- ETH, virtueller Lesesaal
-
-- ArchivesSpace hat eine große Community in den USA
-- Weitere Open-Source-Alternative: [Access to Memory (AtoM)](https://www.accesstomemory.org)
-    - Dienstleister in der Schweiz: [docuteam](https://www.docuteam.ch/atom-access-to-memory/)
-- Der Markt in der Schweiz wird von den Produkten [scopeArchiv](https://www.scope.ch/de/produkteuebersicht/scopearchiv/) und [CMI AIS](https://cmiag.ch/akten-management/archivierung/ais/) (ehemals CMISTAR) dominiert.
-- Für die Online-Präsentation von digitalisiertem Archivgut wird oft zusätzliche Software eingesetzt. Beispiele:
-  - [E-Pics Plattform der ETH Zürich](https://www.e-pics.ethz.ch) (WordPress + Canto Cumulus)
-  - [e-manuscripta.ch - Kooperative Präsentationsplattorm für handschriftliche Quellen](http://www.e-manuscripta.ch) (Visual Library)
-  - [Smapshot](https://smapshot.heig-vd.ch/) Sehr cooles Projekt, um Bilder zu geolokalisieren, präsentieren und mit Metadaten anzureichern (Citizen Science).
-
-### Unterschiede zwischen Bibliotheks- und Archivsystemen
-
-- Bibliothek
-  - (Massen-)Medium, Benutzerinteraktion (Ausleihe)
-  - Software medienzentriert
-  - Metadatenformat: MARC21, zukünftig BIBFRAME
-  - Frühe Digitalisierung imitiert oft physische Vorgänge (vgl. Imagekataloge)
-- Archiv
-  - Entstehungszusammenhang, eher stehender, unikaler Bestand (Nutzung auf Anfrage)
-  - Software orientiert sich an analogen Findmitteln
-  - Metadatenformat: EAD, zukünftig RiC
-
-Note:
-- Herausforderung: Datenaustausch zwischen den Systemen (kommen wir später darauf zurück)
-- aber auch zunnehmnde **Konvergenz**, externe Ressourcen in swisscovery (Bsp. ETH):
-  - [E-Periodica](https://www.e-periodica.ch/) 
-  - [E-Pics](https://www.e-pics.ethz.ch/de/home/)
-  - [E-Rara](https://www.e-rara.ch/)
-  - [Research Collection](https://www.research-collection.ethz.ch/)
-  - [Videoportal](https://video.ethz.ch/)
-  - [Materialarchiv](https://materialarchiv.ch/de/app-tablet/)
-  - [Hochschularchiv Online](https://library.ethz.ch/publizieren-und-archivieren/archivieren/hochschularchiv-der-eth-zuerich.html)
-  - [Max Frisch Archiv Online](http://maxfrischarchiv-online.ethz.ch/home/#/)
-  - [Thomas Mann Archiv Online](http://www.online.tma.ethz.ch/home/)
-  - [Thomas Mann Nachlassbibliothek]([details](https://nb-web.tma.ethz.ch/))
-- Beispiel für "Umfang" in verschiedenen Metadatenstandards: 
-Schabinger, R. (2023). Does size matter? Quality assessment of the size property in research data repositories [Zenodo]. [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8192783.svg)](https://doi.org/10.5281/zenodo.8192783)
-- GLAMhack: https://hack.glam.opendata.ch/event/12 z.B. Nachtzedel
+### Ausblick
 
 
+## Kommentare zu Lerntagebüchern
+
+* ChatGPT zum Unterschied von MARC21 und DC: https://corinalombris.wordpress.com/2024/03/05/lerneinheit-3-funktion-und-aufbau-von-bibliothekssystemen/
+* Suchhistorie in Koha? https://eva-zk.github.io/BAIN_lerntagebuch/2024/02/27/tag2.html
 
 ## Installation und Konfiguration von ArchivesSpace
-
 
 ### Einführung in ArchivesSpace
 
@@ -174,7 +148,7 @@ Schabinger, R. (2023). Does size matter? Quality assessment of the size property
 #### Metadaten in ArchivesSpace
 
 - basiert auf den Standards [DACS](https://en.wikipedia.org/wiki/Describing_Archives:_A_Content_Standard), ISAD(G) und ISAAR(CPF)
-- unterstützt Import/Export in EAD, MARCXML und METS/MODS (Standard für Digitalisate: https://pro.deutsche-digitale-bibliothek.de/glossar/metsmods-format)
+- unterstützt Import/Export in EAD, MARCXML und METS
 
 ### Installation ArchivesSpace
 
@@ -219,7 +193,7 @@ Note:
 * Verlinkte Begriffe führen zum [ArchivesSpace Manual for Local Usage at NYU](https://docs.google.com/document/d/11kWxbFTazB6q5fDNBWDHJxMf3wdVsp8cd7HzjEhE-ao/edit), weil das offizielle Handbuch nur für Mitglieder zugänglich ist.
 * beim Aufruf einer Resource ist im Abschnitt "Related Accessions" eine Verknüpfung möglich
 
-### Übung
+## Übung
 
 Übung: Datensätze erstellen
 
@@ -318,10 +292,40 @@ Note:
 
 - Das Benutzerhandbuch von ArchivesSpace steht nur zahlenden Mitgliedern zur Verfügung. Bei Open-Source-Software suchen die Communities oft nach einem Zusatzvorteil für Mitglieder, weil die Software selbst ja kostenfrei erhältlich ist. Wirklich "open" ist diese Zurückhaltung von Informationen nicht so recht.
 
+## Marktüberblick Archivsysteme
 
-## Aufgabe bis zum nächsten Termin
+- ArchivesSpace hat eine große Community in den USA
+- Weitere Open-Source-Alternative: [Access to Memory (AtoM)](https://www.accesstomemory.org)
+    - Dienstleister in der Schweiz: [docuteam](https://www.docuteam.ch/atom-access-to-memory/)
+- Der Markt in der Schweiz wird von den Produkten [scopeArchiv](https://www.scope.ch/de/produkteuebersicht/scopearchiv/) und [CMI AIS](https://cmiag.ch/akten-management/archivierung/ais/) (ehemals CMISTAR) dominiert.
+- Für die Online-Präsentation von digitalisiertem Archivgut wird oft zusätzliche Software eingesetzt. Beispiele:
+  - [E-Pics Plattform der ETH Zürich](https://www.e-pics.ethz.ch) (WordPress + Canto Cumulus)
+  - [e-manuscripta.ch - Kooperative Präsentationsplattorm für handschriftliche Quellen](http://www.e-manuscripta.ch) (Visual Library)
+  - [Smapshot](https://smapshot.heig-vd.ch/) Sehr cooles Projekt, um Bilder zu geolokalisieren, präsentieren und mit Metadaten anzureichern (Citizen Science).
+
+### Unterschiede zwischen Bibliotheks- und Archivsystemen
+
+- Bibliothek
+  - (Massen-)Medium, Benutzerinteraktion (Ausleihe)
+  - Software medienzentriert
+  - Metadatenformat: MARC21, zukünftig BIBFRAME
+- Archiv
+  - Entstehungszusammenhang, eher stehender, unikaler Bestand (Nutzung auf Anfrage)
+  - Software orientiert sich an analogen Findmitteln
+  - Metadatenformat: EAD, zukünftig RiC
+
+Note:
+- Herausforderung: Datenaustausch zwischen den Systemen (kommen wir später darauf zurück)
+
+## Aufgabe bis 26. März
 
 * Eintrag im Lerntagebuch zur Lehreinheit Archivsysteme
+* Übung: Blogbeitrag 1000-2000 Zeichen zum Vergleich von ArchivesSpace und Access to Memory (AtoM) https://demo.accesstomemory.org
 
+## Ausblick: Schaubild zu Lehrinhalten
+
+![Schaubild zu Lehrinhalten](https://pad.gwdg.de/uploads/c8d2a2dc-b427-4330-a665-b355a2a85f50.png)
+
+erstellt mit [mermaid](https://mermaid-js.github.io/mermaid-live-editor)
 
 
