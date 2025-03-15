@@ -100,17 +100,30 @@ Konvergenz:
 Standardfragen IT:
 
 - Make or Buy
+    - Service Providers: https://dspace.org/registered-service-providers/
 - Authentifizierung (z.b Edu-ID, ORCID), Rollen und Rechte
     - vgl. https://help.switch.ch/aai/
+    - https://it-in-bibliotheken.de/sicherheit.html#authentifizierung-und-autorisierung
 
 ### Einführung in DSpace
 
-- Software geeignet für Publikationen und Forschungsdaten
+- Software geeignet für Publikationen und Forschungsdaten, Features: https://dspace.org/features/
 - Erweiterung für Forschungsinformationen: DSpace-CRIS
 - Metadatenstandard: Qualified Dublin Core, kann aber auch mit [DataCite](https://schema.datacite.org/) Metadatenschema betrieben werden.
 - DSpace 6: 2016 erstmalig veröffentlicht , wird nicht mehr weiterentwickelt und der [Support endete am 1.7.2023](https://wiki.lyrasis.org/display/DSPACE/Support+for+DSpace+5+and+6+is+ending+in+2023)
-- DSpace 7: im August 2021 veröffentlicht , neue Technologien im Frontend (Angular) und Backend (neue REST API)
+- DSpace 7: im August 2021 veröffentlicht, neue Technologien im Frontend (Angular) und Backend (neue REST API)
 - DSpace 8: Juni 2024: generelle Verbesserungen
+
+DSpace hat eine 3-Schichten-**Architektur**: 
+- Anwendungsschicht (Application Layer)
+    die Anwendungsschicht umfasst die Komponenten, mit denen eine DSpace-Instanz mit der Außenwelt kommuniziert, zum Beispiel Webschnittstelle, OAI-PMH-Schnittstelle.
+- Geschäftslogik (Business Logic Layer)
+    diese Schicht verwaltet Inhalt, Benutzer und Gruppen, Rechte und Geschäftsgänge.
+ - Speicherung (Storage Layer)
+    diese Schicht kümmert sich um die physikalische Speicherung von Metadaten und Inhalt.
+    
+ https://de.wikipedia.org/wiki/DSpace_(Software)
+
 
 ### DSpace Demo
 
@@ -153,6 +166,7 @@ DSpace Demo: https://demo.dspace.org
 * MyDspace bei Login-Button aufrufen
 * Neues Dokument anlegen (z.B. "Veröffentlichung"), Daten aus Datenbank übernehmen, Datei hochladen. Sammlung: 1-step-workflow
 * In MyDSpace auf "Zeige Aufgaben" wechseln. Dort werden Dokumente zur Bearbeitung/Freigabe aufgeführt
+* Bsp. DOI workflow (ETH Zurich DOI Desk): https://ethz.ch/content/dam/ethz/associates/ethlibrary-dam/documents/Publizieren-und-Archivieren/A-step-to-step-guide-to-DOI-registration.pdf 
 
 ### Import und Export
 
@@ -165,15 +179,18 @@ DSpace Demo: https://demo.dspace.org
 Note:
 
 * [SWORD](https://en.wikipedia.org/wiki/SWORD_(protocol)) ist eine Schnittstelle, um Publikationen in einem Repository abzuliefern. Damit kann ein Formular mit Dateiupload auf einer Webseite (außerhalb der Repository-Webseite) angeboten werden.
-* Um Daten aus dem Repository auf Webseiten anzuzeigen, z.B. eine Publikationsliste, werden andere Schnittstellen wie [RSS-Feeds](https://de.wikipedia.org/wiki/RSS_(Web-Feed)) verwendet.
+* Um Daten aus dem Repository auf Webseiten anzuzeigen, z.B. eine Publikationsliste, werden andere Schnittstellen wie [RSS-Feeds](https://de.wikipedia.org/wiki/RSS_(Web-Feed)) verwendet
 
-### Übung Beispielpublikation
-- Suchen Sie sich bitte schon einmal eine Beispielpublikation aus, die Sie in unsere gemeinsame Testcollection einreichen können.
+### Übung: Massenänderung von Metadaten
+
+- https://wiki.lyrasis.org/display/DSDOC8x/Batch+Metadata+Editing
+- Exportieren Sie die Metadaten einer Collection in BAIN
+- Korrigieren sie etwas im Titel
+- Importieren sie die Metadaten und prüfen Sie die Änderung
 
 ### Literatur zu DSpace
 
-- Präsentationsfolien und Videomitschnitte der Präsentationen auf den jährlichen D/A/CH-Anwendertreffen:
-  - 2024: https://wiki.lyrasis.org/display/DSPACE/DSpace+Praxistreffen+2024 (Diese Woche 2025)
+- Präsentationsfolien und Videomitschnitte der Präsentationen auf den jährlichen D/A/CH-Anwendertreffen: https://wiki.lyrasis.org/display/DSPACE/DSpace+Praxistreffen+2025
 - Q&A zu DSpace-CRIS Entwicklung: https://docs.google.com/document/d/17HSFV6qY48yInfL4zQj1hRsWG-9dHFyGmEksNakVZ7Y/edit
 - Suchmaschinenoptimierung (SEO): [Abschnitt im Nutzerhandbuch von DSpace zu SEO](https://wiki.lyrasis.org/display/DSDOC8x/Search+Engine+Optimization)
 
@@ -184,7 +201,6 @@ Note:
 - Grundsätzliches zu Repositorien: https://open-access.network/informieren/publizieren/repositorien
 - Open Directory of Open Access Repositories (OpenDOAR): https://v2.sherpa.ac.uk/opendoar/
 a.ac.uk/view/repository_by_country/Switzerland.default.html)
-
 - Instanzen in der Schweiz: https://forschungsdaten.info/fdm-im-deutschsprachigen-raum/schweiz/rdm-infrastructure-repositories/repositories/
 
 ### Relevante Systeme in D/A/CH
@@ -197,7 +213,7 @@ a.ac.uk/view/repository_by_country/Switzerland.default.html)
   - besonders interessant, weil seit Oktober 2023 die Basis von Zenodo am CERN
 - [MyCoRe](https://www.mycore.de)
 - [OPUS](https://www.opus-repository.org)
-- Alma digital: https://knowledge.exlibrisgroup.com/Alma/Training/Alma_Digital/01_Alma_Digital%3A_Overview und bald: https://www.meetspecto.com/
+- [Alma digital](knowledge.exlibrisgroup.com/Alma/Training/Alma_Digital/01_Alma_Digital%3A_Overview): und bald: [Specto](https://www.meetspecto.com/)
     - z.B. https://www.alexandria.ch/discovery/collectionDiscovery?vid=41BIG_INST:ALEX&lang=de
 
 ![image](https://hackmd.io/_uploads/S1n0FRfnJl.png)
