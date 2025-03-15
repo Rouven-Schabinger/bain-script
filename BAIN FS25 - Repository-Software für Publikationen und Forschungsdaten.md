@@ -1,40 +1,35 @@
----
-title: BAIN FS25  - Repository-Software für Publikationen und Forschungsdaten
-
----
-
 # BAIN FS25 - Repository-Software für Publikationen und Forschungsdaten
 
 - Agenda & Recap
 
 
-## Schaubild zu Lehrinhalten
 
-![mermaid-2025-01-16-144111](https://hackmd.io/_uploads/Sk7h5c8wyl.png)
-
-
-erstellt mit [mermaid](https://mermaid-js.github.io/mermaid-live-editor)
 
 ## Open Access und Open Data
 
-- Publikationen
+* Was ist ein Repositorium? Welche kennt ihr?
+
+- **Publikationen**
   - Open Access, vgl. https://consortium.ch/
   - [Statistik zu Open-Access-Repositorien](https://web.archive.org/web/20240328063306/https://v2.sherpa.ac.uk/view/repository_visualisations/1.html )
   - Fokus: Zweitveröffentlichungen ("grüner Weg") und Hochschulschriften
-- Forschungsdaten
+  
+- **Forschungsdaten**
   - Open Data
   - Transparenz und Repoduzierbarkeit [Open Science](https://en.wikipedia.org/wiki/Open_science)
   - [Verzeichnis von Forschungsdaten-Repositorien](https://www.re3data.org)
       - Länder, Typen, Communities, Langzeitarchivierung, PID, Forschungssoftware
       - Schema: https://www.re3data.org/schema
-      - API/Jupyter Notebook: https://coref.project.re3data.org/blog/using_the_re3data_api
+      - restful API/Jupyter Notebook: https://coref.project.re3data.org/blog/using_the_re3data_api
   - Fokus: Primärdaten, die bei der Forschung entstehen. Oft Daten als Anhang zu Zeitschriftenartikeln, aber auch auch als eigenständige Publikation möglich
--
+
 
   --> wichtiges Arbeitsfeld für Infrastrukturanbieter in der Hochschullandschaft (z.B. Bibliotheken)
 
 
-- Bsp. R. Schabinger. (2023). Does size matter? Quality assessment of the size property in research data repositories [Data set]. Zenodo.  [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7643637.svg)](https://doi.org/10.5281/zenodo.7643637)
+- Bsp. Verknüpfung Forschungsdatum und Publikation:
+
+ R. Schabinger. (2023). Does size matter? Quality assessment of the size property in research data repositories [Data set]. Zenodo.  [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7643637.svg)](https://doi.org/10.5281/zenodo.7643637)
 
 ```
 "related_identifiers": [
@@ -61,7 +56,29 @@ erstellt mit [mermaid](https://mermaid-js.github.io/mermaid-live-editor)
 
 
 
-- Government Data oder OER (Open Educational Resources)
+### Übung ###
+- Suchen Sie in der GUI von re3data nach Schweizer Repositorien, welche eine restriktiven Datenupload haben und DOI unterstützen
+- Machen Sie sich mit dem Schema (2.2) vertraut, gibt es eine property zum "Umfang" des Repositoriums, wie ist sie definiert?
+- Starten Sie Ihren Github Code Space als Jupyter: https://github.com/Rouven-Schabinger/bain-re3data
+- ![image](https://hackmd.io/_uploads/r1MDDCGhJx.png)
+- Passen Sie das vorgeführte Jupyter Notebook an: https://github.com/Rouven-Schabinger/bain-re3data/blob/main/examples-python/01_re3data_API_medical_research_community.ipynb
+    - der query soll ihrere Suche in der GUI entsprechen
+    - extrahieren Sie zusätzlich noch den "Umfang" des Repositoriums
+
+
+#### Erkenntnisse / Fragen ####
+*
+
+### Forschungsinformationen
+
+- Informationen über Forschende, Drittmittelprojekte, Patente und vieles mehr.
+- Ziel ist die Forschungsberichterstattung. Um die Daten zusammenzuführen und Berichte erstellen zu können, werden oft Forschungsinformationssysteme an den Universitäten eingeführt.
+- Beispiel: ["Kerndatensatz Forschung" in Deutschland](https://kerndatensatz-forschung.de/version1/technisches_datenmodell/v_1_3/ER-Modell.html)
+- Zum Stand in der Schweiz: Ackermann Krzemnicki, Sonia and Hägele, Bernd F. (2016): Die Standardisierung von Forschungsinformationen an Schweizer universitären Hochschulen. https://edoc.unibas.ch/54788/
+
+
+
+ **Government Data** oder **OER** (Open Educational Resources)
     - https://opendata.swiss/de
     - https://oer-repository.switch.ch/edu-sharing/components/search?q=
 
@@ -71,18 +88,12 @@ Konvergenz:
   - Als Modell: https://datacite.org/blog/introducing-the-pid-graph/ DataCite
 
 
-### Forschungsinformationen
-
-- Informationen über Forschende, Drittmittelprojekte, Patente und vieles mehr.
-- Ziel ist die Forschungsberichterstattung. Um die Daten zusammenzuführen und Berichte erstellen zu können, werden oft Forschungsinformationssysteme an den Universitäten eingeführt.
-- Beispiel: ["Kerndatensatz Forschung" in Deutschland](https://kerndatensatz-forschung.de/version1/technisches_datenmodell/v_1_3/ER-Modell.html)
-- Zum Stand in der Schweiz: Ackermann Krzemnicki, Sonia and Hägele, Bernd F. (2016): Die Standardisierung von Forschungsinformationen an Schweizer universitären Hochschulen. https://edoc.unibas.ch/54788/
-
 ### Beispiele
 
 - [Zenodo](https://zenodo.org) (InvenioRDM), vgl. https://github.com/zenodo/zenodo
     - Upgrade-Probleme: https://blog.zenodo.org/2023/10/19/2023-10-19-upgrade-issues/
 - [PHSG Proforis](https://proforis.phsg.ch/home) (DSpace-CRIS)
+
 
 ## Übungen mit DSpace
 
@@ -90,7 +101,7 @@ Standardfragen IT:
 
 - Make or Buy
 - Authentifizierung (z.b Edu-ID, ORCID), Rollen und Rechte
-- https://help.switch.ch/aai/
+    - vgl. https://help.switch.ch/aai/
 
 ### Einführung in DSpace
 
@@ -166,8 +177,6 @@ Note:
 - Q&A zu DSpace-CRIS Entwicklung: https://docs.google.com/document/d/17HSFV6qY48yInfL4zQj1hRsWG-9dHFyGmEksNakVZ7Y/edit
 - Suchmaschinenoptimierung (SEO): [Abschnitt im Nutzerhandbuch von DSpace zu SEO](https://wiki.lyrasis.org/display/DSDOC8x/Search+Engine+Optimization)
 
-FYI:
--  Zweitveröffentlichungsrecht in der Schweiz: https://www.uzh.ch/blog/ub/2023/05/31/das-projekt-zweitveroeffentlichungsrecht-und-open-access-als-regulatorische-herausforderung-hintergrund-und-projektziele/
 
 
 ## Marktüberblick Repository-Software
@@ -190,9 +199,13 @@ a.ac.uk/view/repository_by_country/Switzerland.default.html)
 - [OPUS](https://www.opus-repository.org)
 - Alma digital: https://knowledge.exlibrisgroup.com/Alma/Training/Alma_Digital/01_Alma_Digital%3A_Overview und bald: https://www.meetspecto.com/
     - z.B. https://www.alexandria.ch/discovery/collectionDiscovery?vid=41BIG_INST:ALEX&lang=de
+
+![image](https://hackmd.io/_uploads/S1n0FRfnJl.png)
+
 - FHGR?
 - Wechsel: https://journal.code4lib.org/articles/17398
-## Aufgaben
+  - gerade war Code4Lib Conference: https://2025.code4lib.org/
 
-Bis zum nächsten Termin: Beitrag im Lerntagebuch zu dieser Lehreinheit 
 
+FYI:
+-  Zweitveröffentlichungsrecht in der Schweiz: https://www.uzh.ch/blog/ub/2023/05/31/das-projekt-zweitveroeffentlichungsrecht-und-open-access-als-regulatorische-herausforderung-hintergrund-und-projektziele/
