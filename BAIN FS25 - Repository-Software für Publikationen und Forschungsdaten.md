@@ -4,15 +4,30 @@
 
 
 
-
 ## Open Access und Open Data
 
-* Was ist ein Repositorium? Welche kennt ihr?
+* Was ist ein Repositorium? Welche kennen Sie?
 
 - **Publikationen**
   - Open Access, vgl. https://consortium.ch/
+
+```
+Das Konsortium der Schweizer Hochschulbibliotheken erwirbt Lizenzen
+für wissenschaftliche Ressourcen (elektronische Zeitschriften, 
+E-Books und Datenbanken). Es bietet ein breites Dienstleistungsspektrum 
+an und unterstützt die Bestrebungen nach einer nationalen 
+Open-Access-Strategie. Es trägt damit massgeblich zur 
+Sicherung der Qualität und Wettbewerbsfähigkeit des 
+Hochschul- und Forschungsplatzes Schweiz bei. 
+Die Geschäftsstelle des Konsortiums wird von SLSP geführt.
+```
   - [Statistik zu Open-Access-Repositorien](https://web.archive.org/web/20240328063306/https://v2.sherpa.ac.uk/view/repository_visualisations/1.html )
+  - früher Vertreter:arXiv-Server für Physik-Preprints : https://arxiv.org/
   - Fokus: Zweitveröffentlichungen ("grüner Weg") und Hochschulschriften
+
+FYI:
+-  Zweitveröffentlichungsrecht in der Schweiz: https://www.uzh.ch/blog/ub/2023/05/31/das-projekt-zweitveroeffentlichungsrecht-und-open-access-als-regulatorische-herausforderung-hintergrund-und-projektziele/
+
   
 - **Forschungsdaten**
   - Open Data
@@ -109,7 +124,7 @@ Standardfragen IT:
 
 - Software geeignet für Publikationen und Forschungsdaten, Features: https://dspace.org/features/
 - Erweiterung für Forschungsinformationen: DSpace-CRIS
-- Metadatenstandard: Qualified Dublin Core, kann aber auch mit [DataCite](https://schema.datacite.org/) Metadatenschema betrieben werden.
+- Metadatenstandard: Qualified Dublin Core, kann aber auch mit [DataCite](https://schema.datacite.org/) (Exkurs?) Metadatenschema betrieben werden.
 - DSpace 6: 2016 erstmalig veröffentlicht , wird nicht mehr weiterentwickelt und der [Support endete am 1.7.2023](https://wiki.lyrasis.org/display/DSPACE/Support+for+DSpace+5+and+6+is+ending+in+2023)
 - DSpace 7: im August 2021 veröffentlicht, neue Technologien im Frontend (Angular) und Backend (neue REST API)
 - DSpace 8: Juni 2024: generelle Verbesserungen
@@ -141,6 +156,8 @@ Wird laufend aktualisiert
 
 ### Übung: Communities und Collections
 
+Machen Sie sich mit der graphischen Oberfläche vertraut.
+
 - Aufgabe 1: Erstellen Sie eine Community (Bereich), erstellen Sie eine Rolle und fügen Sie Berechtigungen für den "Community Administrator" hinzu. 
   - Login: `dspacedemo+admin@gmail.com`
   - Passwort: `dspace`
@@ -156,7 +173,7 @@ Hinweise:
 - Der Grund, warum es zusätzlich zu Collections auch noch Communities gibt, ist das Rechtemanagement. In der Community wird festgelegt wer die (ggf. mehrere zugehörige) Collections verwalten darf. Das möchte man nur an einer Stelle und nicht an jeder Collection definieren. Außerdem können ganze Communities "geharvestet" werden, also Daten einer Einrichtung über die Schnittstellen abgefragt werden.
 
 ### Fragen / Erkenntnisse
-
+* 
 
 ### Einreichung und Review
 
@@ -219,9 +236,22 @@ a.ac.uk/view/repository_by_country/Switzerland.default.html)
 ![image](https://hackmd.io/_uploads/S1n0FRfnJl.png)
 
 - FHGR?
-- Wechsel: https://journal.code4lib.org/articles/17398
+- Wechsel eines Repositoriums: https://journal.code4lib.org/articles/17398
   - gerade war Code4Lib Conference: https://2025.code4lib.org/
 
 
-FYI:
--  Zweitveröffentlichungsrecht in der Schweiz: https://www.uzh.ch/blog/ub/2023/05/31/das-projekt-zweitveroeffentlichungsrecht-und-open-access-als-regulatorische-herausforderung-hintergrund-und-projektziele/
+### Langzeitarchivierung
+
+Für digitale Langzeitarchivierung (digtal preservation, digital asset management) oft noch zusätzliche Systeme im Einsatz, z.B:
+* Rosetta (proprietär)
+* Archivematica (open source)
+* Preservica (proprietär)
+
+Zusätzliche Funktionen können sein: Formatmigration, Integritätsprüfungen, Erhaltungsplanung
+
+auch: Anbindung an Speicherung auf Magnetband (Bps. [bwDataArchiv ](https://www.rda.kit.edu/speichern.php)) möglich
+
+* Modell: https://en.wikipedia.org/wiki/Open_Archival_Information_System
+* Konferenz der community: https://www.ipres2025.nz/
+* Zertifizierung: https://www.coretrustseal.org/
+
