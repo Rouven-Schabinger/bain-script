@@ -1,8 +1,3 @@
----
-title: BAIN FS25 - Metadaten modellieren und Schnittstellen nutzen | Openrefine
-
----
-
 # BAIN FS25 - Metadaten modellieren und Schnittstellen nutzen | Openrefine
 
 
@@ -46,6 +41,7 @@ https://openrefine.org/blog/2024/12/20/2024-survey-results
 * Vereinheitlichung und Bereinigung (zur Datenqualität in der Praxis siehe Präsentation von Peter Király ["Validating 126 million MARC records"](https://docs.google.com/presentation/d/e/2PACX-1vRU4J_rln00UVD7pNPT0_02NOad0HfSk_UKqRI0v29y8QkMAplEDlyjc0Ot_VE_paV6WBW29Fh_V-iN/pub))
 * Abgleich mit Normdaten ("Reconciliation") in Wikidata, GND und VIAF
 * Für lokalen Einsatz ausgelegt (Installation auf Webservern und Automatisierung möglich, aber nur mit Zusatzsoftware)
+* [AI Extension for OpenRefine](https://github.com/sunilnatraj/llm-extension/releases/ )
 
 #### Historie
 
@@ -63,10 +59,9 @@ https://github.com/Rouven-Schabinger/bain-openrefine
 
 siehe ReadMe
 
-### Übung Library Carpentry Lesson
+### Grundfunktionen
 
 * Wir gehen nun ein paar Basisfunktionen gemeinsam durch, damit Sie einen Eindruck von der Software erhalten.
-* Bei Interesse können Sie die [Lehrmaterialien von Library Carpentry zu OpenRefine](https://librarycarpentry.org/lc-open-refine/) (ca. 4 Stunden) zur Vertiefung durchgehen.
 * Später im Kurs werden wir OpenRefine nutzen, um weitere Daten in MARCXML zu konvertieren.
 
 #### Beispieldaten laden
@@ -83,7 +78,7 @@ siehe ReadMe
 3. Spalte Authors > Edit cells > Cluster and edit...
 4. Spalte Authors > Edit cells > Join multi-valued cells... > Separator: |
 
-#### Kleine Fingerübungen
+#### Vorführung von Basisfunktionen
 
 1. Spalte Licence > Facet > Text facet
     * Was ist die am häufigsten vergebene Lizenz
@@ -92,9 +87,16 @@ siehe ReadMe
     * Warum erscheint MDPI AG zweimal?
     * Wie lässt sich das korrigieren?
 
+### Übung
+* Lesen und bearbeiten Sie die Lektionen welche die Inhalte widergeben, welche ich oben gezeigt habe  [Lehrmaterialien von Library Carpentry zu OpenRefine](https://librarycarpentry.org/lc-open-refine/)
+* Optional, schauen Sie sich die anderen Inhalte an
 
 
-### Vorführung Reconciliation
+#### Fragen / Ergebnisse
+
+### Erweiterte Funktionen
+
+#### Vorführung Reconciliation
 
 * Ziel: Über die ISSN Informationen zur Zeitschrift ergänzen
 * Spalte Citation > Edit column > Add column based on this column...
@@ -108,11 +110,15 @@ siehe ReadMe
   * official website (P856)
   * configure: Limit auf 1 setzen
 
+
+
 ### Beispiel für weitere Datenquelle: lobid-gnd
 
-Webseite: [lobid-gnd](https://lobid.org/gnd)
+* Webseite: [lobid-gnd](https://lobid.org/gnd)
 
-Adresse für Eintrag in OpenRefine: https://lobid.org/gnd/reconcile/
+* Folien: [Abgleich & Anreicherung eigener Daten mit der GND](https://slides.lobid.org/2021-kim-reconcile/2021-kim-reconcile.pdf)
+
+* Adresse für Eintrag in OpenRefine: https://lobid.org/gnd/reconcile/
 
 Beispieldaten Schriftsteller\*innen:
 
@@ -130,8 +136,30 @@ Karl Wolfskehl,1869
 Luise Rinser,30. April 1911
 ```
 
+* Kürzen auf 4 stelliges Jahr mit find: https://openrefine.org/docs/manual/grelfunctions#basic-string-modification
+und RegEx, Bsp.
+```
+Hello123
+World456
+Test789
 
-### Übung: CSV nach MARCXML mit OpenRefine
+value.find(/[A-Za-z]+/)[0]
+
+"Hello123" → "Hello"
+"World456" → "World"
+"Test789" → "Test"
+```
+
+* Test des RegEx /[A-Za-z]+/ via https://regex101.com/
+* Cheat-Sheet: https://www.rexegg.com/regex-quickstart.php
+### Übung
+ 1. Datensatz (articles): Fügen Sie auch für Journals via ISSN eine Reconciliation (Wikidata) durch und ergänzen sie z.B. das Erscheinungsland
+ 2. Datenstatz (autoren): transformieren Sie das Gebertsjahr und führen Sie dann eine Reconciliation (lobid)  durch und ergänzen sie z.B. das Geburtsland
+
+
+#### Fragen / Ergebnisse
+
+### CSV nach MARCXML mit OpenRefine
 
 * Wir nutzen die Funktion [Templating Exporter](https://docs.openrefine.org/manual/exporting#templating-exporter). Diese findet sich oben rechts im Menü Export > Templating
 * Beschreibung des MARC21 Formats für bibliografische Daten mit Liste der Felder: <https://www.loc.gov/marc/bibliographic/>
@@ -186,8 +214,8 @@ Note:
 #### Aufgabe 1: "Reverse Engineering"
 
 * Beschreiben Sie anhand des Vergleichs der Ausgangsdaten mit dem Ergebnis mit ihren eigenen Worten welche Transformationen für die jeweiligen Felder durchgeführt wurden.
-* Versuchen Sie die Aufgabe in der Gruppenarbeit zunächst einzeln zu lösen (10 min) und diskutieren Sie dann in der Gruppe.
-* Dokumentieren Sie abschließend bitte hier das Gruppenergebnis.
+* Versuchen Sie die Aufgabe in der Gruppenarbeit zunächst einzeln zu lösen  und diskutieren Sie dann in der Gruppe.
+* Dokumentieren Sie abschliessend bitte hier das Gruppenergebnis.
 
 #### Fragen / Ergebnisse
 
@@ -222,8 +250,14 @@ forNonBlank(
 
 * Wir exportieren das Gesamtergebnis als XML-Datei.
   * Tipp: Firefox speichert Datei im Downloads-Ordner als .txt. Ordner Downloads aufrufen und Ende umbenennen in .xml
-* Für die Validierung können Sie den Webservice https://www.softwarebytes.org/xmlvalidation/ nutzen.
+* Für die Validierung können Sie den Webservice https://www.softwarebytes.org/xmlvalidation/ (Registrierung) oder https://www.freeformatter.com/xml-validator-xsd.html nutzen.
 * Das offizielle XSD-Schema der Library of Congress ist unter folgender Adresse erreichbar: https://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd
+
+#### (Optional) Aufgabe 4: Einsatzszenarien
+
+* Überlegen Sie Einsatzszenarien von OpenRefine in Ihrer Einreichtung / Ihrer Berufspraxis und Skizzieren Sie einen workflow (Schritte wie sie in der OpenRefine History auftauchen würden)
+oder
+* Suchen Sie online nach OpenRefine-Realisierungen im Bibliotheks- oder Archivbereich
 
 #### Fragen / Ergebnisse
 
@@ -233,7 +267,5 @@ forNonBlank(
 
 * Weitere Optionen für den Export in MARCXML finden Sie im OpenRefine Wiki: https://github.com/OpenRefine/OpenRefine/wiki/Export-as-MARCXML
 
+*  Data Cleaning in OpenRefine (Library Skills Week 2021): https://www.youtube.com/watch?v=RhaDVmLT-Ck
 
-## Aufgaben
-
-* Beitrag zur Lehreinheit OpenRefine (3000-4000 Zeichen)
