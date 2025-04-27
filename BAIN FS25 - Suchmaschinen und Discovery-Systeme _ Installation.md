@@ -1,9 +1,4 @@
----
-title: BAIN FS25 - Suchmaschinen und Discovery-Systeme | Installation
-
----
-
-# BAIN FS25 - Suchmaschinen und Discovery-Systeme | Installation
+# BAIN FS25 - Suchmaschinen und Discovery-Systeme I
 
 
 
@@ -15,7 +10,9 @@ title: BAIN FS25 - Suchmaschinen und Discovery-Systeme | Installation
 
 ## Testserver für heute
 
+(Apache: http://X.X.X.X)
 VuFind: http://X.X.X.X/vufind/
+Vufind Admin: http://X.X.X.X/vufind/Install/Home
 Solr: http://X.X.X.X:8983/solr/
 
 ## Installation und Konfiguration von VuFind
@@ -24,18 +21,34 @@ Solr: http://X.X.X.X:8983/solr/
 * VuFind Code bei GitHub: https://github.com/vufind-org/vufind
 * Deutsche VuFind Anwendergemeinschaft: https://vufind.de mit Anwendertreffen
 * VuFind-Installationen weltweit: https://vufind.org/wiki/community:installations
-  * Beispiel TU Hamburg: https://katalog.tub.tuhh.de
   * Beispiel UB Leipzig: https://katalog.ub.uni-leipzig.de
+  * Beispiel Nationalbibliothek Finnland: https://finna.fi/?lng=en-gb
+  * Beispiel Gemeinsame Verbündeindex [GVI](https://www.agv-gvi.de/ueber-den-gvi/): https://fernleihe.boss.bsz-bw.de/Search/Results?lookfor=test&type=AllFields&hiddenFilters%5B%5D=-consortium%3AFL
+
+**Komponenten**
+https://vufind.org/wiki/installation:notes#components
+* Webserver Apache
+* Suchmaschine Solr
+* Webprogrammiersprache PHP (Laminas Framework)
+* MySQL Datenbank
+* (angedocktes Informationssystem, also z.B. Bibliothekssystem)
+
+
 
 ### Installation VuFind 10.1.1
 
+Virtuelle Maschine bei einem Cloudhoster.
+
+*Bzgl. **SSH-Authentifizierung** auf dem Server: Siehe Kapitel VIII Kryptografie in Praxishandbuch IT-Grundlagen für Bibliothekare*
+
 Installation nach offizieller Anleitung für VuFind unter Ubuntu: https://vufind.org/wiki/installation:ubuntu
+
 
 Es folgen die relevanten Auszüge und Hinweise/Erklärungen dazu.
 
 #### Version Requirements
 
-> These instructions were most recently tested on Uubntu 24.04 LTS (...)
+> These instructions were most recently tested on Ubuntu 24.04 LTS (...)
 
 
 #### Installing VuFind from the DEB Package
@@ -136,7 +149,7 @@ Die meisten Punkte können ohne weitere Angaben "gefixt" werden. Nur die beiden 
 
 #### Configuring and starting VuFind / Auto-Configuration / Database
 
-Bei der Datenbank muss ein neues Passwort vergeben sowie das zuvor oben im Abschnitt "MariaDB Passwort für root" eingegeben werden.
+Bei der Datenbank muss ein neues Passwort vergeben sowie das zuvor oben im Abschnitt "MariaDB Passwort für root" eingegeben werden (bei mir leer).
 
 #### Configuring and starting VuFind / Auto-Configuration / ILS
 
@@ -150,7 +163,7 @@ sudo sed -i 's/mode = ils-offline/mode = ils-none/' /usr/local/vufind/local/conf
 
 #### Weitere Sicherheitseinstellungen
 
-* Die in den Abschnitten [Locking Down Configurations](https://vufind.org/wiki/installation:ubuntu#locking_down_configurations) und [4. Secure your system](https://vufind.org/wiki/installation:ubuntu#secure_your_system) beschriebenen Einstellungen benötigen wir für unsere Testinstallation nicht.
+* Die in den Abschnitten [Locking Down Configurations](https://vufind.org/wiki/installation:ubuntu#locking_down_configurations) und [4. Secure your system](https://vufind.org/wiki/installation:ubuntu#secure_your_system_and_prepare_for_production) beschriebenen Einstellungen benötigen wir für unsere Testinstallation nicht.
 
 ### Testimport
 
@@ -165,24 +178,22 @@ sudo sed -i 's/mode = ils-offline/mode = ils-none/' /usr/local/vufind/local/conf
 
 * Anschliessend sollten in der Suchoberfläche unter http://X.X.X.X/vufind ca. 250 Datensätze enthalten sein.
 
-## Funktion von Suchmaschinen am Beispiel von Solr
 
-* Zur Einordnung von Solr
-* Sichtung von Solr in VuFind
+## Funktion von Suchmaschinen am Beispiel von Solr
 
 ### Zur Einordnung von Solr
 
 * Solr ist zusammen mit Elasticsearch quasi "Industriestandard".
 * Üblicherweise sollte vor dem Import der Daten in einem Schema festgelegt werden welche Felder existieren und welche Datentypen diese beinhalten dürfen.
 * Solr hat zwar eine integrierte Suchoberfläche, aber diese ist nur zu Demo-Zwecken gedacht.
-* Das Discovery-System VuFind basiert auf Solr (ebenso wie viele kommerzielle Lösungen wie z.B. Ex Libris Primo).
+* Das Discovery-System VuFind basiert auf Solr (ebenso wie viele kommerzielle Lösungen wie z.B. Primo VE).
 
 ### Suchindex (Solr) oder Datenbank (MySQL)?
 
 | Solr                     | MySQL                   |
 | ------------------------ | ----------------------- |
 | flache Dokumente         | relationale Datensätze  |
-| lexikalische Suche       | reiner Glyphenvergleich |
+| lexikalische Suche       | reiner Zeichenvergleich |
 | keine Konsistenzprüfung  | Transaktionssicherheit  |
 | statische Daten          | veränderliche Daten     |
 | -> **Retrieval** (Suche) | -> **Storage** (CRUD)   |
@@ -203,22 +214,36 @@ sudo sed -i 's/mode = ils-offline/mode = ils-none/' /usr/local/vufind/local/conf
 ### Sichtung von Solr in VuFind
 
 * Administrationsoberfläche: http://X.X.X.X:8983/solr/
-* Bibliografische Daten im Index "biblio": http://X.X.X.X:8983/solr/#/biblio
-* Technische Suchoberfläche in Solr für Index "biblio": http://X.X.X.X:8983/solr/#/biblio/query
-* Schema des Index "biblio": http://X.X.X.X:8983/solr/#/biblio/schema>
-  * Erläuterung der VuFind-Felder in VuFind Doku: <https://vufind.org/wiki/development:architecture:solr_index_schema>
+* Bibliografische Daten im Index "biblio" links
+    * Files > stopwords
+    * Technische Suchoberfläche > query
+    * Schema des Index > schema
+  * Erläuterung der VuFind-Felder in 
 
 ### Übung: Suche in VuFind vs. Suche in Solr
 
 * Suchen in VuFind: http://X.X.X.X/vufind
   * Beispielsweise nach `psychology`
-* Suchen in Admin-Oberfläche von Solr: http://X.X.X.X.65:8983/solr/#/biblio/query
+* Suchen in Admin-Oberfläche von Solr: http://X.X.X.X.X:8983/solr/#/biblio/query
   * im Feld q mit Feldname:Suchbegriff. Beispiel: `allfields:psychology`
   * unten links Button "Execute Query"
+* Probieren sie verschiedene Einstellungen und Suchen aus, vgl: [Dokumentation Solr](https://solr.apache.org/guide/7_0/common-query-parameters.html) und [VuFind Felder](https://vufind.org/wiki/development:architecture:solr_index_schema)
 * Notieren Sie Unterschiede und Auffälligkeiten im gemeinsamen Dokument
 
+
+#### Gruppe 1: 
+*
+#### Gruppe 2: 
+*
+#### Gruppe 3: 
+*
+#### Gruppe 4: 
+*
+
+#### Sonstiges
+
 Note:
-- Logdatei von Solr anschauen im Terminal
+- Logdatei von Solr anschauen im Terminal (hier sind side Queries gespeichert)
 
 ```shell
 less +F /usr/local/vufind/solr/vufind/logs/solr.log
@@ -229,9 +254,42 @@ Beispiel für einen Logeintrag bei einer leeren Suche:
 2023-05-16 15:47:47.236 INFO  (qtp762074108-39) [ x:biblio] o.a.s.c.S.Request webapp=/solr path=/select params={mm=0%25&facet.field=topic_facet&facet.field=institution&facet.field=building&facet.field=format&facet.field=callnumber-first&facet.field=author_facet&facet.field=language&facet.field=genre_facet&facet.field=era_facet&facet.field=geographic_facet&facet.field=publishDate&spellcheck.dictionary=default&qt=edismax&hl=true&json.nl=arrarr&fl=*&start=0&sort=score+desc,id+asc&rows=20&hl.simple.pre={{{{START_HILITE}}}}&facet.limit=30&q=*:*&spellcheck.q=&hl.simple.post={{{{END_HILITE}}}}&spellcheck=true&qf=title_short^750+title_full_unstemmed^600+title_full^400+title^500+title_alt^200+title_new^100+series^50+series2^30+author^300+contents^10+topic_unstemmed^550+topic^500+geographic^300+genre^300+allfields_unstemmed^10+fulltext_unstemmed^10+allfields+fulltext+description+isbn+issn+long_lat_display&facet.mincount=1&hl.fl=title_short,title_full_unstemmed,title_full,title,title_alt,title_new,series,series2,author,contents,topic_unstemmed,topic,geographic,genre,allfields_unstemmed,fulltext_unstemmed,allfields,fulltext,description,isbn,issn,long_lat_display&facet=true&wt=json&facet.sort=count} hits=250 status=0 QTime=5
 ```
 
-#### Gruppe 1: 
 
+### Exkurs: Ranking-Kriterien 
+* Grad der Übereinstimmung zwischen Suchanfrage und Informationen in Datensatz (tf-idf-Bewertungsmodell)​
+    * Term Frequency (ein Dokument im Korpus) * Inverse Document Frequency (alle Dokument im Korpus): https://en.wikipedia.org/wiki/Tf%E2%80%93idf#Motivations
+* Wissenschaftliche Bedeutung einer Ressource (z.B. Publikation in peer-reviewed Journal)​
+* Relevanz einer Ressource hinsichtlich des Typs der Suchanfrage (z.B. known-item search oder broad-topic search)​
+* Erscheinungsdatum einer Ressource​
 
+Frage: Unbehagen bezüglich der Sortierung der Treffer?
+
+Ranking [Primo VE ](https://knowledge.exlibrisgroup.com/Primo/Product_Documentation/020Primo_VE/Primo_VE_(English)/040Search_Configurations/Configuring_the_Ranking_of_Search_Results_in_Primo_VE)
+ ![image](https://hackmd.io/_uploads/SyEIrji1xx.png)
+
+### Exkurs: Deduplication and FRBR
+#### Dedup
+*    Eliminieren von redundanten Daten​​
+
+* Abgleich von Duplikaten basiert in Primo auf der Erstellung eines Dedup-Vektors für jeden Datensatz​​
+
+* Die Vektoren enthalten sogenannte Keys, die den Datensatz identifizieren​​
+
+* Berücksichtigte Felder: Bsp. Titel, Urheberangaben, Identifier ​
+
+* Übereinstimmung  ---> In UI: Anzeige als ein einziger Datensatz 
+
+#### Functional Requirements for Bibliographic Records
+
+* Gruppierung von Dokumenten​
+
+* Verfahren wie bei Dedup, aber Keys basieren nur auf Titel- und Urheberinformationen​
+
+* keine Übereinstimmung –> Einzelrecord​
+
+* Match --> Zuweisung zu FRBR-Gruppe
+
+​​
 
 ### Literatur
 
