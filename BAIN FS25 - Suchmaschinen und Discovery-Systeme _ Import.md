@@ -254,6 +254,43 @@ Beispiel für einen Logeintrag bei einer leeren Suche:
 2023-05-16 15:47:47.236 INFO  (qtp762074108-39) [ x:biblio] o.a.s.c.S.Request webapp=/solr path=/select params={mm=0%25&facet.field=topic_facet&facet.field=institution&facet.field=building&facet.field=format&facet.field=callnumber-first&facet.field=author_facet&facet.field=language&facet.field=genre_facet&facet.field=era_facet&facet.field=geographic_facet&facet.field=publishDate&spellcheck.dictionary=default&qt=edismax&hl=true&json.nl=arrarr&fl=*&start=0&sort=score+desc,id+asc&rows=20&hl.simple.pre={{{{START_HILITE}}}}&facet.limit=30&q=*:*&spellcheck.q=&hl.simple.post={{{{END_HILITE}}}}&spellcheck=true&qf=title_short^750+title_full_unstemmed^600+title_full^400+title^500+title_alt^200+title_new^100+series^50+series2^30+author^300+contents^10+topic_unstemmed^550+topic^500+geographic^300+genre^300+allfields_unstemmed^10+fulltext_unstemmed^10+allfields+fulltext+description+isbn+issn+long_lat_display&facet.mincount=1&hl.fl=title_short,title_full_unstemmed,title_full,title,title_alt,title_new,series,series2,author,contents,topic_unstemmed,topic,geographic,genre,allfields_unstemmed,fulltext_unstemmed,allfields,fulltext,description,isbn,issn,long_lat_display&facet=true&wt=json&facet.sort=count} hits=250 status=0 QTime=5
 ```
 
+
+### Exkurs: Ranking-Kriterien 
+* Grad der Übereinstimmung zwischen Suchanfrage und Informationen in Datensatz (tf-idf-Bewertungsmodell)​
+    * Term Frequency (ein Dokument im Korpus) * Inverse Document Frequency (alle Dokument im Korpus): https://en.wikipedia.org/wiki/Tf%E2%80%93idf#Motivations
+* Wissenschaftliche Bedeutung einer Ressource (z.B. Publikation in peer-reviewed Journal)​
+* Relevanz einer Ressource hinsichtlich des Typs der Suchanfrage (z.B. known-item search oder broad-topic search)​
+* Erscheinungsdatum einer Ressource​
+
+Frage: Unbehagen bezüglich der Sortierung der Treffer?
+
+Ranking [Primo VE ](https://knowledge.exlibrisgroup.com/Primo/Product_Documentation/020Primo_VE/Primo_VE_(English)/040Search_Configurations/Configuring_the_Ranking_of_Search_Results_in_Primo_VE)
+ ![image](https://hackmd.io/_uploads/SyEIrji1xx.png)
+
+### Exkurs: Deduplication and FRBR
+#### Dedup
+*    Eliminieren von redundanten Daten​​
+
+* Abgleich von Duplikaten basiert in Primo auf der Erstellung eines Dedup-Vektors für jeden Datensatz​​
+
+* Die Vektoren enthalten sogenannte Keys, die den Datensatz identifizieren​​
+
+* Berücksichtigte Felder: Bsp. Titel, Urheberangaben, Identifier ​
+
+* Übereinstimmung  ---> In UI: Anzeige als ein einziger Datensatz 
+
+#### Functional Requirements for Bibliographic Records
+
+* Gruppierung von Dokumenten​
+
+* Verfahren wie bei Dedup, aber Keys basieren nur auf Titel- und Urheberinformationen​
+
+* keine Übereinstimmung –> Einzelrecord​
+
+* Match --> Zuweisung zu FRBR-Gruppe
+
+​​
+
 ### Literatur
 
 * Das offizielle Handbuch zu Solr beinhaltet ein gutes Tutorial (ca. 2 Stunden): <https://solr.apache.org/guide/solr/latest/getting-started/solr-tutorial.html>
