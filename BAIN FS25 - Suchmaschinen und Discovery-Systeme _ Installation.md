@@ -1,19 +1,14 @@
 # BAIN FS25 - Suchmaschinen und Discovery-Systeme I
 
+* wir machen aktiv Vufind und vergleichen manchmal mit Primo VE
 
-
-## Agenda
-
-* Suchmaschinen und Discovery-Systeme Teil 1
-  * Vorführung VuFind/Solr-Installation
-  * Übung Suche in VuFind vs. Suche in Solr
 
 ## Testserver für heute
 
-(Apache: http://X.X.X.X)
-VuFind: http://X.X.X.X/vufind/
-Vufind Admin: http://X.X.X.X/vufind/Install/Home
-Solr: http://X.X.X.X:8983/solr/
+* (Apache: http://X.X.X.X)
+* VuFind: http://X.X.X.X/vufind/
+* Vufind Admin: http://X.X.X.X/vufind/Install/Home
+* Solr: http://X.X.X.X:8983/solr/
 
 ## Installation und Konfiguration von VuFind
 
@@ -218,7 +213,7 @@ sudo sed -i 's/mode = ils-offline/mode = ils-none/' /usr/local/vufind/local/conf
     * Files > stopwords
     * Technische Suchoberfläche > query
     * Schema des Index > schema
-  * Erläuterung der VuFind-Felder in 
+  * Erläuterung der VuFind-Felder in VuFind Doku: https://vufind.org/wiki/development:architecture:solr_index_schema
 
 ### Übung: Suche in VuFind vs. Suche in Solr
 
@@ -267,7 +262,7 @@ Frage: Unbehagen bezüglich der Sortierung der Treffer?
 Ranking [Primo VE ](https://knowledge.exlibrisgroup.com/Primo/Product_Documentation/020Primo_VE/Primo_VE_(English)/040Search_Configurations/Configuring_the_Ranking_of_Search_Results_in_Primo_VE)
  ![image](https://hackmd.io/_uploads/SyEIrji1xx.png)
 
-### Exkurs: Deduplication and FRBR
+### Exkurs: Deduplication and FRBR in Primo VE
 #### Dedup
 *    Eliminieren von redundanten Daten​​
 
@@ -279,6 +274,9 @@ Ranking [Primo VE ](https://knowledge.exlibrisgroup.com/Primo/Product_Documentat
 
 * Übereinstimmung  ---> In UI: Anzeige als ein einziger Datensatz 
 
+Bsp: https://slsp-ubs-psb.primo.exlibrisgroup.com/discovery/search?query=any,contains,adam%20bockenfield%20glossae&tab=UBS&search_scope=UBS&vid=41SLSP_UBS:Test_IAG&lang=en&offset=0&mfacet=tlevel,include,available_p,1,lk&mfacet=tlevel,include,online_resources,1,lk
+
+(dedup an, FRBR an)
 #### Functional Requirements for Bibliographic Records
 
 * Gruppierung von Dokumenten​
@@ -289,7 +287,17 @@ Ranking [Primo VE ](https://knowledge.exlibrisgroup.com/Primo/Product_Documentat
 
 * Match --> Zuweisung zu FRBR-Gruppe
 
+Bsp.: https://ubs.swisscovery.slsp.ch/discovery/search?query=any,contains,adam%20bockenfield%20glossae&tab=UBS&search_scope=UBS&vid=41SLSP_UBS:live&lang=en&offset=0&mfacet=tlevel,include,available_p,1,lk&mfacet=tlevel,include,online_resources,1,lk
+
+(dedup aus, FRBR an)
+
+
 ​​
+
+**Übung**:
+Was sind Vor- und Nachteile wenn FRBR an ist?
+(z.B. [Zauberflöte](https://swisscovery.slsp.ch/discovery/search?query=any,contains,zauberfl%C3%B6te&tab=41SLSP_NETWORK&search_scope=DN_and_CI&vid=41SLSP_NETWORK:VU1_UNION&offset=0))
+
 
 ### Literatur
 
