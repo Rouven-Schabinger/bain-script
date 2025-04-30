@@ -7,7 +7,7 @@
 * Vorgaben in der Semesterinformation in Moodle
 * Fragen zu Form oder Bewertungskriterien?
   * im Diskussion-Forum oder per E-Mail
-* Abgabe am 04. Juli per E-Mail an rouven.schabinger@fhgr.ch
+* Abgabe der Datei am 04. Juli 23:59 Uhr per E-Mail an rouven.schabinger@fhgr.ch
 
 ## Gruppenarbeit Datenintegration
 
@@ -137,6 +137,42 @@ Gruppe 3:
 * ...
 
 **Videos**: https://www.youtube.com/watch?v=XVSktvVM4d0&list=PL5_8_wT3JpgE5rv38PwE2ulKlgzBY389y
+
+
+## Primo VE Anzeige
+Volltitelanzeige: in swisscovery festgelegter SLSP-Standard​
+
+Anzeige-Felder (Out of the box „Display Fields“) und personalisierte Anzeige-Felder („Local Fields“)​
+
+* OTB Mapping der Dublin Core MARC21-Felder in die Anzeige-Felder: [Mapping to the Display, Facets, and Search Sections in the Primo VE Record](https://knowledge.exlibrisgroup.com/Primo/Product_Documentation/020Primo_VE/Primo_VE_(English)/120Other_Configurations/Mapping_to_the_Display%2C_Facets%2C_and_Search_Sections_in_the_Primo_VE_Record)
+
+* Angepasstes Mapping via “Local Fields”, z.B. für die 5XX-er-Felder ​
+* Ziel: Transformation der Quelldaten ins Zielformat «PNX» (Primo Normalized XML)
+
+* Informationen sind über das PNX zu sehen, siehe Bsp. Hinzufügen von &showPnx=true in der URL
+
+Bsp.:
+
+* Dublin Core: https://zhdk.swisscovery.org/discovery/sourceRecord?vid=41SLSP_ZHK:ZHDK&docId=alma99123942763105512&recordOwner=41SLSP_ZHK
+* PNX: https://zhdk.swisscovery.org/discovery/fulldisplay?docid=alma99123942763105512&context=L&vid=41SLSP_ZHK:ZHDK&lang=de&search_scope=DN_and_CI&adaptor=Local%20Search%20Engine&tab=41SLSP_ZHK_DN_CI&query=any,contains,safavid%20heritage%20occasion&offset=0&showPnx=true
+* Nutzeransicht: https://zhdk.swisscovery.org/permalink/41SLSP_ZHK/1ub1o07/alma99123942763105512
+
+## Exkurs Browser Developer Tools ##
+
+Die Browser Developer Tools sind Werkzeuge in modernen Webbrowsern, die Entwicklern helfen, Webseiten zu analysieren und zu optimieren. 
+Hauptfunktionen_
+
+* Element-Inspektor: Untersucht und bearbeitet HTML und CSS direkt im Browser.
+* Konsole: Debuggt JavaScript und führt Befehle aus.
+* Netzwerk-Analyse: Überwacht die Ladezeiten und Fehler von Ressourcen.
+* Performance-Analyse: Analysiert die Ladegeschwindigkeit der Webseite.
+* Speicher-Analyse: Überwacht den Speicherverbrauch und identifiziert Lecks.
+
+**Übung [optional]**
+* versuchen Sie live mit den developer tools im Browser die Quelldaten auszublenden:
+ ![image](https://hackmd.io/_uploads/S1bEQDJgel.png)
+* `<span translate="fulldisplay.sourcerecord">Quelldaten</span>`
+* Suchen Sie im Internet nach einer Lösung
 
 
 ## Marktüberblick Discovery-Systeme
