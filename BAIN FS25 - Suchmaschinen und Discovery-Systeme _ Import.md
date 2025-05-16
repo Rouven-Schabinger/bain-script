@@ -2,12 +2,7 @@
 
 
 
-## Lerntagebücher
 
-* Vorgaben in der Semesterinformation in Moodle
-* Fragen zu Form oder Bewertungskriterien?
-  * im Diskussion-Forum oder per E-Mail
-* Abgabe der Datei am 04. Juli 23:59 Uhr per E-Mail an rouven.schabinger@fhgr.ch
 
 ## Gruppenarbeit Datenintegration
 
@@ -188,9 +183,21 @@ Hauptfunktionen_
 
 ### Systeme International (kommerziell)
 
-* Jährlicher Library Systems Report von Marshall Breeding im ALA Magazine: <https://americanlibrariesmagazine.org/2024/05/01/2024-library-systems-report/>
+* Jährlicher Library Systems Report von Marshall Breeding im ALA Magazine: <https://americanlibrariesmagazine.org/2025/05/01/2025-library-systems-report/>
     * [Suche auf librarytechnology.org](https://librarytechnology.org/products/main.pl) vermittelt guten Überblick
     * siehe auch [Statistik der Verkaufszahlen](https://librarytechnology.org/products/sales/)
+
+#### Übung
+* Identifizieren und analysieren Sie die wichtigsten Trends auf dem Markt für Bibliothekstechnologie mit Fokus auf Discovery, wie sie im Bericht beschrieben sind. Diskutieren Sie, wie sich diese Trends auf die Zukunft der Bibliotheksdienste auswirken könnten.
+
+*Leitfragen:
+Was sind die wichtigsten Trends in der Bibliothekstechnologie?
+Wie wirken sich diese Trends auf verschiedene Arten von Bibliotheken (öffentliche, akademische, Schul-, Spezialbibliotheken) aus?
+Was sind die potenziellen Vorteile und Herausforderungen dieser Trends?*
+* ist der Report allgemeingültig oder fehlt etwas?
+
+###  --------
+
 * Marktführer ist Ex Libris mit [Primo / VE] und dem Central Discovery Index (CDI): https://exlibrisgroup.com/products/primo-discovery-service/content-index/
     * Alternative: OCLC mit [WorldCat Discovery](https://www.oclc.org/de/worldcat-discovery.html), z.B. https://ufz.on.worldcat.org/discovery
     * Alternative: EBSCO mit [EDS](https://www.ebsco.com/de-de/wissenschaftliche-bibliotheken/produkte/ebsco-discovery-service), z.B: https://katalog.ub.uni-freiburg.de/opac
@@ -240,6 +247,8 @@ werden geharvested (OAI) und normalisiert
     * Zentral auf Netzwerk-Ebene​
     * Bei UI-Customization mehrere Modelle: Zentrales Package oder nicht: https://github.com/Swiss-Library-Service-Platform/central-customization-package
 
+Zukunft: https://knowledge.exlibrisgroup.com/Primo/Product_Materials/001_Next_Discovery_Experience_(NDE)/Next_Discovery_Experience_User_Interface
+
 ### Exkurs: Swisscollections 
 
 > Developed by [University Library of Basel](https://ub.unibas.ch/) in collaboration with [arbim IT ](https://arbim.ch/)and [outermedia](https://www.outermedia.de/)
@@ -276,3 +285,10 @@ https://doi.org/10.5282/o-bib/5797
 
 * BibTip. (n.d.). Retrieved 4 May 2023, from https://www.bibtip.de/de 
 * Open Knowledge Maps: A visual interface to the world’s scientific knowledge. (n.d.). Open Knowledge Maps. Retrieved 4 May 2023, from https://openknowledgemaps.org/   
+
+
+## Organisatorisches
+
+* **Lehrevaluation**
+
+jetzt oder spätestens bis 30. Mai ausfüllen, damit wir es in der letzen Stunde besprechen können
