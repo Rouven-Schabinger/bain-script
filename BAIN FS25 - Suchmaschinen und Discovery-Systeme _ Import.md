@@ -51,6 +51,7 @@ Gruppe 3
 Eine Person pro Gruppe bzw. Server 
 
 Linux/MacOS: Terminal
+
 Windows: Powershell
 
 ```
@@ -134,12 +135,40 @@ Gruppe 3:
 **Videos**: https://www.youtube.com/watch?v=XVSktvVM4d0&list=PL5_8_wT3JpgE5rv38PwE2ulKlgzBY389y
 
 
-## Primo VE Anzeige
+## Schweiz: SLSP
+
+* Durch [Swiss Library Service Platform](https://slsp.ch) wurde Ex Libris Alma und damit auch das dazu gehörige Discovery-System **Primo VE** und dem CDI (mehr als 3 Milliarden elektronische Artikel ) an den wissenschaftlichen Bibliotheken in der Schweiz eingeführt.
+* Am Mo, 7.12.2020 ist das Rechercheportal [swisscovery](https://swisscovery.slsp.ch) gestartet.
+* Was ist drin?
+
+ ![image](https://hackmd.io/_uploads/BJl4h5s_1x.png)
+ 
+* Externe Quellen:
+![image](https://hackmd.io/_uploads/SybXJisO1x.png)
+werden geharvested (OAI) und normalisiert
+* Systemarchitektur
+* Herausforderungen:
+    * Monatliche Releases durch System-Provider, z.B.https://knowledge.exlibrisgroup.com/Primo/Release_Notes/002Primo_VE/2025/010Primo_VE_2025_Release_Notes?mon=All
+    * Ausarbeitung der Discovery-Services​
+    * Laufend Änderungen in allen Funktionsbereichen von Alma
+    * Bugs​
+    * Unterschiedliche Bedürfnisse der Bibliotheken
+* Konfiguration einer View: 3 Ebenen​
+    * View-Ebene (z.B. http://bsb.swisscovery.slsp.ch/discovery/search?vid=41SLSP_RBE:StASO)
+    * Institutions-Ebene (z.B. https://bsb.swisscovery.slsp.ch/discovery/search?vid=41SLSP_RBE:VU1)
+    * Zentral auf Netzwerk-Ebene (swisscovery)
+    * Bei UI-Customization mehrere Modelle: Zentrales Package oder nicht: https://github.com/Swiss-Library-Service-Platform/central-customization-package
+        * Pflege durch eine Gruppe von Entwickler:innen Agile Project for Customization (APC)
+
+
+
+
+### Primo VE Anzeige
 Volltitelanzeige: in swisscovery festgelegter SLSP-Standard​
 
 Anzeige-Felder (Out of the box „Display Fields“) und personalisierte Anzeige-Felder („Local Fields“)​
 
-* OTB Mapping der Dublin Core MARC21-Felder in die Anzeige-Felder: [Mapping to the Display, Facets, and Search Sections in the Primo VE Record](https://knowledge.exlibrisgroup.com/Primo/Product_Documentation/020Primo_VE/Primo_VE_(English)/120Other_Configurations/Mapping_to_the_Display%2C_Facets%2C_and_Search_Sections_in_the_Primo_VE_Record)
+* Out-of-the-box Mapping der Dublin Core MARC21-Felder in die Anzeige-Felder: [Mapping to the Display, Facets, and Search Sections in the Primo VE Record](https://knowledge.exlibrisgroup.com/Primo/Product_Documentation/020Primo_VE/Primo_VE_(English)/120Other_Configurations/Mapping_to_the_Display%2C_Facets%2C_and_Search_Sections_in_the_Primo_VE_Record)
 
 * Angepasstes Mapping via “Local Fields”, z.B. für die 5XX-er-Felder ​
 * Ziel: Transformation der Quelldaten ins Zielformat «PNX» (Primo Normalized XML)
@@ -155,7 +184,7 @@ Bsp.:
 ## Exkurs Browser Developer Tools ##
 
 Die Browser Developer Tools sind Werkzeuge in modernen Webbrowsern, die Entwicklern helfen, Webseiten zu analysieren und zu optimieren. 
-Hauptfunktionen_
+Hauptfunktionen:
 
 * Element-Inspektor: Untersucht und bearbeitet HTML und CSS direkt im Browser.
 * Konsole: Debuggt JavaScript und führt Befehle aus.
@@ -164,10 +193,14 @@ Hauptfunktionen_
 * Speicher-Analyse: Überwacht den Speicherverbrauch und identifiziert Lecks.
 
 **Übung [optional]**
-* versuchen Sie live mit den developer tools im Browser die Quelldaten auszublenden:
+* versuchen Sie live mit den developer tools im Browser die *Quelldaten* auszublenden:
  ![image](https://hackmd.io/_uploads/S1bEQDJgel.png)
 * `<span translate="fulldisplay.sourcerecord">Quelldaten</span>`
 * Suchen Sie im Internet nach einer Lösung
+
+**Zukunft Primo VE**
+
+https://knowledge.exlibrisgroup.com/Primo/Product_Materials/001_Next_Discovery_Experience_(NDE)/Next_Discovery_Experience_User_Interface
 
 
 ## Marktüberblick Discovery-Systeme
@@ -223,31 +256,6 @@ Note:
 * Open Source-Alternative: [VuFind](https://vufind.org/vufind/) (ohne eigenen Artikelindex) oder [Blacklight](https://projectblacklight.org/), https://doi.org/10.29085/9781783301409.010 
 * Alternative Zentralindizes aus dem deutschsprachigen Raum: [K10plus-Zentral](https://verbundwiki.gbv.de/display/VZG/K10plus-Zentral), [finc Artikelindex](https://finc.info/services)
 
-### Schweiz: SLSP
-
-* Durch [Swiss Library Service Platform](https://slsp.ch) wurde Ex Libris Alma und damit auch das dazu gehörige Discovery-System Primo VE und dem CDI (mehr als 3 Milliarden elektronische Artikel ) an den wissenschaftlichen Bibliotheken in der Schweiz eingeführt.
-* Am Mo, 7.12.2020 ist das Rechercheportal [swisscovery](https://swisscovery.slsp.ch) gestartet.
-* Was ist drin?
-
- ![image](https://hackmd.io/_uploads/BJl4h5s_1x.png)
- 
-* Externe Quellen:
-![image](https://hackmd.io/_uploads/SybXJisO1x.png)
-werden geharvested (OAI) und normalisiert
-* Systemarchitektur
-* Herausforderungen:
-    * Monatliche Releases durch System-Provider​
-    * Ausarbeitung der Discovery-Services​
-    * Laufend Änderungen in den anderen Funktionsbereichen​
-    * Bugs​
-    * Unterschiedliche Bedürfnisse der Bibliotheken
-* Konfiguration einer View: 3 Ebenen​
-    * View-Ebene​
-    * Institutions-Ebene​
-    * Zentral auf Netzwerk-Ebene​
-    * Bei UI-Customization mehrere Modelle: Zentrales Package oder nicht: https://github.com/Swiss-Library-Service-Platform/central-customization-package
-
-Zukunft: https://knowledge.exlibrisgroup.com/Primo/Product_Materials/001_Next_Discovery_Experience_(NDE)/Next_Discovery_Experience_User_Interface
 
 ### Exkurs: Swisscollections 
 
