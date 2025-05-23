@@ -1,8 +1,3 @@
----
-title: BAIN FS25 - Zukunftstechnologien
-
----
-
 # BAIN FS25 - Zukunftstechnologien
 ![image](https://hackmd.io/_uploads/HkHKOA6bxe.png)
 
