@@ -132,7 +132,7 @@ RiC Tools:
 * Literaturbeispiel: https://journal.code4lib.org/articles/16096
 * Anbieterwerbung: https://wwwaxiellcom.cdn.triggerfish.cloud/uploads/2022/03/workflowreporten2022.pdf
 * Achtung alt: https://doi.org/10.1080/03615260802679028
-* Themen: z.B. [Low Code](https://en.wikipedia.org/wiki/Low-code_development_platform), [No Code](https://en.wikipedia.org/wiki/No-code_development_platform) 
+* Themen: z.B. [Low Code](https://en.wikipedia.org/wiki/Low-code_development_platform), [No Code](https://en.wikipedia.org/wiki/No-code_development_platform) und [Service-oriented architecture](https://en.wikipedia.org/wiki/Service-oriented_architecture)
 
 ## Community, Rückblick, Sonstiges
 * Community
