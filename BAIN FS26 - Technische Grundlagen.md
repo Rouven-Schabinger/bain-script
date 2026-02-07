@@ -1,6 +1,4 @@
-# BAIN FS25 - Technische Grundlagen
-
-
+# BAIN FS26 - Technische Grundlagen
 
 ## Agenda
 
@@ -14,7 +12,7 @@ Ablauf:
 
 ## Vorstellungsrunde I
 
-Rouven Schabinger
+Rouven Schabinger  ([ORCID](https://orcid.org/0000-0002-0249-7917), [LinkedIn](https://www.linkedin.com/in/rouven-schabinger-7ba1a833b/))
 * Erste Durchführung Bibliotheks- und Archivinformatik 2025
 * Studium Bibliotheks- und Datenmanagement
 * Arbeitserfahrung in wissenschaftlichen Bibliotheken 
@@ -22,23 +20,29 @@ Rouven Schabinger
 * Swiss Library Service Platform (SLSP) 2023-
   * System Betrieb- und Weiterentwicklung
   * Migrationen
-  * Integration von Drittsystemen
+  * Integration von Drittsystemen, Schnittstellen
+  
 
 ## Organisatorisches
+* Zentraler Einstieg über den Moodle-Kurs
 
-* [Modulbeschreibung in Moodle](https://moodle.fhgr.ch/mod/resource/view.php?id=802334)
-* [Semesterinformation in Moodle](https://moodle.fhgr.ch/mod/page/view.php?id=785802)
+
+    * [Moodle (ZH)](https://moodle.fhgr.ch/course/view.php?id=22668)
+    * [Moodle (CHR)](https://moodle.fhgr.ch/course/view.php?id=22667)
+
+Dort:
+* Modulbeschreibung 
+* Semesterinformation
 * Ankündigen: Falls sich etwas an einer Veranstaltung ändern sollte
 * Diskussionforum: Für alle Fragen die sich während den Veranstaltungen ergeben. Auch gern für untereinander antworten.
 
 ### Zeitumfang und Abgabetermin
 
 * Gemäss Kurshandbuch sind 80 Stunden für Selbststudium (für Übungen und Lerntagebuch) vorgesehen.
-* Abgabetermin für Lerntagebücher: **Freitag, 4. Juli 2025** (ca. ein Monat nach der letzten Lehrveranstaltung und ca. ein Monat vor Notenabgabe)
+* Abgabetermin für Lerntagebücher
 
 ### Lehrmaterialien
 
-* Zentraler Einstieg über den [Moodle-Kurs](https://moodle.fhgr.ch/course/view.php?id=18288)
 * Für Notizen und zum Austausch verwenden wir Dokumente in [HackMD](https://hackmd.io/). Alle, die den Link kennen, können es bearbeiten. Zur Formatierung wird [Markdown](https://www.markdownguide.org/basic-syntax/) verwendet.
 * Kurs basiert auf Inhalten von Rudolf Mumenthaler (Direktor der Universitätsbibliothek Zürich) und Felix Lohmeier (IT-Berater).
 
@@ -48,14 +52,15 @@ Rouven Schabinger
 
 
 Fragen (ohne Namen):
-1. Praxiserfahrungen: Hatten Sie bereits ausserhalb der Hochschule mit Bibliotheks- oder Archivsoftware zu tun? Welche?
 
-*
+**1. Was verstehen Sie unter Bibliotheks- und Archivinformatik (BAIN)?
+Was gehört Ihrer Meinung nach nicht zu BAIN?**
 
-2. Motivation / Erwartungshaltung: Was erwarten Sie persönlich von diesem Kurs? Fehlen Inhalte?
+**2. Motivation / Erwartungshaltung: Was erwarten Sie persönlich von diesem Kurs? Fehlen Inhalte?**
 
-3. Einschätzung IT-Grundlagen (UNIX Shell, Git, Python/Pandas, Metadaten ...)?
+**3. Praxiserfahrungen: Hatten Sie bereits ausserhalb der Hochschule mit Bibliotheks- oder Archivsoftware zu tun? Welche?**
 
+**4. Einschätzung IT-Grundlagen (UNIX Shell, Git, Python/Pandas, Metadaten ...)?**
 
 ## Einrichtung der Arbeitsumgebung
 
@@ -64,13 +69,16 @@ Fragen (ohne Namen):
 
 ### Registrierung bei GitHub
 
+* Was ist GitHub, was ist Git?
+https://librarycarpentry.github.io/lc-git/01-what-is-git.html
+
 https://www.github.com -> Sign Up
 
 #### Angemeldet?
 
 Bitte hier eintragen, wenn Sie sich erfolgreich registriert und angemeldet haben. Pseudonym geht auch.
 
-1.
+**Username**:
 
 ### Codespace starten
 
@@ -88,7 +96,7 @@ Bitte hier eintragen, wenn Sie sich erfolgreich registriert und angemeldet haben
 
 
 
-## Timeout in Codespaces erhöhen
+## Timeout in Codespaces erhöhen 
 
 ### Einstellungen aufrufen
 
@@ -106,14 +114,10 @@ Bitte hier eintragen, wenn Sie sich erfolgreich registriert und angemeldet haben
 * Wird benötigt zur Administration von Servern
 * Ist aber auch zur Automatisierung von kleineren Aufgaben beliebt (Shell-Scripte)
 
-### Codespace starten
-
-* Repository aufrufen: https://github.com/felixlohmeier/bain-lc-unix-shell
-* Button `Code` / Tab `Codespaces` / Button `Create codespace on main`
 
 ### Übung: Dateisystem
 
-Bearbeiten Sie die Kapitel 2 (Navigating the filesystem) und 3 (Working with files and directories) der [Library Carpentry Lesson zur Unix Shell](https://librarycarpentry.org/lc-shell/02-navigating-the-filesystem.html) im vorhin gestarteten Codespace
+Bearbeiten Sie in aller Ruhe die Kapitel 2 (Navigating the filesystem) und 3 (Working with files and directories) der [Library Carpentry Lesson zur Unix Shell](https://librarycarpentry.org/lc-shell/02-navigating-the-filesystem.html) im vorhin gestarteten Codespace
   1. Webseite zur Lesson aufrufen.
   2. Dort genannte Befehle in das Terminal im Codespace eingeben und nachvollziehen.
 
@@ -127,6 +131,7 @@ Hinweis: Die Lesson geht von einem typischen Desktop-Linux aus, daher die Verzei
 ### Tipps zur Unix Shell
 
 * Copy & Paste im Terminal: Bei Problem Shift+Einfg oder warten bei Mauseinfügen
+* Vorsicht im Browser mit `STRG`+`W` (das kann Tab schliessen). Was macht es im Terminal?
 * Nutzen Sie immer die Tab-Taste für die Autovervollständigung
 * Seien Sie faul, verwenden Sie Ihre persönliche Befehlshistorie (Pfeiltaste nach oben / Suche in der Historie mit `STRG`+`R`)
 * Nutzen Sie Spickzettel für die wichtigsten Kommandos wie z.B.
@@ -136,7 +141,7 @@ Hinweis: Die Lesson geht von einem typischen Desktop-Linux aus, daher die Verzei
 
 ### Übung: Textanalyse mit der Shell (optional)
 
-* [Kapitel 5 Couting and mining with the shell](https://librarycarpentry.org/lc-shell/05-counting-mining.html)
+* [Kapitel 5 Counting and mining with the shell](https://librarycarpentry.org/lc-shell/05-counting-mining.html)
 * Exkurs zu Regular Expressions: https://regex101.com
   * Auch dazu gibt es übrigens eine Library Carpentry Lesson  https://librarycarpentry.org/lc-data-intro/01-regular-expressions.html
 
@@ -157,7 +162,9 @@ Unterschiede zwischen Git und GitHub
 * Wenn ein Git Repository im Netz bereitgestellt werden soll, braucht es eine Installation von Git auf einem Webserver.
 * Das kann man selber machen oder eine Plattform nutzen. Die bekannteste ist [GitHub](https://www.github.com).
 
-Viele Bibliotheken nutzen GitHub oder GitLab. Es gibt eine gemeinschaftlich gepflegte Liste [BibsOnGitHub](https://github.com/axel-klinger/BibsOnGitHub), auf der [Listen von Bibliotheken](https://axel-klinger.github.io/BibsOnGitHub/libraries.html) und [deren Repositorien](https://axel-klinger.github.io/BibsOnGitHub/repositories.html) eingesehen werden können.
+Viele Bibliotheken und Archive (z.B. [Bundesarchiv](https://github.com/SwissFederalArchives)) nutzen GitHub oder GitLab. 
+
+Es gibt eine gemeinschaftlich gepflegte Liste [BibsOnGitHub](https://github.com/axel-klinger/BibsOnGitHub) seit [10 Jahren](https://www.vbib.net/vbib25-programm/programmdetail/vbib25-corner-6-2), auf der [Listen von Bibliotheken](https://axel-klinger.github.io/BibsOnGitHub/libraries.html) und [deren Repositorien](https://axel-klinger.github.io/BibsOnGitHub/repositories.html) eingesehen werden können.
 
 ### Demo: Typischer Git Workflow
 
@@ -181,11 +188,22 @@ Viele Bibliotheken nutzen GitHub oder GitLab. Es gibt eine gemeinschaftlich gepf
 * Sie haben kurz gesehen, wie die Versionskontrolle mit Git funktioniert.
 * In den folgenden Lehrveranstaltungen geht es weiter mit Funktion und Aufbau von Bibliothekssystemen.
 
+## Lehrevaluation: Schwammigster Punkt
+* Was war heute für mich am unklarsten, verwirrendsten oder offensten Punkt? (mündlich)
+
+Punkte:
+*  
+
 ## Weiterführendes
-Umfrage zum Werdegang und Fähigkeiten von Systembibliothekaren: 
+* Umfrage zum Werdegang und Fähigkeiten von Systembibliothekaren: 
 
 https://igelu.org/wp-content/uploads/2024/10/1662-107997-Mermaid-Whispers-and-System-Insights.pdf
 
+* FHGR Bibliothek: Wie funktioniert diese Maschine?
+
+![image](https://hackmd.io/_uploads/rJPVrqEDZe.png)
+
+* "Lernen Sie aus Ihren Fehlern, und machen Sie dann neue."
 
 ## Aufgabe: Lerntagebuch
 
@@ -196,8 +214,5 @@ Bis zum nächsten Termin:
 3. Beiträge zu dieser Lehreinheit "Technische Grundlagen"
 
 Wegen der kurzen Bearbeitungszeit gerne erstmal nur ein paar Stichpunkte.
-
-Form für Lerntagebücher ist generell frei. Am Ende des Kurses PDF nach üblichem Standard. Keine wissenschaftliche Arbeit, aber trotzdem mit Anspruch (Deckblatt, Inhaltsverzeichnis ...)
-
 
 
