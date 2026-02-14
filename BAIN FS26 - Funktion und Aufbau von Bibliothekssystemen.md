@@ -1,19 +1,17 @@
-# BAIN FS25 - Funktion und Aufbau von Bibliothekssystemen
+# BAIN FS26 - Funktion und Aufbau von Bibliothekssystemen
 
 
 
 ## Wiederholung
 
 * Vorstellung
-* Praxiserfahrungen
+* Praxiserfahrungen: Teilweise Software / Berufserfahrung vorhanden: gerne einbringen!
 * Erwartungen
-    *  Vorschlag stärkere Einbindung Bibliothekssoftware Öffentliche Bibliotheken
+    *  grosse Übereinstimmun bei Inhalten, Erwartung und IT-Kenntnissen
+    *  Ich: Verallgemeinerung von Bibliotheks- und Archivsoftware über die eigene Branche hinaus auf allgemeine IT-Fragestellungen soweit möglich.
 * Organisatorisches: Termine, Leistungsnachweis
     * Lerntagebücher?
-* Technische Grundlagen
-    * GitHub Konto (Git)
-    * Terminal (Unix Shell)
-    * Library Carpentry für Selbststudium
+* Technische Grundlagen: **QUIZ**
 * Exkurs zu Regular Expressions: https://regex101.com
   * Auch dazu gibt es übrigens eine Library Carpentry Lesson  https://librarycarpentry.org/lc-data-intro/01-regular-expressions.html
 
@@ -33,8 +31,9 @@
 * wegen unterschiedlicher Katalogisierungsregeln und der Möglichkeit eigene Felder zu belegen, weicht die Verwendung international und auch nach Institution [stark vom vermeintlichen Standard ab](https://docs.google.com/presentation/d/e/2PACX-1vRU4J_rln00UVD7pNPT0_02NOad0HfSk_UKqRI0v29y8QkMAplEDlyjc0Ot_VE_paV6WBW29Fh_V-iN/pub?start=false&loop=false&delayms=3000#slide=id.g574306292a_0_35)
 * Alma und alle anderen grossen Bibliothekssysteme basieren auf MARC21 oder unterstützen es als Austauschformat
 * wird zukünftig voraussichtlich von [BIBFRAME](http://format.gbv.de/bibframe), einem Datenmodell basierend auf [RDF](http://format.gbv.de/rdf), abgelöst. Vgl. Tansformationsprozess
+    * aktuell für Alma im Februar Release: [LOD Editor](https://www.youtube.com/watch?v=cJJCxjCQmqs)
 * MARC ist recordbasiert
-* Comic zu Standards: https://xkcd.com/927/
+* Comic zu Standards: https://xkcd.com/927/ vgl. [MARC must die](https://hangingtogether.org/marc-must-die-15-years-on/)
 ### Übung: Vergleich MARC21 und Dublin Core
 
 * Dublin Core ist ein Standard, der als kleinster gemeinsamer Nenner gilt
@@ -49,35 +48,18 @@
 **Vorabinfo zu swisscovery:**
 
 - Der Katalog swisscovery beinhaltet die Daten der an SLSP teilnehmenden Bibliotheken.
-- Der gemeinsame Katalog ermöglicht eine übergreifende Suche, gleichzeitig bietet Sswisscovery auch Schnittstellen an, über welche Metadaten der teilnehmenden Institutionen zentral bezogen werden können.
-- Siehe auch: [Nutzung SLSP-Metadaten](https://slsp.ch/de/metadata), [Dokumentation der SRU-Schnittstelle von ALMA](https://developers.exlibrisgroup.com/alma/integrations/sru/)
+- Der gemeinsame Katalog ermöglicht eine übergreifende Suche, gleichzeitig bietet swisscovery auch Schnittstellen an, über welche Metadaten der teilnehmenden Institutionen zentral bezogen werden können.
+- Siehe auch: [Nutzung SLSP-Metadaten](https://slsp.ch/metadaten/), [Dokumentation der SRU-Schnittstelle von ALMA](https://developers.exlibrisgroup.com/alma/integrations/sru/)
 
 **Aufgabe 2:**
 
-* Ergänzen Sie Ihre praktischen Erkenntnisse durch Benutzen eines KI-Tools wie ChatGPT zum Vergleich der zwei Metadatenformate. Stimmt alles?
+* Ergänzen Sie Ihre praktischen Erkenntnisse durch Benutzen eines KI-Tools wie Le Chat Mistral zum Vergleich der zwei Metadatenformate. Stimmt alles?
+
+
 ### Erkenntnisse? Fragen?
 
-**ZH**
-* DublinCore viel schneller verständlich, MARC viel mehr identifier zusammengepackt, aber bisschen arbiträr? (einzelne tags u. codes muss man kennen).
-* DublinCore: Was inhaltlich ins Feld muss, ist ersichtlich. (z.B. Titel, Autor) MARC21 arbeitet mit Codes - man muss die Codes kennen / eine Legende dazu haben
-* Bei DublinCore sind die Felder nicht nummeriert
-* DublinCore braucht weniger Zeilen für ein Katalogisat
-* anderer Inhalt, bei DublinCore scheinen beispielsweise Angaben zum Verlag nicht erfasst zu sein.
-* DublinCore wirkt weniger formalisiert als MARC21, es scheint weniger Felder zu geben
-* Bei DublinCore gibt es Felder mehrmals (beispielsweise bei den Sprachen)
-* MARC21 deutlich detaillierter und mit hierarchischer Struktur
 * 
-* Dublin Core arbeite mit Namespaces --> kann Vorteil sein bei der Zusammenführung von Daten aus unterschiedlichen Quellen / **Arbeiten nicht beide mit Namespaces?** JA
-* Marc21 braucht wahrscheinlich mehr Speicherplatz bzw. kleinere Dateigrösse?
 
-**CHR**
-* In Dublin Core sind die Felder selbsterklärend, man weiss was mein Einfügen soll. Bei MARC21 muss man wissen, in welches Feld was gehört.
-* MARC benötigt Wissen zu den Feldnummern um die Informationen zu verstehen
-* die Inhaltliche Erschliessung kann "direkt" gemacht werden in MARC21 Field und ein Subfield für die einzelnen beschreibenden Aussagen
-* MARC beinhaltet mehr Attribute als Dublin Core
-* MARC 21 ist um einiges komplexer als Dublin Core
-* Wenn man Erfahrung mit MARC21 hat, kann man einfach Informationen finden, indem man das entsprechende Feld anschaut (da die Felder in aufsteigender Reihenfolge aufgeführt sind)
-* Dublin Core hat eine flache Struktur mit 15 Standardfeldern
 
 ### Regelwerk vs. Datenformat
 
@@ -119,7 +101,11 @@ Mitarbeitendenrolle erforderlich)
 
 
 ### Third Party Systems 
+
+* Was fällt Ihnen als Beispiel ein?
+
 ![image](https://hackmd.io/_uploads/SJ_eNlgDye.png)
+
 
 Alma bietet die Integration mit einer Reihe von Anwendungen von Drittanbietern und wichtigen Unternehmenssystemen, die heute auf dem Campus eingesetzt werden, darunter für Dienste wie Finanz- und Bestellsysteme, Selbstverbuchung, Drucker, Fernleihe, Proxy Services, Inkassodienste und Enterprise Resource Planning (ERP)-Systeme sowie Discovery.
     
@@ -136,21 +122,33 @@ Dokumentation:
 * ExLibris Developer Network: https://developers.exlibrisgroup.com/alma/integrations/ 
 * Supported Standards: https://developers.exlibrisgroup.com/about/standards/ 
 
+
     
 
 ## Gruppenübung: Alma Import
 
+### Hintergrund: Datenmodell in Alma
+
+![image](https://hackmd.io/_uploads/Sy6n3-RD-e.png)
+
+Quelle: https://knowledge.exlibrisgroup.com/Alma/Product_Materials/050Alma_FAQs/Metadata_Management/01_General
+
+### Hinweise
+
 * Temporärer Login für [HPH Sandbox](https://slsp-hph-psb.alma.exlibrisgroup.com) (IZ haute école pédagogique):
     * 
     * 
-* Vertraut machen mit [Sandbox](https://docs.google.com/spreadsheets/d/17rPGLH8wrHqb1uaVe3wxBG6Xen0Hzq7jmRDHxw6bqNU/edit?usp=sharing). Finden Sie z.B. MARC21 Bibliographic in der Ressourcenkonfiguration
+* Vertraut machen mit dem Konzept einer [Sandbox](https://knowledge.exlibrisgroup.com/Alma/Product_Documentation/Alma_Online_Help_(Deutsch)/010Einf%C3%BChrung/040Arbeiten_mit_den_Alma-Sandbox-Umgebungen#Unterschiede_zwischen_der_Alma-Sandbox_und_der_Produktions-Umgebung) 
+* Schauen sie sich um finden Sie z.B. MARC21 Bibliographic in der Ressourcenkonfiguration
 
 **Bibliomedia**:
 
 >Bibliomedia unterstützt die öffentlichen Bibliotheken in der Schweiz mit ihrer einzigartigen Ressourcenbibliothek bei der Vermittlung von Sprach- und Lesekompetenz. Unsere zentrale Dienstleistung ist die Ausleihe von bedarfsgerecht zusammengestellten Medienkollektionen.
-* verschiedene files auf Github: https://github.com/Rouven-Schabinger/bain-alma-import
 
-* Collection_S56997.xml (Anbieter) wurde **vorher** zu processed_Collection_S56997.xml umgewandelt
+* tempörer Bestand, der immer wieder importiert und gelöscht werden muss
+* Echte Daten: verschiedene files auf Github: https://github.com/Rouven-Schabinger/bain-alma-import
+
+* Collection_S56997.xml (Anbieter) wurde **vorher** zu processed_Collection_S56997.xml umgewandelt mit python
     * Barcode und Callnumber Normalisierung
     * Feldersortierung
     
@@ -158,7 +156,7 @@ Dokumentation:
     -->
 ![image](https://hackmd.io/_uploads/SyWFu1lPJe.png)
 
-* Normalisierungsregel in Alma (**nachher**)
+* Normalisierungsregel in Alma (**nachher**) mit drool / XSL
 
 **Aufgabe**:
 Importieren einer Datei
@@ -175,25 +173,13 @@ https://knowledge.exlibrisgroup.com/Alma/Product_Documentation/Alma_Online_Help_
     
     
 * Importieren
-    * Report anschauen
+    * Report des Jobs anschauen
     * Records anschauen
 ### Erkenntnisse? Fragen?
 
-**ZH**
 
-* Normalisierungsregel nicht findbar
-    * einmal gelöscht und neu erstellt hats bei uns (Gruppe 1) doch noch funktioniert.
-* "Location" wollte "Freihandbereich" nicht vorgeben
-    * Im Verzeichnis suchen gegangen.
-* Was würde passieren wen man nochmal importiert?
-    * Duplikaten
-    
-**CHR**
 
-* Sandbox ist hilfreich, weil man sich dann traut, Fehler zu machen
-* Es lohnt sich, nicht nur einen Bildschirm zur Verfügung zu haben, da die Ansicht bei geteiltem Bildschirm verwirrend sein kann (Zeilen/Felder verrutschen).
-* Der Haken bei Netzwerkzone kann später nicht mehr angepasst werden.
-* Fehler bei der Implentierung, da vergessen ein Haken wegzunehmen. -> Deshalb nochmals neu gemacht
+
 
 
 ## Fazit
@@ -203,3 +189,7 @@ https://knowledge.exlibrisgroup.com/Alma/Product_Documentation/Alma_Online_Help_
     * Administration
     * Third Party Systems
 * Wir haben MARC-Dateien in eine IZ-Sandbox von Alma importiert
+
+
+## Lehrevaluation: Schwammigster Punkt
+* Was war heute für mich am unklarsten, verwirrendsten oder der offenste Punkt? (mündlich)
