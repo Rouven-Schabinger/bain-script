@@ -1,200 +1,225 @@
-# BAIN FS25 - Funktion und Aufbau von Archivsystemen 
+# BAIN FS26 - Funktion und Aufbau von Archivsystemen 
+
+## Vortrag von Fabian Würtz
+* Leitung Informatik [Schweizerisches Sozialarchiv](ch/)
+* Bibliothek ist Teil von SLSP: https://libraries.swisscovery.help/?search=E19
+
+
+## Wiederholung
+
+* Quiz
+
+
+## Archivsysteme: docuteam cosmos
+
+* **docuteam** ist ein Schweizer Anbieter von Software und Dienstleistungen im Bereich Informationsmanagement und digitaler Archivierung. 
+
+
+https://www.docuteam.ch/uber-uns/
+
+* mit docuteam **cosmos** stellt die Firma eine modulare Softwarelösung für die digitale Langzeitarchivierung zur Verfügung, die sich am OAIS-Referenzmodell (ISO 14721) orientiert.
+
+
+![image](https://hackmd.io/_uploads/SyuH2VGUWx.png)
+[Quelle](https://www.docuteam.ch/wp-content/uploads/2024/07/docuteam_cosmos-de_v1-0.pdf)
+
+* Der Betrieb ist in unterschiedlichen Varianten möglich, etwa als lokale Installation (On-Premises), als gehostete Lösung (Software as a Service) oder im Rahmen einer Dienstleistung, bei der der Archivbetrieb ganz oder teilweise ausgelagert wird.
+
+**Module/Produkte (Auswahl):**
+
+* docuteam packer / feeder
+Bereitet Daten für die Archivierung vor und erstellt SIPs (Submission Information Packages) mit Metadaten. Workflow-Engine für kontrollierte Ingest-Prozesse (Datenübernahme, Migration, Validierung).
+
+* docuteam box
+Das digitale Archiv/Repository (magazin) selbst; zentrale Verwaltung und API-Schnittstelle. Baut auf Fedora auf (siehe Kapitel Repositorien)
+
+
+* docuteam sirius
+Virtueller Lesesaal zur Publikation und Recherche in den archivierten Beständen. 
+
+
+### docuteam context
+Archiv-Informations-System (AIS) zur Verzeichnung und Verwaltung der archivierten Daten, welches auf dem neuen Metadaten-Standard «Records in Contexts» (RiC) aufbaut.
+
+Dokumentation: https://docs.docuteam.ch/context/
 
 
 
-
-## Installation und Konfiguration von ArchivesSpace
-
-
-### Einführung in ArchivesSpace
-
-- Open-Source-Software für Archivinformationssysteme
-- 400 zahlende [Mitglieder](http://archivesspace.org/community/whos-using-archivesspace/), woraus fast 5 Vollzeitstellen finanziert werden.
-- Code bei GitHub: https://github.com/archivesspace/archivesspace
-- ArchivesSpace ist institutionell verankert bei [Lyrasis](https://en.wikipedia.org/wiki/Lyrasis), einem internationalen "nonprofit" Bibliotheksnetzwerk vorrangig aus den USA. Es gibt auch weitere  Unternehmen, die dazu professionellen Support anbieten.
 
 #### Funktionen
 
-"What ASpace does and how do we use it" (aus Fortbildungsmaterialien der [NYU](https://guides.nyu.edu/ld.php?content_id=23461999))
+- Archivische Verzeichnung
+Erfassung und Verwaltung von Archivbeständen, Serien, Dossiers und Einzelobjekten.
 
-- System of record for archival materials. Not everything is public, or open to staff, nor is it intended to be.
-- Perform core archival functions: accessioning, arrangement and description
-- Aid in public services
-- Record and report location holdings information; stacks management
-- Manage digital objects
-- Produce access tools
-- Statistics gathering, prioritization, holistic planning
-- Contribute to various interdepartmental processes (preservation and digitization)
+- Metadatenmanagement
+Unterstützung strukturierter Metadaten nach archivischen Standards; Verwaltung von Beziehungen zwischen Einheiten.
 
-#### Metadaten in ArchivesSpace
+- Verknüpfungen und Relationen
+Abbildung von Beziehungen zwischen Records, Akteuren, Funktionen, Orten und Zeiträumen.
 
-- basiert auf den Standards [DACS](https://en.wikipedia.org/wiki/Describing_Archives:_A_Content_Standard), ISAD(G) und ISAAR(CPF)
-- unterstützt Import/Export in EAD, MARCXML und METS/MODS (Standard für Digitalisate: https://pro.deutsche-digitale-bibliothek.de/glossar/metsmods-format)
+- Recherche und Suche
+Suchfunktionen über Metadaten und Relationen, inkl. Filter- und Navigationsmöglichkeiten.
 
-#### Exkurs zur Systemadministration (optional)
+- Unterstützung von Akzessionen
+Verwaltung von Zugängen und deren Weiterverarbeitung im Archivkontext.
 
-Angenommen, wir haben bereits Koha auf unserem Server installiert. Gibt es Probleme, wenn wir zusätzlich ArchivesSpace installieren?
+- Anbindung an Ingest und Langzeitarchiv
+Integration mit anderen Komponenten von docuteam cosmos (z. B. feeder, box) zur Übernahme und Referenzierung archivierter Objekte.
 
-**Mögliche Konflikte**:
-- Versionskonflikte: Unterschiedliche Versionen gemeinsamer Bibliotheken oder Abhängigkeiten können zu Problemen führen.
-- Ressourcenkonflikte: Beide Systeme könnten um dieselben Serverressourcen (z.B. Arbeitsspeicher, CPU) konkurrieren.
+- Formulare und Konfiguration
+Anpassbare Erfassungsformulare für unterschiedliche Verzeichnungskontexte und Anforderungen.
 
-**Best Practice**:
-- Isolation: Jedes System sollte in einer eigenen Umgebung betrieben werden, um Konflikte zu vermeiden und die Sicherheit zu erhöhen. Dies kann durch Virtualisierung oder Containerisierung erreicht werden.
-
-**Kompatibilität von Koha und ArchivesSpace**:
-- Koha und ArchivesSpace sind dafür bekannt, gut zusammenzuarbeiten, da sie unterschiedliche Funktionen erfüllen (Koha für Bibliotheksmanagement, ArchivesSpace für Archivverwaltung). Daher ist es in vielen Fällen möglich, beide Systeme auf demselben Server zu installieren, solange die Ressourcen ausreichend sind und die Konfigurationen sorgfältig vorgenommen werden.
-
-**Technische Details**:
-- Programmiersprachen: Konflikte können auftreten, wenn die Systeme unterschiedliche Versionen derselben Programmiersprache (z.B. Java, PHP) benötigen.
-- Datenbanken: Auch unterschiedliche Versionen von Datenbanken (z.B. MySQL, PostgreSQL) können zu Problemen führen.
+- Export und Schnittstellen
+Export von Metadaten sowie Nutzung von APIs zur Weiterverarbeitung oder Publikation.
 
 
 
+#### Metadaten in docuteam context
 
-### Installation ArchivesSpace
+- Datenmodell auf Basis von RiC
+Umsetzung des Standards Records in Contexts (RiC) mit graphbasierter Modellierung statt starrer Hierarchien.
+Vgl. 
+    - https://docs.docuteam.ch/context/use/records-hierarchy/
+    - "Unter der Haube": Cypher-Abfragen direkt auf der Neo4j-Datenbank, Video: https://www.youtube.com/watch?v=ZmxP--HrTcg (französisch)
+ 
+- Primäres Format ist JSON (vollständiger Export). Zusätzlich RDF und EAD (standardkonform, aber eingeschränkt). CSV-Import nur technisch, für Erschliessung meist ungeeignet.
 
-* Wir nutzen heute die Demo-Installation von ArchivesSpace
-* Login im Staff Interface unter https://sandbox.archivesspace.org/staff
-  * Username: `admin`
-  * Password: `admin`
-* Einen Codespace mit ArchivesSpace hatte der vorherige Dozent einmal erstellt, aber da funktioniert das "Public Interface" (noch) nicht: https://github.com/felixlohmeier/bain-archivesspace
 
-### Grundkonfiguration ArchivesSpace
 
-#### Repository anlegen
+### Zugriff auf das System
 
-Menüpunkt System / Manage Repositories
+* Wir nutzen heute eine Demo-Installation von docuteam context
+* Login  unter https://context2-cosmos.docuteam.cloud/268/records/
 
-Dort nutzen Sie den Button `Create Repository` um ihr Repository anzulegen.
+* **Republik der vergessenen Erinnerungen** ist ein Vorzeigearchiv (hier bitte nichts ändern)
 
-- Notwendig sind zunächst nur `Repository Short Name` und `Repository Name`.
-- Die Checkbox `Publish?` definiert, ob die Daten im "public interface" unter https://sandbox.archivesspace.org erreichbar sind.
+* **Beispielarchiv**: hierunter kann man neue Datensätze anlegen
 
-#### Konfigurationsmöglichkeiten
 
-- Spracheinstellung
-  - Konfiguration: über Preferences (Global / Repository / User)
-  - Sprachdateien: https://github.com/archivesspace/archivesspace/tree/master/common/locales
-- Weitere Optionen: Siehe technische Dokumentation https://docs.archivesspace.org/
 
-### Bedienung
+### Übung / Bedienung
 
-- Wir nutzen nun die zuvor diskutierten Grundlagen, um Datensätze in ArchivesSpace zu erschließen.
+- Wir nutzen nun die bereits diskutierten Grundlagen, um Datensätze in zu erschließen.
 - Versuchen Sie bei der folgenden Gruppenarbeit intuitiv vorzugehen und tauschen Sie sich untereinander aus.
-- Denken Sie an das Provenienzprinzip. Jede Ressource, die Sie verzeichnen wollen, benötigt zunächst Informationen zur Herkunft (Akzession).
+- Denken Sie an das Provenienzprinzip
+- Dokumentation: https://docs.docuteam.ch/de/context/category/using
+- Eigentlich noch Akzession (Dokumentation der Erwerbung) notwendig. Wegen vertraulichen Angaben oft nicht öffentlich.
 
-#### Begrifflichkeiten
-
-- [Accession](https://docs.google.com/document/d/11kWxbFTazB6q5fDNBWDHJxMf3wdVsp8cd7HzjEhE-ao/edit#heading=h.qp2gyscl8fra): Dokumentation der Erwerbung, wegen vertraulichen Angaben oft nicht öffentlich
-- [Resource](https://docs.google.com/document/d/11kWxbFTazB6q5fDNBWDHJxMf3wdVsp8cd7HzjEhE-ao/edit#heading=h.jvn83ztmj4y4): Zentraler Nachweis auf der obersten Ebene der Verzeichnungsstufen, zum Beispiel zu einem Nachlass (kann aber auch direkt zum Objekt sein, wenn die Resource nur eine Verzeichnungsstufe hat)
-- [Archival Object](https://docs.google.com/document/d/11kWxbFTazB6q5fDNBWDHJxMf3wdVsp8cd7HzjEhE-ao/edit#heading=h.nscr859g1snm): Nachweis von Objekten auf weiteren Verzeichnungsstufen (Bestand/Fonds, Serie/Series, Akte/File, Einzelstück/Item). Sie werden über "Add Child" an vorhandene Resources gehängt.
-
-Note:
-
-* Verlinkte Begriffe führen zum [ArchivesSpace Manual for Local Usage at NYU](https://docs.google.com/document/d/11kWxbFTazB6q5fDNBWDHJxMf3wdVsp8cd7HzjEhE-ao/edit), weil das offizielle Handbuch nur für Mitglieder zugänglich ist.
-* beim Aufruf einer Resource ist im Abschnitt "Related Accessions" eine Verknüpfung möglich oder direkt beim Erstellen einer Accession eine Ressource spawnen
-
-### Übung
 
 Übung: Datensätze erstellen
 
-- Aufgabe: Erstellen Sie eigene Datensätze in der ArchivesSpace Sandbox. Erfinden Sie dazu sinnvolle Archivdaten oder suchen Sie sich Beispieldaten (z.B. im [Hochschularchiv der ETH](https://vls.hsa.ethz.ch/client/)).
-- Ziel: Ihre Datensätze erscheinen in der öffentlichen Ansicht. Machen Sie einen Screenshot und laden Sie das Bild hier in das gemeinsame Dokument.
-- Hinweis: Wenn Sie Hilfestellung benötigen, können Sie sich beim Vorgehen an der Übung der NYU orientieren: [Create Your Own Record](https://guides.nyu.edu/ld.php?content_id=23198351)
+- Aufgabe: Erstellen Sie eigene Datensätze. Erfinden Sie dazu sinnvolle Archivdaten oder suchen Sie sich Beispieldaten (z.B. im [SSA](https://www.findmittel.ch/))
+- Dokumentieren Sie Fragen und Aufälligkeiten
+
 
 ### Ergebnisse
 
 Gruppe 1:
-2025-03-12
-![image](https://hackmd.io/_uploads/SkK_N112yg.png)
-Gruppe 2: 
-![Bildschirmfoto 2025-03-10 um 16.19.22](https://hackmd.io/_uploads/H1AZXF3okl.png)
 
-Gruppe 3: 
-Ressource 1-1-1-2 wurde erstellt und wird gefunden:
-![grafik](https://hackmd.io/_uploads/Hk2_-F3oJg.png)
-und sieht im Lesesaal aus wie folgt:
-![grafik](https://hackmd.io/_uploads/SJD0-thoyl.png)
+Gruppe 2:
 
 
+### Formulare und Validierung
 
-Gruppe 4:
-![Screenshot](https://hackmd.io/_uploads/ryIFQt3sJe.png)
+Mit Formularen in docuteam context werden Entitäten (z. B. Records, Agents oder Places) erfasst, bearbeitet und strukturiert gespeichert, indem sie definieren, welche Felder angezeigt werden und wie die Daten im System gespeichert werden.
 
-### Fragen
+Was wird hier geprüft? (Stichwort Reguläre Ausdrücke)
+
+```
+{
+  "sections": [
+    {
+      "content": [
+        {
+          "property": "comment",
+          "fieldType": "input",
+          "validationRegExp": "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$",
+          "validationErrorText": {
+            "de": "Bitte geben Sie eine gültige XXX ein.",
+            "en": "Please enter a valid XXX."
+          }
+        }
+      ]
+    }
+  ]
+}
+```
+
 
 ### Import und Export
 
-ArchivesSpace bietet dateibasierten Import und Export in diversen Formaten (EAD, MARCXML, CSV) und auch eine OAI-PMH-Schnittstelle.
+docuteam context bietet dateibasierten Import und Export in diversen Formaten 
+![image](https://hackmd.io/_uploads/SyEP8SfUWl.png)
 
-In den folgenden zwei Übungen werden wir EAD-Beispieldaten in ArchivesSpace importieren und anschließend in MARCXML exportieren.
+![image](https://hackmd.io/_uploads/SyEVISMIZg.png)
 
-#### Übung: Import
+(CNF: Configuration Format)
 
-**Aufgabe**
 
-- Beispieldaten: https://eadiva.com/2/sample-ead2002-files/ (laden Sie die als "a raw XML file" verlinkte Datei der "American Association of Industrial Editors" herunter)
-- Aufgabe: Importieren Sie Beispieldaten im Format EAD in ArchivesSpace. Vergleichen Sie die Anzeige in ArchivesSpace mit der bei den Beispieldaten in EAD-XML
-- Ziel: Dokumentieren Sie Ihre Erkenntnisse unten im gemeinsamen Dokument.
-- Hinweis: Die Import-Funktion finden Sie etwas versteckt unter `Create` > `Background Job` > `Import Data`
-
-#### Fragen / Erkenntnisse
-
-* ...
 
 #### Übung: Export
 
-**Aufgabe** (optional)
+
+**Aufgabe** 
 
 - Aufgabe:
-  1. Exportieren Sie die von Ihnen zuvor importierten Datensätze im Format MARCXML. Speichern Sie die Datei auf der Festplatte.
-  2. Vergleichen Sie die exportierte MARCXML-Datei kurz mit den in ArchivesSpace vorhandenen Informationen. Ist der Export in MARCXML verlustfrei?
-- Ziel: Dokumentieren Sie Ihre Erkenntnisse unten im gemeinsamen Dokument.
-- Hinweis: Die Export-Funktion finden Sie etwas versteckt in der Button-Leiste bei der "Resource".
+  1. Exportieren Sie die von Ihnen zuvor angelegten Datensätze im Format EAD XML. Speichern Sie die Datei auf der Festplatte.
+  2. Vergleichen Sie die Angaben in context mit der Datei. Stimmt alles?
+
 
 Note:
-
-- Mappingtabellen als XLS (Stand 2013/2017, unklar ob aktuell) stellt ArchivesSpace auf der Webseite zur Verfügung: https://archivesspace.org/using-archivesspace/migration-tools-and-data-mapping
-- Technische Dokumentation der Konvertierung in MARCXML (falls jemand die Proogrammiersprache Ruby können sollte): https://archivesspace.github.io/archivesspace/doc/MarcXMLBibBaseMap.html
-
-
+* EAD-Beispieldaten: https://eadiva.com/2/sample-ead2002-files/
 
 #### Fragen / Erkenntnisse
 
 * ...
 
-#### Literatur zu ArchivesSpace
-
-- Einführungsvideos: https://www.youtube.com/playlist?list=PL3cxupmXL7WiXaHnpVquPrUUiLiDAMhg0
-- ArchivesSpace Wiki: https://archivesspace.atlassian.net/wiki/spaces/ADC/
-- ArchivesSpace Manual for Local Usage at NYU: https://docs.google.com/document/d/11kWxbFTazB6q5fDNBWDHJxMf3wdVsp8cd7HzjEhE-ao/edit#
-
-Note:
-
-- Das Benutzerhandbuch von ArchivesSpace steht nur zahlenden Mitgliedern zur Verfügung. Bei Open-Source-Software suchen die Communities oft nach einem Zusatzvorteil für Mitglieder, weil die Software selbst ja kostenfrei erhältlich ist. Wirklich "open" ist diese Zurückhaltung von Informationen nicht so recht.
 
 
+
+
+### Exkurs zur Systemadministration
+
+Angenommen, wir würden nicht mit Cloudsoftware arbeiten. Zu welchen Problemen kann es kommen?
+
+Werden Fachanwendungen lokal auf eigener Infrastruktur betrieben, liegt die Verantwortung für Installation, Betrieb und Wartung bei der betreibenden Organisation. Bei der Installation mehrerer Systeme auf demselben Server können technische Wechselwirkungen auftreten.
+
+**Typische Herausforderungen**
+- **Abhängigkeiten und Versionen**: Anwendungen benötigen oft unterschiedliche Versionen von Bibliotheken, Laufzeitumgebungen oder Frameworks.
+- **Ressourcennutzung**: Mehrere Systeme konkurrieren um begrenzte Serverressourcen wie Arbeitsspeicher, CPU oder Speicherplatz.
+
+**Technische Details (Beispiele)**
+- **Programmiersprachen und Laufzeitumgebungen**: Konflikte können entstehen, wenn Systeme unterschiedliche Versionen derselben Sprache oder Laufzeitumgebung benötigen (z. B. Java, PHP, Ruby, Python).
+- **Datenbanken**: Probleme können auftreten, wenn Anwendungen verschiedene Datenbanksysteme oder unterschiedliche Versionen derselben Datenbank einsetzen (z. B. MySQL vs. PostgreSQL oder unterschiedliche Major-Versionen).
+
+**Bewährte Praxis**
+- **Isolation der Systeme**: Anwendungen sollten in getrennten Umgebungen betrieben werden, um Konflikte zu vermeiden und Wartung sowie Sicherheit zu vereinfachen (z. B. Virtualisierung oder Containerisierung).
 
 
 
 ## Marktüberblick Archivsysteme 
 
+* **Open Source** Systeme: [ArchiveSpace](https://archivesspace.org/), 
+    - 400 zahlende [Mitglieder](http://archivesspace.org/community/whos-using-archivesspace/), woraus mehrere Vollzeitstellen finanziert werden.
+    - Code bei GitHub: https://github.com/archivesspace/archivesspace
+    - ArchivesSpace ist institutionell verankert bei [Lyrasis](https://en.wikipedia.org/wiki/Lyrasis), einem internationalen "nonprofit" Bibliotheksnetzwerk vorrangig aus den USA. Es gibt auch weitere  Unternehmen, die dazu professionellen Support anbieten.
+    - ArchivesSpace hat eine grosse Community in den USA
+    - basiert auf den Standards [DACS](https://en.wikipedia.org/wiki/Describing_Archives:_A_Content_Standard), ISAD(G) und ISAAR(CPF)
+    - Das Benutzerhandbuch von ArchivesSpace steht nur zahlenden Mitgliedern zur Verfügung. Bei Open-Source-Software suchen die Communities oft nach einem Zusatzvorteil für Mitglieder, weil die Software selbst ja kostenfrei erhältlich ist. Wirklich "open" ist diese Zurückhaltung von Informationen nicht so recht.
 
 
-- ArchivesSpace hat eine große Community in den USA
-- Weitere Open-Source-Alternative: [Access to Memory (AtoM)](https://www.accesstomemory.org)
-- Dienstleister in der Schweiz: [docuteam](https://www.docuteam.ch/atom-access-to-memory/)
--Für die Entwicklung von Grundsätzen für AtoM 3 gibt es eine “Foundation” https://accesstomemoryfoundation.org  verein
-- AtoM 3 soll Records in Contexts (RiC) unterstützen
--AtoM 3 Design Principles https://docs.google.com/presentation/d/1hJJ8PUpV7YIbJZaWfU4hIMGU70hKR94-dPiUXKAAsFY/
+- sonst gibt es noch [Access to Memory (AtoM)](https://www.accesstomemory.org), AtoM 3 soll Records in Contexts (RiC) unterstützen. docuteam bietet Dienstleistungen an
+
 - Der Markt in der Schweiz wird von den Produkten [scopeArchiv](https://www.scope.ch/de/produkteuebersicht/scopearchiv/) und [CMI AIS](https://cmiag.ch/akten-management/archivierung/ais/) (ehemals CMISTAR) dominiert.
+
+
+
 - Für die Online-Präsentation von digitalisiertem Archivgut wird oft zusätzliche Software eingesetzt. Beispiele:
   - [E-Pics Plattform der ETH Zürich](https://www.e-pics.ethz.ch) (WordPress + Canto Cumulus)
   - [e-manuscripta.ch - Kooperative Präsentationsplattorm für handschriftliche Quellen](http://www.e-manuscripta.ch) (Visual Library)
   - [Smapshot](https://smapshot.heig-vd.ch/) Sehr cooles Projekt, um Bilder zu geolokalisieren, präsentieren und mit Metadaten anzureichern (Citizen Science).
 
-## Unterschiede zwischen Bibliotheks- und Archivsystemen
+## Unterschiede zwischen Bibliotheks- und Archivsystemen (Wiederholung)
 
 - Bibliothek
   - (Massen-)Medium, Benutzerinteraktion (Ausleihe)
@@ -206,8 +231,7 @@ Note:
   - Software orientiert sich an analogen Findmitteln
   - Metadatenformat: EAD, zukünftig RiC
 
-Note:
-- Herausforderung: Datenaustausch zwischen den Systemen (kommen wir später darauf zurück)
+
 
 ## Sonstiges
 
@@ -226,3 +250,14 @@ Note:
   
 - GLAMhack als Beispiel für einen [Hackathon](https://en.wikipedia.org/wiki/Hackathon): https://hack.glam.opendata.ch/event/12 z.B. Unveiling the Secrets of Zurich’s Nightly Visitors (1780-1818)"
 
+## Lerntagebuch
+
+* **Pflicht(!)**-Abgabe bis 02.04.2026 23:59 Uhr
+* ich habe Ferien = abwesend (31.03.2026 - 10.04.2026)
+
+
+## Sonstiges
+
+* Arbeitskreis "Archivierung von Unterlagen aus digitalen Systemen (AUdS)" ist ein Netzwerk von Archivarinnen und Archivaren aus öffentlichen Archiven: https://www.sg.ch/kultur/staatsarchiv/Spezialthemen-/auds.html
+
+* Tobias Wildi: Normen und Standards als Synergiepotentiale in der digitalen Archivierung: https://www.docuteam.ch/wp-content/uploads/2021/04/Artikel_Arbido_2-2012_Wildi.pdf
