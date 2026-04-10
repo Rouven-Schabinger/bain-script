@@ -1,12 +1,37 @@
-# BAIN FS25 - Repository-Software für Publikationen und Forschungsdaten
+# BAIN FS26 - Repository-Software für Publikationen und Forschungsdaten
 
-- Agenda & Recap
+## Lerntagebücher Zwischenabgabe
+
+* generell eher gute und unikate Abgaben!
+
+Allgemeine Hinweise:
+*	**Abkürzungen** auflösen, wenn nicht in Vorlesung behandelt
+*	**Bilder/Grafiken** können Zusatzpunke bingen, müssen aber Eigenwert haben neben Ästhetik und lesbar sein
+*	Zeichenanzahl erfordert **Präzision**: wohldosierter Fremdbezug, “Allgemeines”/"GPT Lingo"  knapp halten 
+*	**Fluglevel**: Grosse Reflexionen ans Ende. Im Kapitel möglichst wechseln zwischen Theorie und Praxis: verankern mit konkreten Übungseinblicken 
+*	**Blumige Begriffe** für Inhaltswiedergabe eher vermeiden, weil Interpretation offen
+*	**Quellen** einbeziehen, falls kein beruflicher Kontext vorhanden, Bezug zu anderen Modulen gut
+*	**Roter Faden**, kein Vorgangsprotokoll: wir haben das behandelt, dann haben wir das behandelt ... 	
+*	**PDF** keine DOCX
+*	Alle Kapitel müssen da sein, ganze Sätze schreiben und **Zeichenanzahl** einhalten
+*	Stellen Sie sich vor Sie wären in meiner Position / Wie würden Sie sich selbst bewerten = **Glaubhaftigkeit**
+
+
+
+## Rückblick
+
+* Quiz zu Archivsystemen
 
 
 
 ## Open Access und Open Data
 
 * Was ist ein Repositorium? Welche kennen Sie?
+
+
+
+- [Zenodo](https://zenodo.org) (InvenioRDM), vgl. https://github.com/zenodo/zenodo
+    - Upgrade-Probleme: https://blog.zenodo.org/2023/10/19/2023-10-19-upgrade-issues/
 
 - **Publikationen**
   - Open Access, vgl. https://consortium.ch/
@@ -21,28 +46,44 @@ Sicherung der Qualität und Wettbewerbsfähigkeit des
 Hochschul- und Forschungsplatzes Schweiz bei. 
 Die Geschäftsstelle des Konsortiums wird von SLSP geführt.
 ```
-  - [Statistik zu Open-Access-Repositorien](https://web.archive.org/web/20240328063306/https://v2.sherpa.ac.uk/view/repository_visualisations/1.html )
+
+
+- [Swiss Open Access Monitor](https://oamonitor.ch/de/)
+- [Statistik zu Open-Access-Repositorien via COAR](https://ird.coar-repositories.org )
+ 
+ Sonst gibt es noch https://opendoar.ac.uk oder https://roar.eprints.org/view/type/ als Übersicht
   - früher Vertreter:arXiv-Server für Physik-Preprints : https://arxiv.org/
-  - Fokus: Zweitveröffentlichungen ("grüner Weg") und Hochschulschriften
+  - Fokus bei vilen: Zweitveröffentlichungen ("grüner Weg") und Hochschulschriften
 
 FYI:
 -  Zweitveröffentlichungsrecht in der Schweiz: https://www.uzh.ch/blog/ub/2023/05/31/das-projekt-zweitveroeffentlichungsrecht-und-open-access-als-regulatorische-herausforderung-hintergrund-und-projektziele/
 
-  
+
+Aktuelles zu Schweizer Repositorien:
+* [ NAIF - 
+National Approach for Interoperable repositories
+and Findable research results
+](https://eth-library.github.io/naif/) Slides: dx.doi.org/10.5281/zenodo.18633494
+* [SOAD - Swiss Open Academic Data](https://soad.ch/) nicht [SOAD](https://en.wikipedia.org/wiki/System_of_a_Down)
+* [Recommendations for Swiss
+Higher Education Institutions
+to enhance the visibility of their
+research output](https://www.research-collection.ethz.ch/server/api/core/bitstreams/097f017a-1d8c-439c-97b7-62281392028a/content)
+
 - **Forschungsdaten**
   - Open Data
   - Transparenz und Repoduzierbarkeit [Open Science](https://en.wikipedia.org/wiki/Open_science)
   - [Verzeichnis von Forschungsdaten-Repositorien](https://www.re3data.org)
       - Länder, Typen, Communities, Langzeitarchivierung, PID, Forschungssoftware
       - Schema: https://www.re3data.org/schema
-      - restful API/Jupyter Notebook: https://coref.project.re3data.org/blog/using_the_re3data_api
+      - RESTful API/Jupyter Notebook: https://coref.project.re3data.org/blog/using_the_re3data_api
   - Fokus: Primärdaten, die bei der Forschung entstehen. Oft Daten als Anhang zu Zeitschriftenartikeln, aber auch auch als eigenständige Publikation möglich
 
 
   --> wichtiges Arbeitsfeld für Infrastrukturanbieter in der Hochschullandschaft (z.B. Bibliotheken)
 
 
-- Bsp. Verknüpfung Forschungsdatum und Publikation:
+- Bsp. Verknüpfung Forschungsdatum und Publikation via DataCite Metadata Schema:
 
  R. Schabinger. (2023). Does size matter? Quality assessment of the size property in research data repositories [Data set]. Zenodo.  [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7643637.svg)](https://doi.org/10.5281/zenodo.7643637)
 
@@ -77,6 +118,7 @@ FYI:
 - Starten Sie Ihren Github Code Space als Jupyter: https://github.com/Rouven-Schabinger/bain-re3data
 - ![image](https://hackmd.io/_uploads/r1MDDCGhJx.png)
 - Passen Sie das vorgeführte Jupyter Notebook an: https://github.com/Rouven-Schabinger/bain-re3data/blob/main/examples-python/01_re3data_API_medical_research_community.ipynb
+    - lesen sie die Kommentare / Dokumentation
     - der query soll ihrere Suche in der GUI entsprechen
     - extrahieren Sie zusätzlich noch den "Umfang" des Repositoriums
 
@@ -92,6 +134,9 @@ FYI:
 - Zum Stand in der Schweiz: Ackermann Krzemnicki, Sonia and Hägele, Bernd F. (2016): Die Standardisierung von Forschungsinformationen an Schweizer universitären Hochschulen. https://edoc.unibas.ch/54788/
 
 
+- Beispiel: [PHSG Proforis](https://proforis.phsg.ch/home) (DSpace-CRIS)
+
+
 
  **Government Data** oder **OER** (Open Educational Resources)
     - https://opendata.swiss/de
@@ -101,13 +146,10 @@ FYI:
 Konvergenz:
   - als Plattform: https://opendatanavigator.switch.ch/
   - Als Modell: https://datacite.org/blog/introducing-the-pid-graph/ DataCite
+  - als Daten: collections as data z.B. https://collada.ethz.ch 
 
-
-### Beispiele
-
-- [Zenodo](https://zenodo.org) (InvenioRDM), vgl. https://github.com/zenodo/zenodo
-    - Upgrade-Probleme: https://blog.zenodo.org/2023/10/19/2023-10-19-upgrade-issues/
-- [PHSG Proforis](https://proforis.phsg.ch/home) (DSpace-CRIS)
+Sonstiges:
+- Slides zu PIDs Bsp ARK: https://docs.google.com/presentation/d/1XEpGwON6yzD357GlUkskB1T9MGTvO_XCkuSHtxT3Pxg/edit?slide=id.g21a3fb692a4_0_46#slide=id.g21a3fb692a4_0_46
 
 
 ## Übungen mit DSpace
@@ -123,11 +165,18 @@ Standardfragen IT:
 ### Einführung in DSpace
 
 - Software geeignet für Publikationen und Forschungsdaten, Features: https://dspace.org/features/
-- Erweiterung für Forschungsinformationen: DSpace-CRIS
+- seit 25 Jahren genutzt von 3000 Institutionen (https://dspace.org/wp-content/uploads/2025/12/AR-2024-25-DSpace.pdf)
 - Metadatenstandard: Qualified Dublin Core, kann aber auch mit [DataCite](https://schema.datacite.org/) (Exkurs?) Metadatenschema betrieben werden.
 - DSpace 6: 2016 erstmalig veröffentlicht , wird nicht mehr weiterentwickelt und der [Support endete am 1.7.2023](https://wiki.lyrasis.org/display/DSPACE/Support+for+DSpace+5+and+6+is+ending+in+2023)
-- DSpace 7: im August 2021 veröffentlicht, neue Technologien im Frontend (Angular) und Backend (neue REST API)
-- DSpace 8: Juni 2024: generelle Verbesserungen
+- DSpace 7: 2021 veröffentlicht, neue Technologien im Frontend (Angular) und Backend (neue REST API)
+- DSpace 8: 2024: generelle Verbesserungen
+- DSpace 9: 2025
+
+![Picture1](https://hackmd.io/_uploads/rktyqwI3-l.png)
+- DSpace 10: (in Planung)
+Merger mit DSpace-CRIS (Erweiterung für Forschungsinformationen)
+
+
 
 DSpace hat eine 3-Schichten-**Architektur**: 
 - Anwendungsschicht (Application Layer)
@@ -153,6 +202,8 @@ Wird laufend aktualisiert
 - Collection Administrator: `dspacedemo+colladmin@gmail.com`
 - Submitter: `dspacedemo+submit@gmail.com`
 - Passwort immer: `dspace`
+
+Manual: https://wiki.lyrasis.org/display/DSDOC9x/Learning+DSpace 
 
 ### Übung: Communities und Collections
 
@@ -181,8 +232,8 @@ DSpace Demo: https://demo.dspace.org
 
 * Um Rechteprobleme zu vermeiden, Login mit DSpace-Admin
 * MyDspace bei Login-Button aufrufen
-* Neues Dokument anlegen (z.B. "Veröffentlichung"), Daten aus Datenbank übernehmen, Datei hochladen. Sammlung: 1-step-workflow
-* In MyDSpace auf "Zeige Aufgaben" wechseln. Dort werden Dokumente zur Bearbeitung/Freigabe aufgeführt
+* Neues Dokument anlegen (z.B. "Veröffentlichung"), Datei hochladen. Sammlung: 1-step-workflow
+* In MyDSpace auf "Zeige Workflow Aufgaben" wechseln. Dort werden Dokumente zur Bearbeitung/Freigabe aufgeführt
 * Bsp. DOI workflow (ETH Zurich DOI Desk): https://ethz.ch/content/dam/ethz/associates/ethlibrary-dam/documents/Publizieren-und-Archivieren/A-step-to-step-guide-to-DOI-registration.pdf 
 
 ### Import und Export
@@ -200,24 +251,34 @@ Note:
 
 ### Übung: Massenänderung von Metadaten
 
-- https://wiki.lyrasis.org/display/DSDOC8x/Batch+Metadata+Editing
-- Exportieren Sie die Metadaten einer Collection in BAIN
-- Korrigieren sie etwas im Titel
+-  Massenänderung von Metadaten
+https://wiki.lyrasis.org/display/DSDOC9x/Batch+Metadata+Editing
+- Exportieren Sie die Metadaten einer Collection in BAIN, es sollte mindestens ein record enthalten sein
+Korrigieren sie etwas im Titel des records, z.B. in einem Textverarbeitungsprogramm
+Importieren sie die Metadaten und prüfen Sie die Änderung
+ting
+- Exportieren Sie die Metadaten einer Collection in BAIN, es sollte mindestens ein record enthalten sein
+- Korrigieren sie etwas im Titel des records, z.B. in einem Textverarbeitungsprogramm
 - Importieren sie die Metadaten und prüfen Sie die Änderung
+- Optional: wie kann man Werte löschen?
 
 ### Literatur zu DSpace
 
-- Präsentationsfolien und Videomitschnitte der Präsentationen auf den jährlichen D/A/CH-Anwendertreffen: https://wiki.lyrasis.org/display/DSPACE/DSpace+Praxistreffen+2025
-- Q&A zu DSpace-CRIS Entwicklung: https://docs.google.com/document/d/17HSFV6qY48yInfL4zQj1hRsWG-9dHFyGmEksNakVZ7Y/edit
+- Präsentationsfolien und Videomitschnitte der Präsentationen auf den jährlichen D/A/CH-Anwendertreffen: https://wiki.lyrasis.org/display/DSPACE/DSpace+Praxistreffen+2026
 - Suchmaschinenoptimierung (SEO): [Abschnitt im Nutzerhandbuch von DSpace zu SEO](https://wiki.lyrasis.org/display/DSDOC8x/Search+Engine+Optimization)
 
+### FHGR Repositorium
+- https://repository.fhgr.ch/
+- [Infos](https://my.fhgr.ch/index.php?id=home&tx_fhgrnews_news%5bidNews%5d=6349&tx_fhgrnews_news%5baction%5d=show&tx_fhgrnews_news%5bcontroller%5d=News&tx_fhgrnews_news%5bsource%5d=mail)
 
+Hintergründe zur Einführung:
+
+- https://drive.google.com/file/d/1KSLr3v47NZphght2DqPQm04EitJ-aZzL/view?usp=sharing
 
 ## Marktüberblick Repository-Software
 
 - Grundsätzliches zu Repositorien: https://open-access.network/informieren/publizieren/repositorien
-- Open Directory of Open Access Repositories (OpenDOAR): https://v2.sherpa.ac.uk/opendoar/
-a.ac.uk/view/repository_by_country/Switzerland.default.html)
+- Open Directory of Open Access Repositories (OpenDOAR): https://v2.sherpa.ac.uk/view/repository_by_country/Switzerland.html
 - Instanzen in der Schweiz: https://forschungsdaten.info/fdm-im-deutschsprachigen-raum/schweiz/rdm-infrastructure-repositories/repositories/
 
 ### Relevante Systeme in D/A/CH
@@ -225,24 +286,24 @@ a.ac.uk/view/repository_by_country/Switzerland.default.html)
 
 - [DSpace](https://www.dspace.org)
 - [EPrints](https://www.eprints.org)
-- [Fedora](http://fedorarepository.org) / [Islandora](https://islandora.ca)
+- [Fedora](http://fedorarepository.org) / [Islandora](https://islandora.ca) (wird auch benutzt bei docuteam box)
 - [InvenioRDM](https://invenio-software.org/products/rdm/)
   - besonders interessant, weil seit Oktober 2023 die Basis von Zenodo am CERN
 - [MyCoRe](https://www.mycore.de)
 - [OPUS](https://www.opus-repository.org)
-- [Alma digital](knowledge.exlibrisgroup.com/Alma/Training/Alma_Digital/01_Alma_Digital%3A_Overview): und bald: [Specto](https://www.meetspecto.com/)
+- [Alma digital](https://knowledge.exlibrisgroup.com/Alma/Training/Alma_Digital/01_Alma_Digital%3A_Overview): und bald: [Specto](https://www.meetspecto.com/)
     - z.B. https://www.alexandria.ch/discovery/collectionDiscovery?vid=41BIG_INST:ALEX&lang=de
 
 ![image](https://hackmd.io/_uploads/S1n0FRfnJl.png)
 
 - FHGR?
 - Wechsel eines Repositoriums: https://journal.code4lib.org/articles/17398
-  - gerade war Code4Lib Conference: https://2025.code4lib.org/
+  - gerade war Code4Lib Conference: https://2026.code4lib.org/
 
 
 ### Langzeitarchivierung
 
-Für digitale Langzeitarchivierung (digtal preservation, digital asset management) oft noch zusätzliche Systeme im Einsatz, z.B:
+Für digitale Langzeitarchivierung (digital preservation, digital asset management) oft noch zusätzliche Systeme im Einsatz, z.B:
 * Rosetta (proprietär)
 * Archivematica (open source)
 * Preservica (proprietär)
@@ -252,6 +313,19 @@ Zusätzliche Funktionen können sein: Formatmigration, Integritätsprüfungen, E
 auch: Anbindung an Speicherung auf Magnetband (Bps. [bwDataArchiv ](https://www.rda.kit.edu/speichern.php)) möglich
 
 * Modell: https://en.wikipedia.org/wiki/Open_Archival_Information_System
-* Konferenz der community: https://www.ipres2025.nz/
-* Zertifizierung: https://www.coretrustseal.org/
 
+
+* Archivformate: https://kost-ceco.ch/cms/kad_main_de.html
+
+Der Katalog beschreibt wichtige und verbreitete Dateiformate und analysiert ihre Eignung für die digitale Archivierung.
+* Zertifizierung: https://www.coretrustseal.org/
+* Konferenz der community: https://www.ipres2026.nz/ oder https://www.langzeitarchivierung.de/Webs/nestor/DE/Veranstaltungen_und_Termine/praxistag/2026praxistag.html
+
+
+
+* Beispiel für digital preservation from scratch: https://zenodo.org/records/18829444
+
+*  [Kapitel 1 Einführung / nestor Handbuch: Eine kleine Enzyklopädie der digitalen Langzeitarchivierung](https://nestor.sub.uni-goettingen.de/handbuch/nestor-handbuch_23.pdf)
+
+
+### Schwammigster Punkt
