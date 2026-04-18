@@ -1,11 +1,14 @@
-# BAIN FS25 - Metadaten modellieren und Schnittstellen nutzen | Openrefine
+# BAIN FS26 - Metadaten modellieren und Schnittstellen nutzen | Openrefine
+
+## Wiederholung Repositorien
 
 
+* Quiz
 
 
 ## OpenRefine
 
-[![](https://openrefine.org/img/openrefine_logo.svg)](https://openrefine.org/)
+[![openrefine_logo](https://hackmd.io/_uploads/H1c9Y1-pZx.jpg)](https://openrefine.org/)
 
 ### Einführung in OpenRefine
 
@@ -24,9 +27,9 @@
 * dient der Analyse, Bereinigung, Konvertierung und Anreicherung von Daten
 * wird in der Regel lokal auf einem Computer installiert und über den Browser bedient
 
-#### Nutzerumfrage 2024
-
-https://openrefine.org/blog/2024/12/20/2024-survey-results
+#### Aktuelles
+* Barcamp: https://openrefine.org/blog/2025/06/10/OpenRefine-2025-Barcamp
+* Umfrage: https://openrefine.org/blog/2024/12/20/2024-survey-results
 
 #### Von OpenRefine unterstützte Formate
 
@@ -87,9 +90,10 @@ siehe ReadMe
     * Warum erscheint MDPI AG zweimal?
     * Wie lässt sich das korrigieren?
 
-### Übung
-* Lesen und bearbeiten Sie die Lektionen welche die Inhalte widergeben, welche ich oben gezeigt habe  [Lehrmaterialien von Library Carpentry zu OpenRefine](https://librarycarpentry.org/lc-open-refine/)
-* Optional, schauen Sie sich die anderen Inhalte an
+    ### <span style="color:red;">Übung: Bis XX:XX UHR (einzeln)</span>
+
+* Lesen und bearbeiten Sie die Lektionen welche die Inhalte widergeben, welche ich oben gezeigt habe  
+* Optional, schauen Sie auch noch  die anderen Inhalte an: [Lehrmaterialien von Library Carpentry zu OpenRefine](https://librarycarpentry.org/lc-open-refine/) [maximal Kapitel 6]
 
 
 #### Fragen / Ergebnisse
@@ -139,22 +143,17 @@ Luise Rinser,30. April 1911
 * Kürzen auf 4 stelliges Jahr mit find: https://openrefine.org/docs/manual/grelfunctions#basic-string-modification
 und RegEx, Bsp.
 ```
-Hello123
-World456
-Test789
-
-value.find(/[A-Za-z]+/)[0]
-
-"Hello123" → "Hello"
-"World456" → "World"
-"Test789" → "Test"
+value.find(/\d{4}/)[0]
 ```
 
-* Test des RegEx /[A-Za-z]+/ via https://regex101.com/
+* Test des RegEx via https://regex101.com/
 * Cheat-Sheet: https://www.rexegg.com/regex-quickstart.php
-### Übung
+
+
+    ### <span style="color:red;">Übung: Bis XX:XX UHR (Gruppe)</span>
+
  1. Datensatz (articles): Fügen Sie auch für Journals via ISSN eine Reconciliation (Wikidata) durch und ergänzen sie z.B. das Erscheinungsland
- 2. Datenstatz (autoren): transformieren Sie das Gebertsjahr und führen Sie dann eine Reconciliation (lobid)  durch und ergänzen sie z.B. das Geburtsland
+ 2. Datensatz (autoren): transformieren Sie das Geburtsjahr und führen Sie dann eine Reconciliation (lobid)  durch und ergänzen sie z.B. das Geburtsort
 
 
 #### Fragen / Ergebnisse
@@ -210,6 +209,8 @@ Note:
     }}
     </record>
     ```
+    ### <span style="color:red;">Übung: Bis XX:XX UHR (Gruppe)</span>
+
 
 #### Aufgabe 1: "Reverse Engineering"
 
@@ -243,21 +244,24 @@ forNonBlank(
 }}
 ```
 
-#### Fragen / Ergebnisse
-
 
 #### Aufgabe 3: XML gegen XSD-Schema validieren
 
 * Wir exportieren das Gesamtergebnis als XML-Datei.
   * Tipp: Firefox speichert Datei im Downloads-Ordner als .txt. Ordner Downloads aufrufen und Ende umbenennen in .xml
-* Für die Validierung können Sie den Webservice https://www.softwarebytes.org/xmlvalidation/ (Registrierung) oder https://www.freeformatter.com/xml-validator-xsd.html nutzen.
-* Das offizielle XSD-Schema der Library of Congress ist unter folgender Adresse erreichbar: https://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd
+* Für die Validierung können Sie den Webservice https://www.freeformatter.com/xml-validator-xsd.html nutzen.
+* Das offizielle XSD-Schema der Library of Congress ist unter folgender Adresse erreichbar: https://www.loc.gov/standards/marcxml/schema/MARC21slim.xsd [Ziel speichern untern]
 
-#### (Optional) Aufgabe 4: Einsatzszenarien
+#### Offene Diskussion: Einsatzszenarien
 
-* Überlegen Sie Einsatzszenarien von OpenRefine in Ihrer Einreichtung / Ihrer Berufspraxis und Skizzieren Sie einen workflow (Schritte wie sie in der OpenRefine History auftauchen würden)
+* Überlegen Sie Einsatzszenarien von OpenRefine in Ihrer Einreichung / Ihrer Berufspraxis und Skizzieren Sie einen Gesamtsetup und einen workflow der Datenmanipulation (Schritte wie sie in der OpenRefine History auftauchen würden)
 oder
-* Suchen Sie online nach OpenRefine-Realisierungen im Bibliotheks- oder Archivbereich
+* Suchen Sie online nach OpenRefine-Realisierungen im Bibliotheks- oder Archivbereich. Z.B. Präsentation, Webseiten oder Artikel. Z.B.: 
+    * https://wiki.dnb.de/download/attachments/388871086/GND-Forum_NFDI_Erfurth-Haslauer-Sikora.pdf?version=1&modificationDate=1734102070000&api=v2
+    * https://felixlohmeier.de/slides/2021-06-16_bibtag21_automatisierung-openrefine.html
+    * https://metadaten.community/t/nutzungsbeispiele-von-lobid-gnd-reconciliation-in-archiven/1012
+
+* Potentielle Blocker zur Nutzung von OpenRefine: https://forum.openrefine.org/t/misunderstood-requirements-preventing-the-use-of-openrefine/1865
 
 #### Fragen / Ergebnisse
 
@@ -269,3 +273,10 @@ oder
 
 *  Data Cleaning in OpenRefine (Library Skills Week 2021): https://www.youtube.com/watch?v=RhaDVmLT-Ck
 
+* eine weiterer community event in der Schweiz mit open source Fokus und letztes Mal auch mit OpenRefine: https://libreabc.ch/
+
+### Parsing von HTML-Webseiten
+    
+Tutorial: https://programminghistorian.org/en/lessons/fetch-and-parse-data-with-openrefine
+
+## Schwammigster Punkt
