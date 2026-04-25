@@ -1,14 +1,20 @@
-# BAIN FS25 - Metadaten modellieren und Schnittstellen nutzen
+# BAIN FS26 - Metadaten modellieren und Schnittstellen nutzen
 
-* hier kommt alles aus den vorheringen Sessions zusammen
+## Rückblick Openrefine
+* Quiz
 
 ## Ausgangsdaten
 
-![mermaid-2025-01-16-144111](https://hackmd.io/_uploads/Sk7h5c8wyl.png)
+* hier kommt alles aus den vorheringen Sessions zusammen
 
 
-* Alma: MARCXML via OAI-PMH aus HPH Sandbox
-* ArchivesSpace: EAD via OAI-PMH aus Demo-Installation
+![DOAJ Article Processing-2026-04-25-084614](https://hackmd.io/_uploads/rk0YyW5aWg.png)
+
+made with: https://mermaid.live/
+
+
+* Alma: MARCXML via SRU aus HPH Sandbox
+* Context: EAD via Export aus Sandbox
 * DSpace: DC via OAI-PMH aus Demo-Installation
 * OpenRefine: MARCXML aus CSV generiert mit Templating Exporter
 
@@ -24,10 +30,10 @@ Es gibt zahlreiche Übertragungsprotokolle im Bibliotheks- und Archivbereich. Dr
 
 Welches Protokoll für welchen Zweck?
 * Während Z39.50 und SRU sich besonders für Live-Abfragen oder gezielten Datenabruf mit vielen Parametern eignet, zielt OAI-PMH vor allem auf größere Datenabzüge und regelmäßige Aktualisierungen.
-* Z39.50 ist sehr alt, aber immer noch im Einsatz, z.B. auch bei Literaturverwaltungsprogrammen. Meist wird das modernere SRU als Ergänzung angeboten. Das Schöne an SRU und OAI-PMH ist, dass die Anfragen als Internetadresse (URL) zusammengestellt werden können und direkt über den Browser ohne Zusatzsoftware aufrufbar sind.
+* Z39.50 ist sehr alt, aber immer noch im Einsatz (oft aus   Kompatibilitätsgründen), z.B. auch bei Literaturverwaltungsprogrammen. Meist wird das modernere SRU als Ergänzung angeboten. Das Schöne an SRU und OAI-PMH ist, dass die Anfragen als Internetadresse (URL) zusammengestellt werden können und direkt über den Browser ohne Zusatzsoftware aufrufbar sind.
 * Vgl. https://en.wikipedia.org/wiki/Contextual_Query_Language
 
-### Konfiguration in Alma (OAI)
+### Konfiguration am Beispiel Alma 
 * Wir gehen wieder in die HPH Sandbox
 * Dokumentation für  Schnittstellen, Bsp. OAI: https://developers.exlibrisgroup.com/alma/integrations/oai/
 * logisches Set machen mit records
@@ -47,53 +53,35 @@ Welches Protokoll für welchen Zweck?
 ```
 
 
-### Metadaten über OAI-PMH harvesten mit Sickle
+### Metadaten über OAI-PMH und SRU harvesten
 
 * Codespace aufrufen mit vorbereitetem Repository (als Juypterlab)
 https://github.com/Rouven-Schabinger/bain-jupyter-codespaces
 
-* [OAI Requests](https://www.openarchives.org/OAI/openarchivesprotocol.html#ProtocolMessages)
+WORKAROUND: in Browser URL und dann via https://jupyter.org/try-jupyter/lab/ notebook hochladen
+
+* [OAI Requests Spezifikation](https://www.openarchives.org/OAI/openarchivesprotocol.html#ProtocolMessages)
 * [Sickle](https://sickle.readthedocs.io/en/latest/)
+* [Alma SRU Wrapper](https://almasru.readthedocs.io/en/latest/index.html#) für [Alma SRU](https://developers.exlibrisgroup.com/alma/integrations/sru/)
+    * Was ist ein Wrapper?
 
 **Aufgabe**: 
-* Kürzel für Metadatenformat ermitteln 
-* Kommando zum Aufruf des Harvestings jeweils entsprechend anpassen und ausführen in diesem Notebook: *harvesting.ipynb*
-* Code nachvollziehen, gibt es Unterschiede bei sickle.ListRecords ?
+* Alma SRU: Parameter ergänzen für Schlagwortsuche nach "Graubünden"
+    * Das wäre Suche über alles nach "history": alma.all_for_ui=history
+    * Alle Parameter https://eu03-psb.alma.exlibrisgroup.com/view/sru/41SLSP_HPH?version=1.2&operation=explain
+* DSpace OAI: Kürzel für Metadatenformat ermitteln 
+    * Hier anfangen: https://demo.dspace.org/server/oai/request?verb=Identify
+    * Wie würde man auf ein Set einschränken?
+* Harversting ausführen in diesem Notebook: *harvesting.ipynb*
+* Code nachvollziehen, Fragen notieren
 * Download von Beispiel-records und überprüfen der XML-Struktur
 
 
-#### Alma MARC21
-
-* OAI-PMH Basisurl: https://slsp-hph-psb.alma.exlibrisgroup.com/view/oai/41SLSP_HPH/request
-
-
-```
-
-```
-
-#### ArchivesSpace EAD
-
-* OAI-PMH Basisurl: https://sandbox.archivesspace.org/oai
-
-
-```
-
-```
-
-#### DSpace DC
-
-* OAI-PMH Basisurl: https://demo.dspace.org/oai/request
-
-
-```
-
-```
 
 
 
 ## Konvertierung
 
-Beispieldateien unter https://github.com/Rouven-Schabinger/bain-jupyter-codespaces/tree/main/example
 
 ### XSLT Crosswalks
 
@@ -108,10 +96,19 @@ Beispieldateien unter https://github.com/Rouven-Schabinger/bain-jupyter-codespac
 * XSLT
   * Programmiersprache zur Transformation von XML-Dokumenten (W3C Empfehlung, 1999)
   * Literaturempfehlung für Einstieg in XSLT: <https://programminghistorian.org/en/lessons/transforming-xml-with-xsl>
-* Online-Tool: http://xsltransform.net
-* In Alma verwendbar um z.B. Briefe an Kunden zu gestalten: 
+* Online-Tool: http://xsltransform.net oder https://www.freeformatter.com/xsl-transformer.html
+* In Alma verwendbar 
+    * um z.B. Briefe an Kunden zu gestalten: 
     * https://developers.exlibrisgroup.com/blog/alma-letters-xml-samples-for-working-on-xsl-customization/
     * https://github.com/Swiss-Library-Service-Platform/Alma-letters
+
+![Borrowed_by_letter_in_preview_pane](https://hackmd.io/_uploads/Bk6mE99R1x.png)
+
+*    oder für die Normalisierungregeln (Bibliomedia Import)
+
+Note:
+Viele Tools haben XSLT 1.0 Limitierungen 
+
 
 #### Beispiele der Library of Congress (LoC)
 
@@ -123,12 +120,12 @@ Beispieldateien unter https://github.com/Rouven-Schabinger/bain-jupyter-codespac
 * XSL: https://www.loc.gov/standards/marcxml/xslt/DC2MARC21slim.xsl
 
 
-#### Transformation von ArchivesSpace EAD zu MARC21 
+#### Transformation von Context EAD zu MARC21 
 
 
 * XSL: https://github.com/reeset/marcedit_xslt_files
 
-Online-Tools wie xsltransform.net scheitern hier mit der Fehlermeldung:
+Online-Tools wie xsltransform.net oder https://www.freeformatter.com/xsl-transformer.html scheitern hier mit der Fehlermeldung:
 
 ```
 Error at xsl:import on line 4 column 43 
@@ -137,7 +134,7 @@ Error at xsl:import on line 4 column 43
   /opt/xsltransform/test-1.2.4/MARC21slimUtils.xsl (No such file or directory)
 ```
 
-Wir nutzen für diese Transformation das folgende eine selsbtgeschriebene XSL in Jupyter 
+Wir nutzen für diese Transformation eine selbstgeschriebene XSL in Jupyter: https://github.com/Rouven-Schabinger/bain-jupyter-codespaces/tree/main/xsl
 
 Damit könnte man auch mehrere Datein bearbeiten (batch processing).
 Wer eine GUI möchte kann auch das Tool MarcEdit (s.u.) nutzen, das mit komplexeren XSL umgehen kann und schon viele für den Bibliotheksbereich nützliche XSL-Scripte mitliefert.
@@ -145,9 +142,13 @@ Wer eine GUI möchte kann auch das Tool MarcEdit (s.u.) nutzen, das mit komplexe
 
 ### Übung:
 
+
+Beispieldateien unter https://github.com/Rouven-Schabinger/bain-jupyter-codespaces/tree/main/example
+
 1. Transformieren Sie DSpace DC zu MARC21 mit dem Online-Tool
-2. Transformation von ArchivesSpace EAD zu MARC21 mit diesem Notebook *transformation.ipynb*
+2. Transformation von Context EAD zu MARC21 mit diesem Notebook *transformation.ipynb*
 3. Schauen Sie sich die XLS im Ordner /xsl an. Was wird bei beiden auf MARC 245 gemappt?
+4. Sind Sie zufrieden mit der EAD zu MARC Transformation?
 
 ### MarcEdit [optional]
 
@@ -193,6 +194,9 @@ Vergleich von OpenRefine mit anderen Tools:
     * [MarcEdit](https://marcedit.reeset.net) (für MARC21)
 * Siehe auch:
   * Handbuch "Processing MARC21" von Johann Rolschewski: https://jorol.github.io/processing-marc/
+  * Viele Einrichtungen bieten Online Labs: 
+      * [Deutsche Nationalbibliothek](https://www.dnb.de/DE/Professionell/Services/WissenschaftundForschung/DNBLab/dnblabTutorials.html?nn=849628) und [PDF](https://opus4.kobv.de/opus4-bib-info/frontdoor/index/index/searchtype/collection/id/17576/rows/100/start/421/docId/19497)
+      * [ZB Lab](https://www.zb.uzh.ch/de/ueber-uns/zb-lab)
 
 
 Zur Wahl der passenden Software:
@@ -210,7 +214,7 @@ https://www.mongodb.com/
 * Technologie:
     * Dokumentendatenbank
     * JSON-ähnliches Format (Vgl. https://pkiraly.github.io/2018/01/28/marc21-in-json/)
-* Regelmäßige Datensicherung sicherstellen
+* Regelmäßige Datensicherung der NZ Daten sicherstellen / Datenautonomie
 * Ausreichend Indizes erstellen, um
 die Daten zu untersuchen und Massenkorrekturen zu ermöglichen
 * momentan nur NZ ohne Bestand, wöchentlich
@@ -226,7 +230,7 @@ https://github.com/Swiss-Library-Service-Platform/oaiharvester
  ![image](https://hackmd.io/_uploads/HyuPTln6yl.png)
  * andere ETL-Prozesse: [FRED](https://zop.zb.uzh.ch/items/36b7c4a7-6862-4358-ae52-d9cf3242c316)
 
-
 * Abschnitt im Handbuch IT in Bibliotheken:
 https://it-in-bibliotheken.de/metadaten.html#etl-prozess
 
+* Schwammigster Punkt
