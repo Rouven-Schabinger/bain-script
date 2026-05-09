@@ -1,16 +1,23 @@
-# BAIN FS25 - Suchmaschinen und Discovery-Systeme I
+# BAIN FS26 - Suchmaschinen und Discovery-Systeme I
 
-* wir machen aktiv Vufind und vergleichen manchmal mit Primo VE
+## Wiederholung
+* Quiz
 
 
 ## Testserver für heute
 
+wir machen aktiv Vufind und vergleichen manchmal mit Primo VE
+
+
 * (Apache: http://X.X.X.X)
 * VuFind: http://X.X.X.X/vufind/
 * Vufind Admin: http://X.X.X.X/vufind/Install/Home
-* Solr: http://X.X.X.X:8983/solr/
+* Solr: http://X.X.X.X:8983/solr/#/
 
 ## Installation und Konfiguration von VuFind
+
+![image](https://hackmd.io/_uploads/ryWEJo3RWg.png)
+
 
 * VuFind Internetseite: https://vufind.org
 * VuFind Code bei GitHub: https://github.com/vufind-org/vufind
@@ -19,20 +26,43 @@
   * Beispiel UB Leipzig: https://katalog.ub.uni-leipzig.de
   * Beispiel Nationalbibliothek Finnland: https://finna.fi/?lng=en-gb
   * Beispiel Gemeinsame Verbündeindex [GVI](https://www.agv-gvi.de/ueber-den-gvi/): https://fernleihe.boss.bsz-bw.de/Search/Results?lookfor=test&type=AllFields&hiddenFilters%5B%5D=-consortium%3AFL
+  * Swisscollections: https://swisscollections.ch/
+
+**Zusatzfeature** AV-Vorschau:
+* https://stabikat.de/Search/Results?lookfor=Officia+Sanctorum+Slavonico+Idiomate+Recitanda&type=AllFields
+* https://stabikat.de/Search/Results?lookfor=Paul+Lincke+Schellackplatten+digital&type=AllFields 
+* es gibt noch keine verbreitete KI-Integration, aber: [Natural language search in the StabiKat catalogue](https://www.youtube.com/watch?v=5VqLq0bEqtE&feature=youtu.be)
+
 
 **Komponenten**
 https://vufind.org/wiki/installation:notes#components
 * Webserver Apache
-* Suchmaschine Solr
+* Suchmaschine 
 * Webprogrammiersprache PHP (Laminas Framework)
 * MySQL Datenbank
 * (angedocktes Informationssystem, also z.B. Bibliothekssystem)
 
+## VuFind 10 → 11
 
+VuFind 10 war vor allem eine technische Übergangsversion.
 
-### Installation VuFind 10.1.1
+Änderungen:
+- Laminas\DB → Doctrine
+    - modernere Datenbank-Schicht
+    - bessere Wartbarkeit
 
-Virtuelle Maschine bei einem Cloudhoster.
+- Laminas MVC → Mezzio
+    - Wechsel zu moderner Middleware-Architektur
+    - modularer und API-freundlicher
+
+Fokus:
+- Modernisierung
+- Abbau von technical debt
+- Dependency-Upgrades
+
+### Installation VuFind 11.0.2
+
+Virtuelle Maschine bei einem Cloudhoster (z.B.  Digital Ocean: 8 GB Memory / 2 Intel vCPUs / 160 GB Disk / FRA1 - Ubuntu 24.04 (LTS) x64 )
 
 *Bzgl. **SSH-Authentifizierung** auf dem Server: Siehe Kapitel VIII Kryptografie in Praxishandbuch IT-Grundlagen für Bibliothekare*
 
@@ -53,8 +83,8 @@ Es folgen die relevanten Auszüge und Hinweise/Erklärungen dazu.
 VuFind stellt ein Installationspaket bereit. Unter Linux gibt es viele verschiedene Formate für Installationspakete. Für Ubuntu und Debian gibt es DEB, für Fedora und SUSE beispielsweise RPM. Wir starten die Installation wie vorgegeben:
 
 ```shell
-wget https://github.com/vufind-org/vufind/releases/download/v10.1.1/vufind_10.1.1.deb
-sudo dpkg -i vufind_10.1.1.deb
+wget https://github.com/vufind-org/vufind/releases/download/v11.0.2/vufind_11.0.2.deb
+sudo dpkg -i vufind_11.0.2.deb
 ```
 
 Es erscheint eine Fehlermeldung, dass noch nicht alle von VuFind benötigten Pakete installiert sind. Zunächst aktualisieren wir das Paketverzeichnis:
@@ -173,6 +203,12 @@ sudo sed -i 's/mode = ils-offline/mode = ils-none/' /usr/local/vufind/local/conf
 
 * Anschliessend sollten in der Suchoberfläche unter http://X.X.X.X/vufind ca. 250 Datensätze enthalten sein.
 
+### Übung
+
+* Gehen Sie das [Manual](https://vufind.org/wiki/installation:ubuntu) nach meiner Demonstration einmal durch und versuchen Sie die Schritte nachzuvollziehen
+* Notieren Sie etwaige Fragen
+* Sie können sich auch im Vergleich die Manual für die Installation auf anderen Betriebssystemen anschauen, z.B. [Windows](https://vufind.org/wiki/installation:windows)
+* Für was wird Java benötigt?
 
 ## Funktion von Suchmaschinen am Beispiel von Solr
 
@@ -195,16 +231,25 @@ sudo sed -i 's/mode = ils-offline/mode = ils-none/' /usr/local/vufind/local/conf
 
 * [CRUD](https://de.wikipedia.org/wiki/CRUD): **C**reate, **R**ead, **U**pdate, **D**elete
 
-### Horizontale vs. Vertikale Suchmaschine
-
-* Horizontal: unspezifische Suche über heterogene Datenbestände
+### Horizontale vs. Vertikale Suchmaschine 
+* **Horizontal**: unspezifische Suche über heterogene Datenbestände
     * erfordert kein Datenschema ("schema-less")
     * erlaubt keine semantischen Abfragen oder Feldsuchen
     * Beispiele: Internetsuche, Volltextsuche
-* Vertikal: datenmodell-orientierte Suche über homogene Datenbestände
+* **Vertikal**: datenmodell-orientierte Suche über homogene Datenbestände
     * erfordert ein Datenschema
     * erfordert häufig Datenprozessierung zur Homogenisierung
     * Beispiele: Bibliothekskatalog, Online-Shop
+
+
+kombinierbar mit:
+
+* KI / Vektorsuche
+     * basiert auf Embeddings / Vektoren statt rein lexikalischer Suche
+    * findet semantisch ähnliche Inhalte statt nur gleicher Begriffe
+    * benötigt häufig Vorprozessierung durch KI-Modelle
+    * kombiniert oft Vektorsuche mit klassischer Volltextsuche ("Hybrid Search")
+    * Beispiele: RAG-Systeme, Chatbots, semantische Dokumentensuche
 
 ### Sichtung von Solr in VuFind
 
@@ -217,7 +262,7 @@ sudo sed -i 's/mode = ils-offline/mode = ils-none/' /usr/local/vufind/local/conf
 
 ### Übung: Suche in VuFind vs. Suche in Solr
 
-* Suchen in VuFind: http://X.X.X.X/vufind
+* Suchen in VuFind: http://X.X.X.X.X/vufind
   * Beispielsweise nach `psychology`
 * Suchen in Admin-Oberfläche von Solr: http://X.X.X.X.X:8983/solr/#/biblio/query
   * im Feld q mit Feldname:Suchbegriff. Beispiel: `allfields:psychology`
@@ -227,18 +272,19 @@ sudo sed -i 's/mode = ils-offline/mode = ils-none/' /usr/local/vufind/local/conf
 
 
 #### Gruppe 1: 
-*
+* 
 #### Gruppe 2: 
-*
+* 
 #### Gruppe 3: 
 *
 #### Gruppe 4: 
-*
+* 
+
 
 #### Sonstiges
 
 Note:
-- Logdatei von Solr anschauen im Terminal (hier sind side Queries gespeichert)
+- Logdatei von Solr anschauen im Terminal (hier sind Queries gespeichert)
 
 ```shell
 less +F /usr/local/vufind/solr/vufind/logs/solr.log
@@ -251,26 +297,36 @@ Beispiel für einen Logeintrag bei einer leeren Suche:
 
 
 ### Exkurs: Ranking-Kriterien 
-* Grad der Übereinstimmung zwischen Suchanfrage und Informationen in Datensatz (tf-idf-Bewertungsmodell)​
-    * Term Frequency (ein Dokument im Korpus) * Inverse Document Frequency (alle Dokument im Korpus): https://en.wikipedia.org/wiki/Tf%E2%80%93idf#Motivations
-* Wissenschaftliche Bedeutung einer Ressource (z.B. Publikation in peer-reviewed Journal)​
-* Relevanz einer Ressource hinsichtlich des Typs der Suchanfrage (z.B. known-item search oder broad-topic search)​
-* Erscheinungsdatum einer Ressource​
+* Grad der Übereinstimmung zwischen Suchanfrage und Informationen in Datensatz (tf-idf-Bewertungsmodell)
+    * Term Frequency (wie oft kommt ein Begriff in einem Dokument vor?)
+    * Document Frequency (in wie vielen Dokumenten kommt ein Begriff vor?) 
+    * Inverse Document Frequency: https://en.wikipedia.org/wiki/Tf%E2%80%93idf#Motivations
+* Wissenschaftliche Bedeutung einer Ressource (z.B. Publikation in peer-reviewed Journal)
+* Relevanz einer Ressource hinsichtlich des Typs der Suchanfrage (z.B. known-item search oder broad-topic search)
+* Erscheinungsdatum einer Ressource
 
-Frage: Unbehagen bezüglich der Sortierung der Treffer?
+**Beispiele**
 
 Ranking [Primo VE ](https://knowledge.exlibrisgroup.com/Primo/Product_Documentation/020Primo_VE/Primo_VE_(English)/040Search_Configurations/Configuring_the_Ranking_of_Search_Results_in_Primo_VE)
  ![image](https://hackmd.io/_uploads/SyEIrji1xx.png)
+ 
+ 
+ 
+[Ranking VuFind (slides)](https://wikis.sub.uni-hamburg.de/webis/images/f/ff/Beck_Ranking_in_Vufind.pdf)
+
+**Übung**: 
+* Wie begründen Sie ein etwaiges Unbehagen bezüglich der Sortierung der Treffer? Vertrauen Sie dem Ranking? (vufind, Primo VE, Google ...)
+
 
 ### Exkurs: Deduplication and FRBR in Primo VE
 #### Dedup
-*    Eliminieren von redundanten Daten​​
+*    Eliminieren von redundanten Daten
 
-* Abgleich von Duplikaten basiert in Primo auf der Erstellung eines Dedup-Vektors für jeden Datensatz​​
+* Abgleich von Duplikaten basiert in Primo auf der Erstellung eines Dedup-Vektors für jeden Datensatz
 
-* Die Vektoren enthalten sogenannte Keys, die den Datensatz identifizieren​​
+* Die Vektoren enthalten sogenannte Keys, die den Datensatz identifizieren
 
-* Berücksichtigte Felder: Bsp. Titel, Urheberangaben, Identifier ​
+* Berücksichtigte Felder: Bsp. Titel, Urheberangaben, Identifier
 
 * Übereinstimmung  ---> In UI: Anzeige als ein einziger Datensatz 
 
@@ -292,7 +348,6 @@ Bsp.: https://ubs.swisscovery.slsp.ch/discovery/search?query=any,contains,adam%2
 (dedup aus, FRBR an)
 
 
-​​
 
 **Übung**:
 Was sind Vor- und Nachteile wenn FRBR an ist?
