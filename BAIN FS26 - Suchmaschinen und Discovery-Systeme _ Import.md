@@ -1,4 +1,4 @@
-# BAIN FS25 - Suchmaschinen und Discovery-Systeme II
+# BAIN FS26 - Suchmaschinen und Discovery-Systeme II
 
 
 
@@ -8,37 +8,28 @@
 
 Ziel: Import aller Daten in VuFind
 
-![mermaid-2025-01-16-144111](https://hackmd.io/_uploads/Sk7h5c8wyl.png)
+![image](https://hackmd.io/_uploads/r1iCnLNkfe.png)
+
 
 ## Einteilung Gruppen
 
 Gruppe 1
 * Server: X.X.X.X
 * VuFind: http://X.X.X.X/vufind
-* Passwort: a1U8c7xb
+* Passwort: 
 * Teilnehmer*innen:
-  * 
-  * 
-  * 
-  * 
+
+
 
 Gruppe 2
 * Server: X.X.X.X
 * VuFind: http://X.X.X.X/vufind
-* Passwort: a2U8c7xb
+* Passwort: 
 * Teilnehmer*innen:
-  * 
-  * 
-  * 
 
-Gruppe 3
-* Server: X.X.X.X
-* VuFind: http://X.X.X.X/vufind
-* Passwort: a3U8c7xb
-* Teilnehmer*innen:
-  * 
-  *  
-  * 
+
+
+
 
 ## Vorbereitung Gruppenarbeit
 
@@ -58,6 +49,7 @@ Windows: Powershell
 ssh root@x.x.x.x
 ```
 
+
 ### Testdaten löschen
 
 Quelle: https://vufind.org/wiki/indexing:re-indexing
@@ -75,7 +67,7 @@ rm -rf /usr/local/vufind/solr/vufind/biblio/index /usr/local/vufind/solr/vufind/
 ```shell
 wget https://raw.githubusercontent.com/Rouven-Schabinger/bain-jupyter-codespaces/refs/heads/main/example/alma-marc21.xml
 wget https://raw.githubusercontent.com/Rouven-Schabinger/bain-jupyter-codespaces/refs/heads/main/example/openrefine-doaj-marc21.xml
-wget https://raw.githubusercontent.com/Rouven-Schabinger/bain-jupyter-codespaces/refs/heads/main/output/archivesspace-ead_transformed.xml
+wget https://raw.githubusercontent.com/Rouven-Schabinger/bain-jupyter-codespaces/refs/heads/main/output/context-ead_transformed.xml
 wget https://raw.githubusercontent.com/Rouven-Schabinger/bain-jupyter-codespaces/refs/heads/main/output/dspace-oai-dc_transformed.xml
 ```
 
@@ -91,9 +83,20 @@ nano /usr/local/vufind/import/marc_local.properties
 ```shell
 /usr/local/vufind/import-marc.sh alma-marc21.xml
 ```
+```shell
+/usr/local/vufind/import-marc.sh openrefine-doaj-marc21.xml
+```
+```shell
+/usr/local/vufind/import-marc.sh context-ead_transformed.xml
+```
+```shell
+/usr/local/vufind/import-marc.sh dspace-oai-dc_transformed.xml
+```
 
 4. Schritte 2 und 3 für die übrigen Datenquellen wiederholen.
-* Achtung: Der Import der Beispieldaten von ArchivesSpace und DSpace schlägt fehl. Finden Sie die Ursache.
+
+* Wie könnten die Context records miteinander verknüpft werden? (Feld 773)
+* Achtung: Der Import der Beispieldaten von DSpace schlägt fehl. Finden Sie die Ursache.
 
 ### Ergebnisse / Rückfragen
 
@@ -105,32 +108,27 @@ nano /usr/local/vufind/import/marc_local.properties
 
 ## Gruppenarbeit VuFind-Konfiguration
 * https://vufind.org/wiki/configuration
-* https://github.com/vufind-org/learning-vufind-book 
+* https://github.com/vufind-org/learning-vufind-book/releases/download/v1.1.2/LearningVuFind.pdf
 * Das globale Konfigurationsverzeichnis befindet sich unter dem Pfad /usr/local/vufind/config/vufind
 * Das lokale Konfigurationsverzeichnis befindet sich unter dem Pfad /usr/local/vufind/local/config/vufind
 
-config.ini
+**config.ini**
+
 https://vufind.felixlohmeier.de/#/06_Konfiguration_Allgemein
 
-evtl. noch facets.ini
+evtl. noch **facets.ini**
+
 https://vufind.felixlohmeier.de/#/08_Konfiguration_Facetten
 
 **Aufgabe**
-* Ändern Sie einige Einstellungen z.B. Theme oder Facetten nach links
+* Ändern Sie einige Einstellungen z.B. Theme oder Facetten (sidebar) nach links; Ausblenden einer Facette.
 * Kopieren Sie wenn nicht vorhanden die config.ini und facets.ini vom globalen Verzeichnis in das lokale
 
 ### Ergebnisse / Rückfragen
 
-Gruppe 1:
+*
 
-* 
 
-Gruppe 2:
-
-* 
-
-Gruppe 3:
-* ...
 
 **Videos**: https://www.youtube.com/watch?v=XVSktvVM4d0&list=PL5_8_wT3JpgE5rv38PwE2ulKlgzBY389y
 
@@ -148,7 +146,7 @@ Gruppe 3:
 werden geharvested (OAI) und normalisiert
 * Systemarchitektur
 * Herausforderungen:
-    * Monatliche Releases durch System-Provider, z.B.https://knowledge.exlibrisgroup.com/Primo/Release_Notes/002Primo_VE/2025/010Primo_VE_2025_Release_Notes?mon=All
+    * Monatliche Releases durch System-Provider, z.B.https://knowledge.exlibrisgroup.com/Primo/Release_Notes/002Primo_VE/2026/010Primo_VE_2026_Release_Notes?mon=202605BASE
     * Ausarbeitung der Discovery-Services​
     * Laufend Änderungen in allen Funktionsbereichen von Alma
     * Bugs​
@@ -192,15 +190,21 @@ Hauptfunktionen:
 * Performance-Analyse: Analysiert die Ladegeschwindigkeit der Webseite.
 * Speicher-Analyse: Überwacht den Speicherverbrauch und identifiziert Lecks.
 
-**Übung [optional]**
-* versuchen Sie live mit den developer tools im Browser die *Quelldaten* auszublenden:
+**Übung**
+* versuchen Sie live mit den web developer tools im Browser die *Quelldaten* auszublenden via inline css:
+
+
  ![image](https://hackmd.io/_uploads/S1bEQDJgel.png)
 * `<span translate="fulldisplay.sourcerecord">Quelldaten</span>`
-* Suchen Sie im Internet nach einer Lösung
+* Suchen Sie im Internet nach einer Lösung (Suchmaschine, KI ...)
+
 
 **Zukunft Primo VE**
 
 https://knowledge.exlibrisgroup.com/Primo/Product_Materials/001_Next_Discovery_Experience_(NDE)/Next_Discovery_Experience_User_Interface
+
+* Analytics sind wichtig um Benutzung des Discovery Tools zu monitoren
+* bisher [OBIEE](https://www.oracle.com/analytics/business-intelligence/technologies/bi-enterprise-edition.html) zukünftig [Mixpanel](https://mixpanel.com/home/)
 
 
 ## Marktüberblick Discovery-Systeme
@@ -214,24 +218,31 @@ https://knowledge.exlibrisgroup.com/Primo/Product_Materials/001_Next_Discovery_E
 
 
 
-### Systeme International (kommerziell)
+### Systeme International
 
-* Jährlicher Library Systems Report von Marshall Breeding im ALA Magazine: <https://americanlibrariesmagazine.org/2025/05/01/2025-library-systems-report/>
-    * [Suche auf librarytechnology.org](https://librarytechnology.org/products/main.pl) vermittelt guten Überblick
-    * siehe auch [Statistik der Verkaufszahlen](https://librarytechnology.org/products/sales/)
+* Jährlicher Library Systems Report von Marshall Breeding im ALA Magazine: <https://librarytechnology.org/LibrarySystemsReport/2026>
+
+Kurzversion: https://americanlibrariesmagazine.org/2026/05/05/2026-library-systems-briefing/
 
 #### Übung
-* Identifizieren und analysieren Sie die wichtigsten Trends auf dem Markt für Bibliothekstechnologie mit Fokus auf Discovery, wie sie im Bericht beschrieben sind. Diskutieren Sie, wie sich diese Trends auf die Zukunft der Bibliotheksdienste auswirken könnten.
+* Identifizieren und analysieren Sie die wichtigsten Trends auf dem Markt für Bibliothekstechnologie mit Fokus auf Discovery, wie sie im Bericht beschrieben sind. Diskutieren Sie, wie sich diese Trends auf die Zukunft der Bibliotheksdienste auswirken können und ziehen sich auch einen Vergleich zu Archive.
 
-*Leitfragen:
-Was sind die wichtigsten Trends in der Bibliothekstechnologie?
-Wie wirken sich diese Trends auf verschiedene Arten von Bibliotheken (öffentliche, akademische, Schul-, Spezialbibliotheken) aus?
-Was sind die potenziellen Vorteile und Herausforderungen dieser Trends?*
-* ist der Report allgemeingültig oder fehlt etwas?
 
-###  --------
 
-* Marktführer ist Ex Libris mit [Primo / VE] und dem Central Discovery Index (CDI): https://exlibrisgroup.com/products/primo-discovery-service/content-index/
+### Erkenntnisse / Fragen 
+
+Leitfragen:
+* Was sind die wichtigsten Trends in der Bibliothekstechnologie? 
+
+
+* Was sind die potenziellen Vorteile und Herausforderungen dieser Trends?
+
+
+* Ist der Report allgemeingültig oder fehlt etwas?
+
+###  Kommerzielle Systeme
+
+* Marktführer ist Ex Libris mit [Primo VE / NDE] und dem Central Discovery Index (CDI): https://exlibrisgroup.com/products/primo-discovery-service/content-index/
     * Alternative: OCLC mit [WorldCat Discovery](https://www.oclc.org/de/worldcat-discovery.html), z.B. https://ufz.on.worldcat.org/discovery
     * Alternative: EBSCO mit [EDS](https://www.ebsco.com/de-de/wissenschaftliche-bibliotheken/produkte/ebsco-discovery-service), z.B: https://katalog.ub.uni-freiburg.de/opac
     * (Summon wird zugunsten von Primo abgekündigt)
@@ -254,7 +265,7 @@ Note:
 ### International (Open Source)
 
 * Open Source-Alternative: [VuFind](https://vufind.org/vufind/) (ohne eigenen Artikelindex) oder [Blacklight](https://projectblacklight.org/), https://doi.org/10.29085/9781783301409.010 
-* Alternative Zentralindizes aus dem deutschsprachigen Raum: [K10plus-Zentral](https://verbundwiki.gbv.de/display/VZG/K10plus-Zentral), [finc Artikelindex](https://finc.info/services)
+* Alternative Zentralindizes aus dem deutschsprachigen Raum: [K10plus-Zentral](https://verbundwiki.gbv.de/display/VZG/K10plus-Zentral), [finc Artikelindex](https://finc.info/services) 
 
 
 ### Exkurs: Swisscollections 
@@ -271,21 +282,36 @@ Note:
 
 ### Sonstiges
 
+![image](https://hackmd.io/_uploads/BJeRfjNJzx.png)
+Votrag Michael Gasser 2025
 
 * Selbstgebastelte Metasuche (Bento-Box):
     * Lib4RI: https://www.lib4ri.ch/search-tool
     * https://codeberg.org/Lib4RI/Lib4RI-Search-Tool
 
-* Portal: recherche-patrimoniale.ch
+* Portal: https://www.europeana.eu/en (GLAM ...)
 
 * Dauerthema: UX / Usability und Analytics (Bsp. FHGR Studie)
 
-### Literaturasuwahl
+* Bots: 
+    * AI-Bots harvesten massiv Discovery-Systeme und digitale Sammlungen als Trainingsdaten.
+    * Folgen: hohe Last, langsamere Systeme, Ausfälle und höhere Kosten.
+    * Bibliotheken stehen im Spannungsfeld zwischen Offenheit und Schutz vor Scraping.
+    * Gleichzeitig integrieren Discovery-Systeme selbst AI (Natural Language Search, AI-Assistenten).
+    * Bibliotheken reagieren mit Bot-Blocking, Rate Limits und stärkerer IT-/Security-Infrastruktur.
+
+Vgl. auch:
+https://www.ub.uzh.ch/de/ueber-die-ub/news/zora-eingeschraenkter-zugriff.html 
+
+
+**Zukunft: KI (nächste Sitzung)**
+
+### Literaturauswahl
 
 * Renke Siems: Das Leben der Anderen
 https://doi.org/10.5282/o-bib/5797
 * Christensen, Anne, and Matthias Finck. 2021. ‘Discovery-Systeme: Eine Analyse ihrer Geschichte und Gegenwart mit dem Hype-Zyklus’. Bibliothek Forschung und Praxis 45 (3): 497–508. https://doi.org/10.1515/bfp-2021-0039.  
-* Nishikawa-Pacher, Andreas. 2023. ‘A typology of research discovery tools’. Journal of Information Science, 49(4), 1086–1095. https://doi.org/10.1177/01655515211040654. 
+
 * Nishikawa-Pacher, Andreas. 2023. ‘A typology of research discovery tools’. Journal of Information Science, 49(4), 1086–1095. https://doi.org/10.1177/01655515211040654. 
 * Balnaves, E., Bultrini, L., Cox, A. M., & Uzwyshyn, R. (2025). New horizons in artificial intelligence in libraries. De Gruyter Saur. https://doi.org/10.1515/9783111336435 
 
@@ -299,4 +325,6 @@ https://doi.org/10.5282/o-bib/5797
 
 * **Lehrevaluation**
 
-jetzt oder spätestens bis 30. Mai ausfüllen, damit wir es in der letzen Stunde besprechen können
+jetzt oder spätestens bis 25. Mai ausfüllen, damit wir es in der letzen Stunde besprechen können
+
+
