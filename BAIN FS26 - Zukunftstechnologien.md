@@ -1,34 +1,44 @@
-# BAIN FS25 - Zukunftstechnologien
+# BAIN FS26 - Zukunftstechnologien
+
+## Quiz 
+
+## Mini-Konferenz
 ![image](https://hackmd.io/_uploads/HkHKOA6bxe.png)
 
 
 * ersten Hälfte des Blocks: Wahl eines Themas und dann Ausarbeitung
 
-* Recherchieren Sie im Internet: Literatur in BAIN-Skript, Webseiten, Fachartikel, Videos, GPTs (kritisch prüfen "Werbetextformulierungen") und probieren Sie Dienste aus
+* Recherchieren Sie im Internet probieren Sie wenn möglich genenannte **Dienste/Projekte** aus
+    * Literaturhinweise in BAIN
+    * Webseiten
+    * Fachartikel
+    * Videos
+    * GPTs (kritisch prüfen "Werbetextformulierungen") 
+    * [FHNW Bib - Research Bar](https://moodle.fhgr.ch/course/index.php?categoryid=491 )
 
-* Teilen Sie die Arbeit unter sich auf
+* Teilen Sie zuerst in der Gruppe die Arbeit unter sich auf
 
-* Reflektieren Sie über Anknüpfungspunkte aus allen Lektionen (Z.B. Vortrag Herr Gasser) und diskutieren Sie in Ihrer Gruppe
+* Reflektieren Sie danach über Anknüpfungspunkte aus allen Lektionen (Z.B. Vortrag Herr Würtz) und diskutieren Sie in Ihrer Gruppe
 
 * Wissenswiedergabe des Themas und kritischer Ausblick kann je nach Thema variieren:
-    * Was ist die Technologie? (z.B. Klärung zentraler Begriffe) 
-    * Welche Anwendung(en) gibt es schon im GLAM-Bereich?
-    * Welche Risiken/Herausforderungen gibt es?
+    * **Was ist die Technologie? (z.B. Klärung zentraler Begriffe)** 
+    * **Welche Anwendung(en)/Projekte gibt es schon im GLAM-Bereich?**
+    * **Welche Risiken/Herausforderungen gibt es?**
 
-* Fügen Sie Ihre Texte und visuelle Inhalte als Markdown hier für alle ein
+* Erstellen Sie ein Präsentation mit einem Tool Ihrer Wahl (z.B. Powerpoint oder napkin.ai), die Folien laden wir nach der Sitzung in Moodle hoch.
 
-* zweite Hälfte: Präsentation 15-20 Minuten +  Diskussion
+* zweite Hälfte des Blocks: Präsentation 20 Minuten + 10 Minuten Diskussion
 
 ## Themen
 
 ###  Linked Open  Data und aktuelle Datenmodelle für Metadaten (BIBFRAME, RiC) 
 **Leitfragen**:
 
-* Was sind die Hauptunterschiede zwischen BIBFRAME und RiC und ihren jeweiligen "Vorgängerdatenmodellen"?
-* Welche Herausforderungen und Vorteile gibt es bei der Implementierung von BIBFRAME und RiC?
-* Was sind die fünf Designprinzipien von LOUD und wie fördern sie die Nutzbarkeit von Daten?
-* Welche Rolle spielt JSON-LD in der Umsetzung von LOUD?
 
+* Welche Herausforderungen und Vorteile gibt es bei der Implementierung von BIBFRAME und RiC?
+
+* Was sind die fünf Designprinzipien von LOUD und wie fördern sie die Nutzbarkeit von Daten? (Welche Rolle spielt JSON-LD in der Umsetzung von LOUD?)
+* Welche Rolle spielen semantische Datenmodelle und Knowledge Graphs für die Vernetzung und Nachnutzung von Metadaten und wie kann man es mit KI kombinbieren?
 
 **Erste Quellen:**
 
@@ -62,7 +72,6 @@ RiC Tools:
 
 * Einführungsartikel: David Gniffke (16.3.2020): Semantic Web und Records in Contexts (RiC). In: Archivwelt, 16/03/2020. <https://archivwelt.hypotheses.org/1982>
 
-* RiC Ontologie 0.2 (2019): https://www.ica.org/resource/records-in-contexts-ontology/
 
 * Archival Linked Open Data (aLOD): <http://www.alod.ch>
 
@@ -78,8 +87,10 @@ RiC Tools:
 
 * Linked Data Schnittstelle bei der ZB Zürich: https://data.zb.uzh.ch/map/books/data-map-der-zentralbibliothek-zurich/page/alma-linked-data
 
-* Linked Open Usable Data for Cultural Heritage: Perspectives on Community Practices and Semantic Interoperability: https://phd.julsraemy.ch/thesis.html
+* Rekatalogisierung historischer Zettelkataloge mit LVLM: Ein Pilotprojekt der UB Basel zur automatisierten Metadatenextraktion: https://nbn-resolving.org/urn:nbn:de:0290-opus4-201564 
 
+* Swiss Performing Arts Platform
+example of LOD deployment by a small institution without an IT department: https://docs.google.com/presentation/d/1UKA2b5xRbpZVr8eodyko1z3yY4xqJCxHbFbO5jamRpk
 
 * Anreicherung mit Normdaten für die Suche:
      * https://eth.swisscovery.slsp.ch/discovery/search?query=any,contains,escher&tab=discovery_network&search_scope=DiscoveryNetwork&vid=41SLSP_ETH:ETH&lang=en&offset=0
@@ -87,11 +98,11 @@ RiC Tools:
 
 
 
-###  LLMs
+###  AI, z.B. Large Language Models (LLMs)
 **Leitfragen**:
-* Welche Einsatzmöglichkeiten gibt es für LLMs in Bibliotheken und Archiven?
-* Wie können LLMs bei der Suche oder bei der Datenpflege die Arbeit in Bibliotheken und Archiven unterstützen?
-* Welche ethischen und sicherheitsrelevanten Aspekte müssen bei der Nutzung von LLMs berücksichtigt werden?
+* Welche Einsatzmöglichkeiten gibt es für AI und LLMs in Bibliotheken und Archiven?
+* Welche ethischen und sicherheitsrelevanten Aspekte müssen bei der Nutzung von AI und LLMs berücksichtigt werden?
+* Welche Rolle spielen semantische Datenmodelle und Knowledge Graphs für die Vernetzung und Nachnutzung von Metadaten und wie kann man es mit KI kombinbieren?
 
 **Erste Quellen**:
 *  Primo Research Assistant: 
@@ -107,6 +118,9 @@ RiC Tools:
     *  [in action](https://docs.google.com/presentation/d/1F4WORK584pKl48do61W0P9lRjzc4akb-/edit?usp=sharing&ouid=106252531505293612084&rtpof=true&sd=true)
     *  Demo: https://www.youtube.com/watch?v=Sh7hli0uE5A
 * Themen: z.B. [RAG](https://en.wikipedia.org/wiki/Retrieval-augmented_generation) und  [NER](https://en.wikipedia.org/wiki/Named-entity_recognition)
+
+![image](https://hackmd.io/_uploads/B11Ek5Olfg.png)
+
 * AI: Rethinking Search and Cataloguing [Slides](https://drive.google.com/file/d/1K9pts4lNubPgTSPgmbCmq_ex2E9hyUB_/view?usp=sharing)
 * Kann man grob auch in einem belibigen GPT testen, Cover hochladen oder Titel + Autor eingeben und sagen erstelle mir eine Aufnahme in MARC
 *  Open Research Knowledge Graph (ORKG): https://ask.orkg.org/
@@ -115,24 +129,8 @@ RiC Tools:
 
 * Archivierung von Unterlagen aus digitalen Systemen Tagung / Block 3: KI und der digitale Lesesaal: https://www.sg.ch/kultur/staatsarchiv/Spezialthemen-/auds/2025.html
 
+* Artificial Intelligence for Libraries, Archives & Museums (AI4LAM): https://www.youtube.com/@ai4lam120/videos
 
-
-### Workflow Automation [Reserve]
-**Leitfragen**:
-
-* Welche Vor- und Nachteile bietet Workflow-Automatisierung für Bibliotheken und Archive?
-* Welche Arbeitsabläufe bieten sich besonders an für datenzentrierte Automatisierungen, welche nicht?
-* Gibt es Einsatzbeispiele in Bibliotheken und Archiven oder einschlägige Anbieter?
-* (Zentralisierung von IT-Diensten und Konfiguration vs. Dezentralisierung)
-
-**Erste Quellen**:
-* Library Open Workflows von Clarivate:
-    * https://developers.exlibrisgroup.com/blog/introducing-library-open-workflows/ und mehr: https://developers.exlibrisgroup.com/blog/?tag=library-open-workflows
-* Tools z.B. https://n8n.io/ oder https://www.microsoft.com/de-de/power-platform/products/power-automate?market=de 
-* Literaturbeispiel: https://journal.code4lib.org/articles/16096
-* Anbieterwerbung: https://wwwaxiellcom.cdn.triggerfish.cloud/uploads/2022/03/workflowreporten2022.pdf
-* Achtung alt: https://doi.org/10.1080/03615260802679028
-* Themen: z.B. [Low Code](https://en.wikipedia.org/wiki/Low-code_development_platform), [No Code](https://en.wikipedia.org/wiki/No-code_development_platform) und [Service-oriented architecture](https://en.wikipedia.org/wiki/Service-oriented_architecture)
 
 ## Community, Rückblick, Sonstiges
 * Community
@@ -140,9 +138,7 @@ RiC Tools:
 * Sonstiges 
     * https://www.go-fair.org/fair-principles/
     * https://librarycarpentry.github.io/lc-spreadsheets/02-common-mistakes.html#common-spreadsheet-errors
-    * https://support.proquest.com/s/case/500QO00000TFLRjYAP/41slspnzrm-dublin-core-publisher-via-sru 
-    * https://www.loc.gov/marc/marc2dc.html
-
+    * https://www.sg.ch/news/sgch_allgemein/2026/05/internet-archive-switzerland-nimmt-arbeit-auf.html
 
 
 ## Organistatorisches
@@ -163,6 +159,29 @@ RiC Tools:
   * Fragen können gerne auch später noch per im Diskussion-Forum oder per E-Mail gestellt werden.
 
 
-* Abgabe als eine PDF bis spätestens 04. Juli 23:59 Uhr per E-Mail an rouven.schabinger@fhgr.ch
-
+* Abgabe als eine PDF bis spätestens 03. Juli 23:59 Uhr in Moodle
 ### Evaluation
+
+* zweiter Durchlauf, ca. 20 % angepasst (Alma-SLSP/jupyter/docuteam context)
+* generelle Übereinstimmung mit Erwartungshaltung von erster Stunde
+
+
+* gut: Praxisbezug / Fachkompetenz
+
+**Verbesserungen**:
+* Übungen zu schwierig
+   --> Steigerung Übungsfreiheit vom Anfang des Kurses (exakte Anweisungen, Teilaufgaben a,b,c) bis zum Ende (eher offen, "testen Sie einige Paramater aus der Dokumentation") 
+aber werde Beschreibungen nochmal überprüfen und Quellen verringern
+   --> Vor- und Nachbereitung und etwas Vorwissen aus anderen Modulen aber notwendig
+
+* Leistungsnachweis (fachfremd, unklar, Zeichenbeschränkung, Zwischenfazit)
+--> Prüfungsform Lerntagebuch als Portfolio, Alternativen:
+    * Projektarbeit 
+    * praktische Prüfung 
+    * Klausur mit oder ohne Hilfsmittel
+    * mündliche Prüfung
+
+generell:
+   --> Methoden und Wissen auf andere IT-Bereiche übertragbar (Metadaten, ETL, APIs ...)
+   --> Studienjahr 2026 wird Curriculum verändert und das Modul BAIN etwas anpasst
+
